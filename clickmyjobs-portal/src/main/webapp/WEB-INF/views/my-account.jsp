@@ -92,9 +92,9 @@
 							</a>
 								<ul class="dropdown">
 									<li><a class="active" href="about.do"> About </a></li>
-									<li><a href="jobpage.do"> Job Page </a></li>
+									<!-- <li><a href="jobpage.do"> Job Page </a></li>
 									<li><a href="jobdetails.do"> Job Details </a></li>
-									<li><a href="resume.do"> Resume Page </a></li>
+									<li><a href="resume.do"> Resume Page </a></li> -->
 									<li><a href="privacypolicy.do"> Privacy Policy </a></li>
 									<li><a href="faq.do"> FAQ </a></li>
 									<li><a href="pricing.do"> Pricing Tables </a></li>
@@ -107,17 +107,17 @@
 									<li><a href="browsecategories.do"> Browse Categories </a>
 									</li>
 									<li><a href="addResume.do"> Add Resume </a></li>
-									<li><a href="manageresumes.do"> Manage Resumes </a></li>
-									<li><a href="jobalerts.do"> Job Alerts </a></li>
+									<!-- <li><a href="manageresumes.do"> Manage Resumes </a></li>
+									<li><a href="jobalerts.do"> Job Alerts </a></li> -->
 								</ul></li>
 							<li><a href="#"> Employers <i class="fa fa-angle-down"></i>
 							</a>
 								<ul class="dropdown">
 									<li><a href="addjobs.do"> Add Job </a></li>
 									<li><a href="managejobs.do"> Manage Jobs </a></li>
-									<li><a href="manageapplications.do"> Manage
+									<!-- <li><a href="manageapplications.do"> Manage
 											Applications </a></li>
-									<li><a href="browseresumes.do"> Browse Resumes </a></li>
+									<li><a href="browseresumes.do"> Browse Resumes </a></li> -->
 								</ul></li>
 							<li><a href="blog.do"> Blog <i class="fa fa-angle-down"></i>
 							</a>
@@ -149,9 +149,9 @@
 					<li><a href="about.do">About us</a>
 						<ul>
 							<li><a href="about.do">About</a></li>
-							<li><a href="jobpage.do">Job Page</a></li>
+							<!-- <li><a href="jobpage.do">Job Page</a></li>
 							<li><a href="jobdetails.do">Job Details</a></li>
-							<li><a href="resume.do">Resume Page</a></li>
+							<li><a href="resume.do">Resume Page</a></li> -->
 							<li><a href="privacypolicy.do">Privacy Policy</a></li>
 							<li><a href="faq.do">FAQ</a></li>
 							<li><a href="pricing.do">Pricing Tables</a></li>
@@ -162,15 +162,15 @@
 							<li><a href="browsejobs.do">Browse Jobs</a></li>
 							<li><a href="browsecategories.do">Browse Categories</a></li>
 							<li><a href="addResume.do">Add Resume</a></li>
-							<li><a href="manageresumes.do">Manage Resumes</a></li>
-							<li><a href="jobalerts.do">Job Alerts</a></li>
+							<!-- <li><a href="manageresumes.do">Manage Resumes</a></li>
+							<li><a href="jobalerts.do">Job Alerts</a></li> -->
 						</ul></li>
 					<li><a href="#">For Employers</a>
 						<ul>
 							<li><a href="addjobs.do">Add Job</a></li>
 							<li><a href="managejobs.do">Manage Jobs</a></li>
-							<li><a href="manageapplications.do">Manage Applications</a></li>
-							<li><a href="browseresumes.do">Browse Resumes</a></li>
+							<!-- <li><a href="manageapplications.do">Manage Applications</a></li>
+							<li><a href="browseresumes.do">Browse Resumes</a></li> -->
 						</ul></li>
 					<li><a href="blog.do">Blog</a>
 						<ul class="dropdown">
