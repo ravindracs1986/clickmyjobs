@@ -27,6 +27,8 @@ public class UserFormDto {
 
     private Boolean enabled;
 
+    private boolean rememberme;
+    
 	public Long getUserId() {
 		return userId;
 	}
@@ -97,6 +99,14 @@ public class UserFormDto {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public boolean isRememberme() {
+		return rememberme;
+	}
+
+	public void setRememberme(boolean rememberme) {
+		this.rememberme = rememberme;
 	}
     
     

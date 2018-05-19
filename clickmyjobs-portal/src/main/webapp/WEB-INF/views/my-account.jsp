@@ -259,32 +259,34 @@
 
 						<div id="cd-login" class="is-selected">
 							<div class="page-login-form">
-								<form role="form" class="login-form">
+								<form:form role="form" class="login-form" modelAttribute="userFormDto" method="post" action="${pageContext.request.contextPath}/login.do?action=login">
 									<div class="form-group">
 										<div class="input-icon">
-											<i class="ti-user"></i> <input type="text" id="sender-email2"
-												class="form-control" name="email" placeholder="Username">
+											<i class="ti-user"></i> <form:input type="text" id="sender-email2"
+												class="form-control" name="email" placeholder="Username" path="email"/>
+												<form:errors path="email" cssClass="error" />
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-icon">
-											<i class="ti-lock"></i> <input type="password"
-												class="form-control" placeholder="Password">
+											<i class="ti-lock"></i> <form:input type="password"
+												class="form-control" placeholder="Password" path="password"/>
+												<form:errors path="password" cssClass="error" />
 										</div>
 									</div>
 									<button class="btn btn-common log-btn">Login</button>
 									<div class="checkbox-item">
 										<div class="checkbox">
-											<label for="rememberme" class="rememberme"> <input
+											<label for="rememberme" class="rememberme"> <form:checkbox
 												name="rememberme" id="rememberme" value="forever"
-												type="checkbox"> Remember Me
+												 path="rememberme"/> Remember Me
 											</label>
 										</div>
 										<p class="cd-form-bottom-message">
 											<a href="#0">Lost your password?</a>
 										</p>
 									</div>
-								</form>
+								</form:form>
 							</div>
 						</div>
 
