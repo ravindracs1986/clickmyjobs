@@ -66,16 +66,19 @@
 					<li><a href="bookmarked.do"> <i class="pe-7s-note2"></i>
 							<p>Bookmarked Jobs</p>
 					</a></li>
-					<li><a href="notifications.do"> <i class="pe-7s-news-paper"></i>
+					<li><a href="notifications.do"> <i
+							class="pe-7s-news-paper"></i>
 							<p>Notifications</p>
 					</a></li>
 					<li><a href="browsejobs.do"> <i class="pe-7s-science"></i>
 							<p>Browse jobs</p>
 					</a></li>
-					<li><a href="browsecategories.do"> <i class="pe-7s-map-marker"></i>
+					<li><a href="browsecategories.do"> <i
+							class="pe-7s-map-marker"></i>
 							<p>Browse Categories</p>
 					</a></li>
-					<li><a href="manage-applications.do"> <i class="pe-7s-info"></i>
+					<li><a href="manage-applications.do"> <i
+							class="pe-7s-info"></i>
 							<p>Manage Applications</p>
 					</a></li>
 					<li><a href="job-alerts.do"> <i class="pe-7s-bell"></i>
@@ -139,8 +142,8 @@
 							</a>
 								<ul class="dropdown-menu">
 									<li><a href="update-profile.do">Update Profile</a></li>
-	                                <li><a href="changepassword.do">Change Password</a></li>
-	                                <li><a href="logout.do">Log out</a></li>
+									<li><a href="changepassword.do">Change Password</a></li>
+									<li><a href="logout.do">Log out</a></li>
 
 								</ul></li>
 
@@ -151,103 +154,139 @@
 
 			<div class="content">
 				<div class="container-fluid">
-					<div class="card">
-
-						<div class="content">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="inner-box my-resume">
-										<div class="author-resume">
-											<div class="thumb">
-												<img src="assets/img/resume/img-1.jpg" alt="">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="header">
+									<h4 class="title">Edit Profile</h4>
+								</div>
+								<div class="content">
+									<form>
+										<div class="row">
+											<div class="col-md-5">
+												<div class="form-group">
+													<label>Company (disabled)</label> <input type="text"
+														class="form-control" disabled placeholder="Company"
+														value="Creative Code Inc.">
+												</div>
 											</div>
-											<div class="author-info">
-												<h3>Mark Anderson</h3>
-												<p class="sub-title">UI/UX Designer</p>
-												<p>
-													<span class="address"><i class="ti-location-pin"></i>Mahattan,
-														NYC, USA</span> <span><i class="ti-phone"></i>(+01)
-														211-123-5678</span>
-												</p>
-												<div class="social-link">
-													<a class="twitter" target="_blank"
-														data-original-title="twitter" href="#"
-														data-toggle="tooltip" data-placement="top"><i
-														class="fa fa-twitter"></i></a> <a class="facebook"
-														target="_blank" data-original-title="facebook" href="#"
-														data-toggle="tooltip" data-placement="top"><i
-														class="fa fa-facebook"></i></a> <a class="google"
-														target="_blank" data-original-title="google-plus" href="#"
-														data-toggle="tooltip" data-placement="top"><i
-														class="fa fa-google"></i></a> <a class="linkedin"
-														target="_blank" data-original-title="linkedin" href="#"
-														data-toggle="tooltip" data-placement="top"><i
-														class="fa fa-linkedin"></i></a>
+											<div class="col-md-3">
+												<div class="form-group">
+													<label>Username</label> <input type="text"
+														class="form-control" placeholder="Username"
+														value="michael23">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label for="exampleInputEmail1">Email address</label> <input
+														type="email" class="form-control" placeholder="Email">
 												</div>
 											</div>
 										</div>
-										<div class="about-me item">
-											<h3>
-												About Me <i class="ti-pencil"></i>
-											</h3>
-											<p>Nullam semper erat arcu, ac tincidunt sem venenatis
-												vel. Curabitur a dolor ac ligula fermentum eusmod ac
-												ullamcorper nulla. Integer blandit uitricies aliquam.
-												Pellentesque quis dui varius, dapibus vilit id, ipsum. Morbi
-												ac eros feugiat, lacinia elit ut, elementum turpis.
-												Curabitur justo sapien, tempus sit amet ruturm eu, commodo
-												eu lacus. Morbi in ligula nibh. Maecenas ut mi at odio
-												hendririt eleif end tempor vitae augue. Fusce eget arcu et
-												nibh dapibus maximus consectetur in est. Sed iaculis Luctus
-												nibh sed veneatis.</p>
+
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>First Name</label> <input type="text"
+														class="form-control" placeholder="Company" value="Mike">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Last Name</label> <input type="text"
+														class="form-control" placeholder="Last Name"
+														value="Andrew">
+												</div>
+											</div>
 										</div>
-										<div class="work-experence item">
-											<h3>
-												Work Experience <i class="ti-pencil"></i>
-											</h3>
-											<h4>UI/UX Designer</h4>
-											<h5>Bannana INC.</h5>
-											<span class="date">Fab 2017-Present(5year)</span>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit. Libero vero, dolores, officia quibusdam architecto
-												sapiente eos voluptas odit ab veniam porro quae possimus
-												itaque, quas! Tempora sequi nobis, atque incidunt!</p>
-											<p>
-												<a href="#">4 Projects</a>
-											</p>
-											<br>
-											<h4>UI Designer</h4>
-											<h5>Whale Creative</h5>
-											<span class="date">Fab 2017-Present(2year)</span>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-												elit. Libero vero, dolores, officia quibusdam architecto
-												sapiente eos voluptas odit ab veniam porro quae possimus
-												itaque, quas! Tempora sequi nobis, atque incidunt!</p>
-											<p>
-												<a href="#">4 Projects</a>
-											</p>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>Address</label> <input type="text"
+														class="form-control" placeholder="Home Address"
+														value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+												</div>
+											</div>
 										</div>
-										<div class="education item">
-											<h3>
-												Education <i class="ti-pencil"></i>
-											</h3>
-											<h4>Massachusetts Institute Of Technology</h4>
-											<p>Bachelor of Computer Science</p>
-											<span class="date">2010-2014</span> <br>
-											<h4>Massachusetts Institute Of Technology</h4>
-											<p>Bachelor of Computer Science</p>
-											<span class="date">2010-2014</span>
+
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>City</label> <input type="text" class="form-control"
+														placeholder="City" value="Mike">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Country</label> <input type="text"
+														class="form-control" placeholder="Country" value="Andrew">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<label>Postal Code</label> <input type="number"
+														class="form-control" placeholder="ZIP Code">
+												</div>
+											</div>
 										</div>
+
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label>About Me</label>
+													<textarea rows="5" class="form-control"
+														placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+												</div>
+											</div>
+										</div>
+
+										<button type="submit" class="btn btn-info btn-fill pull-right">Update
+											Profile</button>
+										<div class="clearfix"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card card-user">
+								<div class="image">
+									<img
+										src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+										alt="..." />
+								</div>
+								<div class="content">
+									<div class="author">
+										<a href="#"> <img class="avatar border-gray"
+											src="assets/img/faces/face-3.jpg" alt="..." />
+
+											<h4 class="title">
+												Mike Andrew<br /> <small>michael24</small>
+											</h4>
+										</a>
 									</div>
-
-
+									<p class="description text-center">
+										"Lamborghini Mercy <br> Your chick she so thirsty <br>
+										I'm in that two seat Lambo"
+									</p>
+								</div>
+								<hr>
+								<div class="text-center">
+									<button href="#" class="btn btn-simple">
+										<i class="fa fa-facebook-square"></i>
+									</button>
+									<button href="#" class="btn btn-simple">
+										<i class="fa fa-twitter"></i>
+									</button>
+									<button href="#" class="btn btn-simple">
+										<i class="fa fa-google-plus-square"></i>
+									</button>
 
 								</div>
-
 							</div>
-							<br> <br>
-
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -265,8 +304,8 @@
 					</nav>
 					<p class="copyright pull-right">
 						&copy; 2018 <a href="http://www.clickmyjobs.com">Click Myjobs</a>,
-						made for job hunting 
-						
+						made for job hunting
+
 					</p>
 				</div>
 			</footer>

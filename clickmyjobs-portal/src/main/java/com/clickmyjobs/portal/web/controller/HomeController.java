@@ -158,6 +158,27 @@ public class HomeController {
         return new ModelAndView("profile-activation");
     }
     
+    @RequestMapping(value = {"/changepassword.do" }, method = RequestMethod.GET)
+    public ModelAndView changePassword() {
+    	logger.info("testt homeee##########");
+        logger.debug("redirect to success page");
+        return new ModelAndView("change-password");
+    }
+    
+    @RequestMapping(value = {"/logout.do" }, method = RequestMethod.GET)
+    public ModelAndView logout() {
+    	logger.info("testt homeee##########");
+        logger.debug("redirect to success page");
+        return new ModelAndView("change-password");
+    }
+    
+    @RequestMapping(value = {"/update-profile.do" }, method = RequestMethod.GET)
+    public ModelAndView updateProfile() {
+    	logger.info("testt homeee##########");
+        logger.debug("redirect to success page");
+        return new ModelAndView("user");
+    }
+    
 }    
 
  

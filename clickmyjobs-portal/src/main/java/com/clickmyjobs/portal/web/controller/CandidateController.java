@@ -64,4 +64,39 @@ public class CandidateController {
 	        return new ModelAndView("manage-resumes");
 	    }
 	    
+	    @RequestMapping(value = "/bookmarked.do", method = RequestMethod.GET)
+	    public ModelAndView bookmarked() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("bookmarked");
+	    }
+	    
+	    @RequestMapping(value = "/notifications.do", method = RequestMethod.GET)
+	    public ModelAndView notifications() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("notifications");
+	    }
+	    
+	    @RequestMapping(value = "/manage-applications.do", method = RequestMethod.GET)
+	    public ModelAndView manageApplications() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("manage-applications");
+	    }
+	    
+	    @RequestMapping(value = "/job-alerts.do", method = RequestMethod.GET)
+	    public ModelAndView jobAlerts() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("job-alerts");
+	    }
+	    
+	    @RequestMapping(value = "/dashboard.do", method = RequestMethod.GET)
+	    public ModelAndView dashboard() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("candidate-profile");
+	    } 
+	    
 }

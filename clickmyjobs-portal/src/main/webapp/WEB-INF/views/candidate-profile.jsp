@@ -35,15 +35,7 @@
 
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-    <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
-    	<div class="sidebar-wrapper">
+		<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
                     Creative Tim
@@ -52,59 +44,54 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="dashboard.do">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="resume.do">
                         <i class="pe-7s-user"></i>
                         <p>My Resume</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="bookmarked.do">
                         <i class="pe-7s-note2"></i>
                         <p>Bookmarked Jobs</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="notifications.do">
                         <i class="pe-7s-news-paper"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="browsejobs.do">
                         <i class="pe-7s-science"></i>
                         <p>Browse jobs</p>
                     </a>
                 </li>
                 <li>
-                    <a href="maps.html">
+                    <a href="browsecategories.do">
                         <i class="pe-7s-map-marker"></i>
                         <p>Browse Categories</p>
                     </a>
                 </li>
                 <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
+                    <a href="manage-applications.do">
+                        <i class="pe-7s-info"></i>
                         <p>Manage Applications</p>
                     </a>
                 </li>
 				<li>
-                    <a href="notifications.html">
+                    <a href="job-alerts.do">
                         <i class="pe-7s-bell"></i>
                         <p>Job Alerts</p>
                     </a>
                 </li>
-				<!-- <li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
+				
             </ul>
     	</div>
     </div>
@@ -156,9 +143,9 @@
                                    <img src="assets/img/logo.png" alt="user" class="profile-pic" />Markarn Doe<b class="caret"></b>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Update Profile</a></li>
-                                <li><a href="#">Change Password</a></li>
-                                <li><a href="#">Log out</a></li>
+                                <li><a href="update-profile.do">Update Profile</a></li>
+                                <li><a href="changepassword.do">Change Password</a></li>
+                                <li><a href="logout.do">Log out</a></li>
                                
                               </ul>
                         </li>
@@ -201,16 +188,7 @@
                                 <p class="category">Applications performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
-
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Applied
-                                        <i class="fa fa-circle text-danger"></i> Rejected
-                                    </div>
-                                    <hr>
-                                    
-                                </div>
+                                <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
                             </div>
                         </div>
                     </div>
@@ -367,37 +345,23 @@
         </div>
 
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
+       <footer class="footer">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul>
+							<li><a href="index.do"> Home </a></li>
+							<li><a href="about.do"> Company </a></li>
+							<!-- <li><a href="#"> Portfolio </a></li> -->
+							<li><a href="blog.do"> Blog </a></li>
+						</ul>
+					</nav>
+					<p class="copyright pull-right">
+						&copy; 2018 <a href="http://www.clickmyjobs.com">Click Myjobs</a>,
+						made for job hunting 
+						
+					</p>
+				</div>
+			</footer>
 
     </div>
 </div>
@@ -426,8 +390,9 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script type="text/javascript">
+	
     	$(document).ready(function(){
 
         	demo.initChartist();
@@ -442,6 +407,47 @@
             });
 
     	});
+		
+	window.onload = function () {
+
+	var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1", // "light2", "dark1", "dark2"
+	animationEnabled: false, // change to true		
+	//title:{
+		//text: "Basic Column Chart"
+	//},
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "column",
+		dataPoints: [
+			{ label: "pass",  y: 10  },
+			{ label: "fail", y: 15  },
+			{ label: "processed", y: 25  },
+			{ label: "applied",  y: 30  },
+			{ label: "rejected",  y: 28  }
+		
+			//{ label: "January",  y: 10  },
+			//{ label: "February", y: 15  },
+			//{ label: "March", y: 25  },
+			//{ label: "April",  y: 30  },
+			//{ label: "May",  y: 28  },
+			//{ label: "June",  y: 28  },
+			//{ label: "July",  y: 28  },
+			//{ label: "August",  y: 28  },
+			//{ label: "September",  y: 28  },
+			//{ label: "October",  y: 28  },
+			//{ label: "November",  y: 28  },
+			//{ label: "December",  y: 28  },
+		]
+	}
+	]
+});
+chart.render();
+
+}
+		
+		
 	</script>
 
 </html>
