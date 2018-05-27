@@ -349,7 +349,7 @@
 											<label class="styled-select"> <form:select
 												class="dropdown-product selectpicker form-control" id="userType" name="userType" path="userType" multiple="true">
 												    <form:option value="NA">Select UserType</form:option>
-													<form:option value="EM">Employer</form:option>
+													<form:option value="EMP">Employer</form:option>
 						                            <form:option value="CAN">Candidate</form:option>
 											</form:select>
 											<form:errors path="userType" cssClass="error" />

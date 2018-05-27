@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<link rel="shortcut icon" href="assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>MyJobs-Portal-Candidate-Profile</title>
@@ -388,7 +388,7 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script type="text/javascript">
 	
     	$(document).ready(function(){

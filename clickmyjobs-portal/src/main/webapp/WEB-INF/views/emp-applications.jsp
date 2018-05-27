@@ -67,51 +67,10 @@
 
 </head>
 <body>
-<input type="hidden" id="userType" value='${userType}'/>
+
 	<div class="wrapper">
 		<div class="sidebar" data-color="purple"
-			data-image="assets/img/sidebar-5.jpg" id="canId" style='display: none;'>
-				<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
-				</div>
-
-				<ul class="nav">
-					<li class="active"><a href="dashboard.do"> <i
-							class="pe-7s-graph"></i>
-							<p>Dashboard</p>
-					</a></li>
-					<li><a href="resume.do"> <i class="pe-7s-user"></i>
-							<p>My Resume</p>
-					</a></li>
-					<li><a href="bookmarked.do"> <i class="pe-7s-note2"></i>
-							<p>Bookmarked Jobs</p>
-					</a></li>
-					<li><a href="notifications.do"> <i
-							class="pe-7s-news-paper"></i>
-							<p>Notifications</p>
-					</a></li>
-					<li><a href="browsejobs.do"> <i class="pe-7s-science"></i>
-							<p>Browse jobs</p>
-					</a></li>
-					<li><a href="browsecategories.do"> <i
-							class="pe-7s-map-marker"></i>
-							<p>Browse Categories</p>
-					</a></li>
-					<li><a href="manage-applications.do"> <i
-							class="pe-7s-info"></i>
-							<p>Manage Applications</p>
-					</a></li>
-					<li><a href="job-alerts.do"> <i class="pe-7s-bell"></i>
-							<p>Job Alerts</p>
-					</a></li>
-					
-				</ul>
-			</div>
-		</div>
-		<div class="sidebar" data-color="purple"
-			data-image="assets/img/sidebar-5.jpg" id="empId" style='display: none;'>
+			data-image="assets/img/sidebar-5.jpg">
 			<div class="sidebar-wrapper">
 				<div class="logo">
 					<a href="http://www.creative-tim.com" class="simple-text">
@@ -182,76 +141,157 @@
 						<div class="content">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<section id="pricing-table" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="table">
-						<div class="title">
-							<h3>Pricing Plan 1</h3>
-						</div>
-						<div class="pricing-header">
-							<p class="price-value">
-								<sup>$</sup>0
-							</p>
-							<p class="price-quality">/forever</p>
-						</div>
-						<ul class="description">
-							<li>Post 1 Job</li>
-							<li>No Featured Job</li>
-							<li>Edit Your Job Listing</li>
-							<li>Manage Application</li>
-							<li>30-day Expired</li>
-						</ul>
-						<button class="btn btn-common" type="submit">Get Started</button>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="table" id="active-tb">
-						<div class="title">
-							<h3>Pricing Plan 2</h3>
-						</div>
-						<div class="pricing-header">
-							<p class="price-value">
-								<sup>$</sup>99
-							</p>
-							<p class="price-quality">/90 DAYS</p>
-						</div>
-						<ul class="description">
-							<li>Post 1 Job</li>
-							<li>No Featured Job</li>
-							<li>Edit Your Job Listing</li>
-							<li>Manage Application</li>
-							<li>30-day Expired</li>
-						</ul>
-						<button class="btn btn-common" type="submit">Get Started</button>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="table">
-						<div class="title">
-							<h3>Pricing Plan 3</h3>
-						</div>
-						<div class="pricing-header">
-							<p class="price-value">
-								<sup>$</sup>199
-							</p>
-							<p class="price-quality">/180 DAYS</p>
-						</div>
-						<ul class="description">
-							<li>Post 1 Job</li>
-							<li>No Featured Job</li>
-							<li>Edit Your Job Listing</li>
-							<li>Manage Application</li>
-							<li>30-day Expired</li>
-						</ul>
-						<button class="btn btn-common" type="submit">Get Started</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+									<div class="job-alerts-item">
+										<h3 class="alerts-title">Manage applications</h3>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>Web Designer Meeded</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="full-time">Full-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Rejected</p>
+												</div>
+											</div>
+										</div>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>Front-end developer needed</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="full-time">Full-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Processed</p>
+												</div>
+											</div>
+										</div>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>We're looking for an Art Director</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="part-time">Part-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Rejected</p>
+												</div>
+											</div>
+										</div>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>Web designer needed</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="full-time">Full-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Approved</p>
+												</div>
+											</div>
+										</div>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>Looking for a Project Leader</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="full-time">Full-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Rejected</p>
+												</div>
+											</div>
+										</div>
+										<div class="applications-content">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="thums">
+														<img src="assets/img/jobs/img-1.jpg" alt="">
+													</div>
+													<h3>We're hiring an fullstack designer</h3>
+													<span>Quick Studio</span>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<span class="part-time">Part-Time</span>
+													</p>
+												</div>
+												<div class="col-md-2">
+													<p>Nov 14th, 2017</p>
+												</div>
+												<div class="col-md-2">
+													<p>Rejected</p>
+												</div>
+											</div>
+										</div>
 
+										<br>
+										<ul class="pagination">
+											<li class="active"><a href="#" class="btn btn-common"><i
+													class="ti-angle-left"></i> prev</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li class="active"><a href="#" class="btn btn-common">Next
+													<i class="ti-angle-right"></i>
+											</a></li>
+										</ul>
+
+									</div>
+									
 
 
 
@@ -312,26 +352,7 @@
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
-<script type="text/javascript">
-	
-$(document).ready(function(){
-	var userTypeValue = $("#userType").val();
-	if(userTypeValue=='EMP'){
-		$("#empId").show();
-		$("#canId").hide();
-	}else{
-		$("#canId").show();
-		$("#empId").hide();
-		
-	}
-	
-	
 
-});
-	
-	
-	
-</script>
 
 
 </html>

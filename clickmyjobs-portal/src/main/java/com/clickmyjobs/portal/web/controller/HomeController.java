@@ -117,7 +117,10 @@ public class HomeController {
     			return res;
     			
     		}else{
-    			ModelAndView prof =new ModelAndView("candidate-profile");
+    			//ModelAndView prof =new ModelAndView("candidate-profile");
+    			//res.addObject("userType","CAN");
+    			ModelAndView prof =new ModelAndView("employer-profile");
+    			res.addObject("userType","EMP");
     			return prof;
     		}
     		
@@ -162,21 +165,26 @@ public class HomeController {
     public ModelAndView changePassword() {
     	logger.info("testt homeee##########");
         logger.debug("redirect to success page");
-        return new ModelAndView("change-password");
+        ModelAndView response =new ModelAndView("change-password");
+        response.addObject("userType","EMP");
+        return response;
     }
     
     @RequestMapping(value = {"/logout.do" }, method = RequestMethod.GET)
     public ModelAndView logout() {
     	logger.info("testt homeee##########");
         logger.debug("redirect to success page");
-        return new ModelAndView("change-password");
+        return new ModelAndView("index");
     }
     
     @RequestMapping(value = {"/update-profile.do" }, method = RequestMethod.GET)
     public ModelAndView updateProfile() {
-    	logger.info("testt homeee##########");
+    	
         logger.debug("redirect to success page");
-        return new ModelAndView("user");
+        ModelAndView response =new ModelAndView("user");
+        response.addObject("userType","EMP");
+        return response;
+       
     }
     
 }    

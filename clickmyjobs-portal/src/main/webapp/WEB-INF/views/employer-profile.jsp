@@ -29,21 +29,38 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    
+     <!--     extra css     -->
+
+	<link rel="stylesheet" href="assets/css/material-kit.css" type="text/css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css"> 
+    <link rel="stylesheet" href="assets/fonts/themify-icons.css"> 
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="assets/extras/animate.css" type="text/css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="assets/extras/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="assets/extras/owl.theme.css" type="text/css">
+    <!-- Rev Slider CSS -->
+    <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> 
+    <!-- Slicknav js -->
+    <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+    <!-- Responsive CSS Styles -->
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css" media="screen" />
+    
 
 </head>
 <body>
 
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-    <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
-    	<div class="sidebar-wrapper">
+	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
                     Creative Tim
@@ -52,173 +69,109 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="empdashboard.do">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="empaddjobs.do">
                         <i class="pe-7s-user"></i>
                         <p>Add Jobs</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="managejobs.do">
                         <i class="pe-7s-note2"></i>
                         <p>Manage Jobs</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="empapplications.do">
                         <i class="pe-7s-news-paper"></i>
                         <p>Manage Applications</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="browseresumes.do">
                         <i class="pe-7s-science"></i>
                         <p>Browse Resumes</p>
                     </a>
                 </li>
-                 <!--<li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
+                
             </ul>
     	</div>
     </div>
 
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                   <!-- <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret"></b>
-                                    <span class="notification">5</span>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>-->
+				<div class="container-fluid" style="background-color:#fff">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#navigation-example-2">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Dashboard</a>
+					</div>
+					
+					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
+					    <button class="btn btn-primary dropdown-toggle" type="button" 
+					    data-toggle="dropdown" style="background-color:#FF4F57;">
+					    Markarn Doe
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					     <li><a href="update-profile.do" style="background-color:#FFE4E1;">Update Profile</a></li>
+					      <li><a href="price.do" style="background-color:#FFE4E1;">Balance</a></li>
+                         <li><a href="changepassword.do" style="background-color:#FFE4E1;">Change Password</a></li>
+                         <li><a href="logout.do" style="background-color:#FFE4E1;">Log out</a></li>
+					    </ul>
+					  </div>
+					
+					
+				</div>
+				
+			</nav>
 
-                    <ul class="nav navbar-nav navbar-right">
-                       
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Profile
-                                    <b class="caret"></b>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Update Profile</a></li>
-                                <li><a href="#">Balance</a></li>
-                                <li><a href="#">Change Password</a></li>
-                                <li><a href="#">Logout</a></li>
-                                
-                              </ul>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
-        <div class="content">
+		<div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <h4 class="title">Applications Statistics</h4>
+                                <p class="category">Applications Campaign Performance</p>
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
 
                                 <div class="footer">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                        <i class="fa fa-circle text-info"></i> Applied
+                                        <i class="fa fa-circle text-danger"></i> Contacted
+                                        <i class="fa fa-circle text-warning"></i> Rejected
                                     </div>
                                     <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
+                                <h4 class="title">Applications Behavior</h4>
+                                <p class="category">Applications performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>
+                                <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="row">
+				<div class="row">
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
@@ -368,36 +321,22 @@
 
 
         <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul>
+							<li><a href="index.do"> Home </a></li>
+							<li><a href="about.do"> Company </a></li>
+							<!-- <li><a href="#"> Portfolio </a></li> -->
+							<li><a href="blog.do"> Blog </a></li>
+						</ul>
+					</nav>
+					<p class="copyright pull-right">
+						&copy; 2018 <a href="http://www.clickmyjobs.com">Click Myjobs</a>,
+						made for job hunting 
+						
+					</p>
+				</div>
+			</footer>
 
     </div>
 </div>
@@ -427,7 +366,9 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 	<script type="text/javascript">
+	
     	$(document).ready(function(){
 
         	demo.initChartist();
@@ -442,6 +383,47 @@
             });
 
     	});
+		
+	window.onload = function () {
+
+	var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light1", // "light2", "dark1", "dark2"
+	animationEnabled: false, // change to true		
+	//title:{
+		//text: "Basic Column Chart"
+	//},
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "column",
+		dataPoints: [
+			{ label: "pass",  y: 10  },
+			{ label: "fail", y: 15  },
+			{ label: "processed", y: 25  },
+			{ label: "applied",  y: 30  },
+			{ label: "rejected",  y: 28  }
+		
+			//{ label: "January",  y: 10  },
+			//{ label: "February", y: 15  },
+			//{ label: "March", y: 25  },
+			//{ label: "April",  y: 30  },
+			//{ label: "May",  y: 28  },
+			//{ label: "June",  y: 28  },
+			//{ label: "July",  y: 28  },
+			//{ label: "August",  y: 28  },
+			//{ label: "September",  y: 28  },
+			//{ label: "October",  y: 28  },
+			//{ label: "November",  y: 28  },
+			//{ label: "December",  y: 28  },
+		]
+	}
+	]
+});
+chart.render();
+
+}
+		
+		
 	</script>
 
 </html>

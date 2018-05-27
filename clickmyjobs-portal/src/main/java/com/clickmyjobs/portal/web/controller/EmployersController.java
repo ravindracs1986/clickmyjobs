@@ -57,6 +57,37 @@ public class EmployersController {
 	        return new ModelAndView("browse-resumes");
 	    }
 	    
-	   
+	    @RequestMapping(value = "/empaddjobs.do", method = RequestMethod.GET)
+	    public ModelAndView EployerAddJobs() {
+	    	System.out.println("addResume homeee##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("employer-add-job");
+	    }
+	    
+	    @RequestMapping(value = "/empapplications.do", method = RequestMethod.GET)
+	    public ModelAndView empApplications() {
+	    	System.out.println("addResume homeee##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("emp-applications");
+	    }
+	    
+	    @RequestMapping(value = "/empdashboard.do", method = RequestMethod.GET)
+	    public ModelAndView dashboard() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("employer-profile");
+	    } 
+	    
+	    @RequestMapping(value = "/price.do", method = RequestMethod.GET)
+	    public ModelAndView pricing() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        
+	        ModelAndView response =new ModelAndView("pricing");
+	        response.addObject("userType","EMP");
+	        return response;
+	        
+	       
+	    } 
 	    
 }
