@@ -1,34 +1,45 @@
-package com.clickmyjobs.portal.service.dto;
+package com.clickmyjobs.portal.persist.entity;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
-import org.dozer.Mapping;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class UserFormDto {
+import org.hibernate.annotations.GenericGenerator;
 
-    private Long userId;
+@Entity
+@Table(name = "profile")
+public class UserProfile {
 
-    private String name;
+	@Id
+	@GenericGenerator(name = "generator", strategy = "increment")
+	@GeneratedValue(generator = "generator")
+	@Column(name = "userId", nullable = false)
+	private Long userId;
 
-    private String phone;
+	@Column(name = "name", nullable = false)
+	private String name;
 
-    private String email;
+	@Column(name = "phone", nullable = false)
+	private String phone;
 
-    private String password;
+	@Column(name = "email", nullable = false)
+	private String email;
 
-    private String cpassword;
-    
-    private String country;
+	@Column(name = "password", nullable = false)
+	private String password;
 
-    private String userType;
+	@Column(name = "country", nullable = false)
+	private String country;
+	
+	@Column(name = "userType")
+	private String userType;
 
-    private String status;
+	@Column(name = "status", nullable = false)
+	private String status;
 
-    private boolean rememberme;
-    
 	public Long getUserId() {
 		return userId;
 	}
@@ -69,14 +80,6 @@ public class UserFormDto {
 		this.password = password;
 	}
 
-	public String getCpassword() {
-		return cpassword;
-	}
-
-	public void setCpassword(String cpassword) {
-		this.cpassword = cpassword;
-	}
-
 	public String getCountry() {
 		return country;
 	}
@@ -93,8 +96,6 @@ public class UserFormDto {
 		this.userType = userType;
 	}
 
-	
-
 	public String getStatus() {
 		return status;
 	}
@@ -102,15 +103,5 @@ public class UserFormDto {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public boolean isRememberme() {
-		return rememberme;
-	}
-
-	public void setRememberme(boolean rememberme) {
-		this.rememberme = rememberme;
-	}
-    
-    
 
 }

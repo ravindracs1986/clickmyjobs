@@ -24,7 +24,8 @@ public class SendMyJobsEmail {
 	final String emailServerPort = messageSource.getMessage("mail.smtp.host",null, Locale.US);*/
  	final String senderEmailID = "portalmyjobs@gmail.com";
 	final String senderPassword = "Naman1kot@";
-	final String emailSMTPserver = "465";
+	//final String emailSMTPserver = "465";
+	final String emailSMTPserver ="587";
 	final String emailServerPort = "smtp.gmail.com";
 	//String receiverEmailID = null;
 	//static String emailSubject = "Test Mail";

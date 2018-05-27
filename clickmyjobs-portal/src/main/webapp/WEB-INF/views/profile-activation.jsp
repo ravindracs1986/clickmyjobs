@@ -244,13 +244,13 @@
 					<h3>Profile Activation </h3></br>
 					
 					        <div class="form-group">
-								<label class="control-label">Hi Myjobs,</label>
+								<label class="control-label">Hi ${name},</label>
 							</div>
 							<section id="editor">
 								<div id="summernote">
 									<p>Welcome to Myjobs Portal! Thanks so much for joining us. You’re on your way to super-productivity and beyond!,I’m so glad you decided to try out MyJobs Portal.
 									</p>
-									<p> Please check your mail xxxx@gmail.com for your credential and lets complete registration process.</p><br>
+									<p> Please check your mail ${email} for your credential and lets complete registration process.</p><br>
 									
 									<p>
 									

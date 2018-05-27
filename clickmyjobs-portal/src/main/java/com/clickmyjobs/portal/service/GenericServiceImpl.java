@@ -40,8 +40,16 @@ public class GenericServiceImpl<T, D, ID extends Serializable> implements Generi
         return result;
     }
     
-    public void save(D dto) {
+    public void saveAndFlush(D dto) {
         repository.saveAndFlush(mapper.map(dto, entityClass));
+        
+        
+    }
+    
+    public void save(D dto) {
+        repository.save(mapper.map(dto, entityClass));
+        
+        
     }
 
 }

@@ -25,8 +25,8 @@ public class UserFormValidator implements Validator{
 	      ValidationUtils.rejectIfEmpty(err, "phone", "user.phone.empty");
 	      ValidationUtils.rejectIfEmpty(err, "password", "user.password.empty");
 	      ValidationUtils.rejectIfEmpty(err, "cpassword", "user.cpassword.empty");
-	      ValidationUtils.rejectIfEmpty(err, "country", "user.country.empty");
-	      ValidationUtils.rejectIfEmpty(err, "userType", "user.userType.empty");
+	      //ValidationUtils.rejectIfEmpty(err, "country", "user.country.empty");
+	      //ValidationUtils.rejectIfEmpty(err, "userType", "user.userType.empty");
 
 	      
 
@@ -35,6 +35,13 @@ public class UserFormValidator implements Validator{
 	      if (user.getEmail()!=null && !(pattern.matcher(user.getEmail()).matches())) {
 	         err.rejectValue("email", "user.email.invalid");
 	      }
+	      
+	      if (user.getCountry()!=null && user.getCountry().equalsIgnoreCase("NA")) {
+		         err.rejectValue("country", "user.country.empty");
+		      }
+	      if (user.getUserType()!=null && user.getUserType().equalsIgnoreCase("NA")) {
+		         err.rejectValue("userType", "user.userType.empty");
+		      }
 	      
 	      if ( user.getPassword()!=null && user.getCpassword()!=null && !user.getPassword().equalsIgnoreCase(user.getCpassword())) {
 		         err.rejectValue("password", "user.password.mismatch");

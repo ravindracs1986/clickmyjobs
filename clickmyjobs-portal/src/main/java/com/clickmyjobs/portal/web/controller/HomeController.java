@@ -26,10 +26,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.clickmyjobs.portal.service.UserProfileService;
 import com.clickmyjobs.portal.service.UserService;
 import com.clickmyjobs.portal.service.dto.UserDto;
 import com.clickmyjobs.portal.service.dto.UserFormDto;
 import com.clickmyjobs.portal.service.dto.UserLoginDto;
+import com.clickmyjobs.portal.utils.RandomPasswordGenerator;
+import com.clickmyjobs.portal.utils.SendMail;
 import com.clickmyjobs.portal.utils.SendMyJobsEmail;
 import com.clickmyjobs.portal.validators.LoginFormValidator;
 import com.clickmyjobs.portal.validators.UserFormValidator;
@@ -43,9 +46,12 @@ public class HomeController {
     @Autowired
     private DozerBeanMapper mapper;
 
-    @Autowired
-    private UserService userService;
+    /*@Autowired
+    private UserService userService;*/
 
+    @Autowired
+    private UserProfileService userProfileService;
+    
     @Autowired
     private MessageSource ms;
     
@@ -94,10 +100,16 @@ public class HomeController {
          	return res;
              
           }else{
-        	  SendMyJobsEmail sendMail =new SendMyJobsEmail(userFormDto.getEmail(),"MyJobs Profile created","Profile created");
+        	  userFormDto.setStatus("INACTIVE");
+        	  userProfileService.save(userFormDto);
+        	 /* RandomPasswordGenerator passObj=new RandomPasswordGenerator();
+        	  String password =new String(passObj.generatePswd());*/
+        	  //SendMyJobsEmail sendMail =new SendMyJobsEmail(userFormDto.getEmail(),"MyJobs Profile created","Profile created");
+        	  SendMail mail =new SendMail(userFormDto.getEmail(),"MyJobs Profile created",userFormDto.getName(),"MyJobs Profile created");
         	  
         	  ModelAndView res =new ModelAndView("profile-activation"); 
         	  res.addObject("email",userFormDto.getEmail());
+        	  res.addObject("name",userFormDto.getName());
         	  return res;
           }
     	
