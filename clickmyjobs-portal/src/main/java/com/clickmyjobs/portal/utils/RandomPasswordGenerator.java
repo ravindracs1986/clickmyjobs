@@ -1,4 +1,6 @@
 package com.clickmyjobs.portal.utils;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class RandomPasswordGenerator {
@@ -52,5 +54,24 @@ public class RandomPasswordGenerator {
         return index;
     }
 	
-	
+    public static String generateOTP() {
+    	
+    	StringBuilder generatedToken = new StringBuilder();
+    	String otp =null;
+    	try {
+			SecureRandom number = SecureRandom.getInstance("SHA1PRNG");
+			for (int i = 0; i < 6; i++) {
+                generatedToken.append(number.nextInt(9));
+            }
+           
+            otp=generatedToken.toString();
+			
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return otp;
+    }
+    
+    
 }

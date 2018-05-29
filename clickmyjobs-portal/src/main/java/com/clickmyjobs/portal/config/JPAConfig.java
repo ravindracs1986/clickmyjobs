@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("com.clickmyjobs.portal.persist")
-@EnableJpaRepositories("com.clickmyjobs.portal.persist")
+@EnableJpaRepositories(basePackages = { "com.clickmyjobs.portal.persist.repo"},transactionManagerRef="transactionManager")
 @PropertySource(value = { "classpath:clickmyjobs-portal.properties" })
 public class JPAConfig {
 
@@ -61,7 +61,7 @@ public class JPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan(new String[] { "com.clickmyjobs.portal.persist" });
+        factoryBean.setPackagesToScan(new String[] { "com.clickmyjobs.portal.persist.*" });
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(true);
         factoryBean.setJpaVendorAdapter(vendorAdapter);

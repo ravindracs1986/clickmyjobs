@@ -1,7 +1,6 @@
 package com.clickmyjobs.portal.web.controller;
 
-import java.util.List;
-import java.util.Locale;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,9 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -23,17 +20,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.UserProfileService;
-import com.clickmyjobs.portal.service.UserService;
-import com.clickmyjobs.portal.service.dto.UserDto;
 import com.clickmyjobs.portal.service.dto.UserFormDto;
 import com.clickmyjobs.portal.service.dto.UserLoginDto;
+import com.clickmyjobs.portal.utils.DateUtil;
 import com.clickmyjobs.portal.utils.RandomPasswordGenerator;
 import com.clickmyjobs.portal.utils.SendMail;
-import com.clickmyjobs.portal.utils.SendMyJobsEmail;
 import com.clickmyjobs.portal.validators.LoginFormValidator;
 import com.clickmyjobs.portal.validators.UserFormValidator;
 
@@ -101,11 +97,16 @@ public class HomeController {
              
           }else{
         	  userFormDto.setStatus("INACTIVE");
-        	  userProfileService.save(userFormDto);
-        	 /* RandomPasswordGenerator passObj=new RandomPasswordGenerator();
-        	  String password =new String(passObj.generatePswd());*/
+        	  String loginOtp =new String(RandomPasswordGenerator.generateOTP());
+        	  userFormDto.setOtp(loginOtp);
+        	 
+        	  UserProfile userProfile = mapper.map(userFormDto, UserProfile.class);
+        	  userProfile.setCrtTs(DateUtil.convertDate2SqlTimeStamp(new Date()));
+        	  userProfileService.create(userProfile);
+        	 
+        	  
         	  //SendMyJobsEmail sendMail =new SendMyJobsEmail(userFormDto.getEmail(),"MyJobs Profile created","Profile created");
-        	  SendMail mail =new SendMail(userFormDto.getEmail(),"MyJobs Profile created",userFormDto.getName(),"MyJobs Profile created");
+        	  SendMail mail =new SendMail(userFormDto.getEmail(),loginOtp,userFormDto.getName(),"MyJobs Profile created");
         	  
         	  ModelAndView res =new ModelAndView("profile-activation"); 
         	  res.addObject("email",userFormDto.getEmail());
@@ -131,6 +132,10 @@ public class HomeController {
     		}else{
     			//ModelAndView prof =new ModelAndView("candidate-profile");
     			//res.addObject("userType","CAN");
+    			
+    			String email =userLoginDto.getEmail();
+    			UserProfile usrObj=userProfileService.getUserProfile(email);
+    			
     			ModelAndView prof =new ModelAndView("employer-profile");
     			res.addObject("userType","EMP");
     			return prof;

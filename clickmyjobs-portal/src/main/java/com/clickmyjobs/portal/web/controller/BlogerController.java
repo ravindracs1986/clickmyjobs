@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.clickmyjobs.portal.service.UserService;
-import com.clickmyjobs.portal.service.dto.UserDto;
 
 @Controller
 //@Scope("request")
@@ -26,8 +24,7 @@ public class BlogerController {
     @Autowired
     private DozerBeanMapper mapper;
 
-    @Autowired
-    private UserService userService;
+
 
     @Autowired
     private MessageSource ms;

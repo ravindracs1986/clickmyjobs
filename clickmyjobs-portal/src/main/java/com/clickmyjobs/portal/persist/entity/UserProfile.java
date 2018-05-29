@@ -1,6 +1,8 @@
 package com.clickmyjobs.portal.persist.entity;
 
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +11,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.clickmyjobs.portal.core.AbstractEntity;
+
+
+
 @Entity
 @Table(name = "profile")
-public class UserProfile {
+public class UserProfile extends AbstractEntity implements java.io.Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GenericGenerator(name = "generator", strategy = "increment")
@@ -39,7 +50,13 @@ public class UserProfile {
 
 	@Column(name = "status", nullable = false)
 	private String status;
-
+	
+	@Column(name = "otp", nullable = false)
+	private String otp;
+	
+	@Column(name = "CRT_TS", nullable = false, length = 50)
+	private Timestamp crtTs;
+	
 	public Long getUserId() {
 		return userId;
 	}
@@ -103,5 +120,26 @@ public class UserProfile {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+
+	@Override
+	public Timestamp getCrtTs() {
+		return this.crtTs;
+	}
+
+	@Override
+	public void setCrtTs(Timestamp crtTs) {
+		this.crtTs = crtTs;
+		
+	}
+	
+	
 
 }

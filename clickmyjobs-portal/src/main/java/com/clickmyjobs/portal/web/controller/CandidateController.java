@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.clickmyjobs.portal.service.UserService;
+
 
 @Controller
 public class CandidateController {
@@ -21,8 +21,7 @@ public class CandidateController {
 	    @Autowired
 	    private DozerBeanMapper mapper;
 
-	    @Autowired
-	    private UserService userService;
+	
 
 	    @Autowired
 	    private MessageSource ms;

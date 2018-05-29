@@ -41,7 +41,8 @@ public class SendMail {
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			message.setSubject(subject);
-			message.setContent("<h3>Dear "+name+" </h3> <br> Your profile is created,Please login and update profile for activation <br> ClickMyjobs Team", "text/html");
+			message.setContent("<h3>Dear "+name+" </h3> <br> Your profile is created,Please login and update profile "
+					+ "for activation <br> Your one time PIN is :" + otp+" <br> ClickMyjobs Team", "text/html");
 			//message.setText("Dear "+name+" <br> Your one time PIN is :" + otp+" and its valid for 60 minutes.");
 
 			// send the message

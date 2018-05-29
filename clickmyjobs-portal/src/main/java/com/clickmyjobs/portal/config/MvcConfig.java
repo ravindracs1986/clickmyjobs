@@ -3,6 +3,8 @@ package com.clickmyjobs.portal.config;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -118,4 +120,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	    
 	    return propertyPath;
     }
+    
+    @Bean public Mapper dozerMapper() { return new DozerBeanMapper(); }
 }

@@ -29,6 +29,9 @@ public class UserFormDto {
 
     private boolean rememberme;
     
+    private String otp;
+    
+    
 	public Long getUserId() {
 		return userId;
 	}
@@ -92,9 +95,6 @@ public class UserFormDto {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
-	
-
 	public String getStatus() {
 		return status;
 	}
@@ -109,6 +109,14 @@ public class UserFormDto {
 
 	public void setRememberme(boolean rememberme) {
 		this.rememberme = rememberme;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
     
     
