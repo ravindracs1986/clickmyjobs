@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.UserProfileService;
@@ -118,31 +119,60 @@ public class HomeController {
     
     
     @RequestMapping(value = "/login.do", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView loginUser(@RequestParam(value = "action", required = true) String action,@Valid @ModelAttribute("userLoginDto")UserLoginDto userLoginDto, 
-    		BindingResult result,ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+    public String loginUser(@RequestParam(value = "action", required = true) String action,@Valid @ModelAttribute("userLoginDto")UserLoginDto userLoginDto, 
+    		BindingResult result,ModelMap model,HttpServletRequest request, HttpServletResponse response,RedirectAttributes redir) {
     	logger.info(" POST login controller starts");
         
     	ModelAndView res =new ModelAndView("my-account");
     	
     	if(action.equalsIgnoreCase("login")){
     		if (result.hasErrors()) {
-    			logger.info("RRRRRRRRRRRRRR-->" +result.hasErrors());
-    			return res;
+    			logger.info("login controller error-->" +result.hasErrors());
+    			return "my-account";
     			
     		}else{
-    			//ModelAndView prof =new ModelAndView("candidate-profile");
-    			//res.addObject("userType","CAN");
-    			
     			String email =userLoginDto.getEmail();
     			UserProfile usrObj=userProfileService.getUserProfile(email);
+    			if(usrObj!=null && usrObj.getEmail()!=null){
+    				String status =usrObj.getStatus();
+    				String userTpe =usrObj.getUserType();
+    				if(status.equalsIgnoreCase("INACTIVE")){
+    					//popup
+    					//ModelAndView prof =new ModelAndView("popup");
+						//prof.addObject("usrObj",usrObj);
+    					//model.put("usrObj", usrObj);
+    					 redir.addFlashAttribute("usrObj",usrObj);
+    					return "redirect:athenticate.do";
+						//return prof;
+    					
+    				}else{
+    					if(userTpe.equalsIgnoreCase("CAN")){
+    						model.put("userType", "CAN");
+    						//ModelAndView prof =new ModelAndView("candidate-profile");
+    						//prof.addObject("userType","CAN");
+    						return "candidate-profile";
+    					}else if(userTpe.equalsIgnoreCase("EMP")){
+    						model.put("userType", "EMP");
+    						ModelAndView prof =new ModelAndView("employer-profile");
+    						prof.addObject("userType","EMP");
+    		    			return "employer-profile";
+    					}else{
+    						//admin
+    					}
+    					
+    				}
+    				
+    				
+    				
+    			}else{
+    				//profile not found here logic
+    				
+    			}
     			
-    			ModelAndView prof =new ModelAndView("employer-profile");
-    			res.addObject("userType","EMP");
-    			return prof;
+    			
+    			
     		}
     		
-    		// ModelAndView res =new ModelAndView("my-account");
-    		 //res.addObject("errors","profileError");
          	
     		
     	}else if(action.equalsIgnoreCase("forgotpassword")){
@@ -151,20 +181,8 @@ public class HomeController {
     		
     	}
     	
-    	return res;
-    	/*if (result.hasErrors()) {
-    		 logger.info("errors-->" +result.hasErrors());
-    		 ModelAndView res =new ModelAndView("my-account");
-    		 res.addObject("errors","profileError");
-         	return res;
-             
-          }else{
-        	  SendMyJobsEmail sendMail =new SendMyJobsEmail(userFormDto.getEmail(),"MyJobs Profile created","Profile created");
-        	  
-        	  ModelAndView res =new ModelAndView("profile-activation"); 
-        	  res.addObject("email",userFormDto.getEmail());
-        	  return res;
-          }*/
+    	return "my-account";
+    	
     	
     }
     
@@ -203,6 +221,45 @@ public class HomeController {
         return response;
        
     }
+    
+    @RequestMapping(value = {"/athenticate.do" }, method = RequestMethod.GET)
+    public ModelAndView getAthenticate(HttpServletRequest request, HttpServletResponse response,Model model) {
+    	
+    	UserProfile usrObj = (UserProfile)model.asMap().get("usrObj");
+    	ModelAndView prof =new ModelAndView("popup");
+		prof.addObject("usrObj",usrObj);
+		return prof;
+      
+       
+    }
+    
+    @RequestMapping(value = {"/athenticate.do" },params="validate", method = RequestMethod.POST)
+    public ModelAndView athenticate(UserFormDto userFormDto,HttpServletRequest request, HttpServletResponse response) {
+    	ModelAndView authentication =new ModelAndView("popup");
+        logger.debug("redirect to success page");
+        if(userFormDto!=null && userFormDto.getUserType()!=null){
+        if(userFormDto.getUserType().equalsIgnoreCase("CAN")){
+			ModelAndView prof =new ModelAndView("candidate-profile");
+			prof.addObject("userType","CAN");
+			return prof;
+		}else if(userFormDto.getUserType().equalsIgnoreCase("EMP")){
+			ModelAndView prof =new ModelAndView("employer-profile");
+			prof.addObject("userType","EMP");
+			return prof;
+		}
+        
+        }
+       
+        return authentication;
+       
+    }
+    
+    @RequestMapping(value={"/otpCancel" },method=RequestMethod.GET)
+    public String cancelUpdateUser(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) {
+    	 logger.debug("cancel button click");
+        return "redirect:login.do";
+    }
+    
     
 }    
 
