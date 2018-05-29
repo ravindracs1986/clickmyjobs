@@ -160,7 +160,7 @@ $('#mask').click(function () {
 <div id="boxes">
   <div id="dialog" class="window">
   <input type="hidden" name="path" id ="path" value="${pageContext.request.contextPath}/index.do"/>
-    Please provide OTP which you have recievd Via Mail while registring<br><br>
+    Please provide OTP which you have received Via Mail while registration<br><br>
 	<form:form action="${pageContext.request.contextPath}/athenticate.do" method="post">
             Please enter OTP:  <input type="password" name="userOTP" style="background-color: #fefefe;border: 3px solid #888; width: 213px;height: 31px;" maxlength="6"/> <br>
 			<%-- <input type="hidden" name="userId" value="${userId}"/>
