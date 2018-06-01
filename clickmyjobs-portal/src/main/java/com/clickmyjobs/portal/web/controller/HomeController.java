@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.dozer.DozerBeanMapper;
@@ -21,6 +22,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionAttributeStore;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,6 +41,7 @@ import com.clickmyjobs.portal.validators.UserFormValidator;
 
 @Controller
 //@Scope("request")
+//@SessionAttributes("userObject")
 public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -71,10 +77,15 @@ public class HomeController {
     }
     
     @RequestMapping(value = { "/", "/index.do" }, method = RequestMethod.GET)
-    public ModelAndView index() {
+    public ModelAndView index(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
     	logger.info("testt homeee##########");
-        logger.debug("redirect to success page");
-        return new ModelAndView("index");
+    	ModelAndView res =new ModelAndView("index");
+    	if(session.getAttribute("userObject")!=null){
+    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+    		res.addObject("userObject",userProfile);
+    	}
+    	return res;
+    	
     }
 
     @RequestMapping(value = "/my-account.do", method = RequestMethod.GET)
@@ -132,26 +143,28 @@ public class HomeController {
     			
     		}else{
     			String email =userLoginDto.getEmail();
-    			UserProfile usrObj=userProfileService.getUserProfile(email);
-    			if(usrObj!=null && usrObj.getEmail()!=null){
-    				String status =usrObj.getStatus();
-    				String userTpe =usrObj.getUserType();
+    			UserProfile userObject=userProfileService.getUserProfile(email);
+    			if(userObject!=null && userObject.getEmail()!=null){
+    				String status =userObject.getStatus();
+    				String userTpe =userObject.getUserType();
     				if(status.equalsIgnoreCase("INACTIVE")){
     					//popup
     					//ModelAndView prof =new ModelAndView("popup");
 						//prof.addObject("usrObj",usrObj);
     					//model.put("usrObj", usrObj);
-    					 redir.addFlashAttribute("usrObj",usrObj);
+    					 redir.addFlashAttribute("usrObj",userObject);
     					return "redirect:athenticate.do";
 						//return prof;
     					
     				}else{
     					if(userTpe.equalsIgnoreCase("CAN")){
     						model.put("userType", "CAN");
+    						 request.getSession().setAttribute("userObject", userObject);
     						//ModelAndView prof =new ModelAndView("candidate-profile");
     						//prof.addObject("userType","CAN");
     						return "candidate-profile";
     					}else if(userTpe.equalsIgnoreCase("EMP")){
+    						request.getSession().setAttribute("userObject", userObject);
     						model.put("userType", "EMP");
     						ModelAndView prof =new ModelAndView("employer-profile");
     						prof.addObject("userType","EMP");
@@ -206,9 +219,12 @@ public class HomeController {
     }
     
     @RequestMapping(value = {"/logout.do" }, method = RequestMethod.GET)
-    public ModelAndView logout() {
+    public ModelAndView logout(HttpSession session,WebRequest webrequest,SessionStatus status,HttpServletRequest request, HttpServletResponse response) {
     	logger.info("testt homeee##########");
         logger.debug("redirect to success page");
+        status.setComplete();
+        request.getSession().removeAttribute("userObject");
+        //store.cleanupAttribute(request, "userObject");
         return new ModelAndView("index");
     }
     
@@ -260,7 +276,24 @@ public class HomeController {
         return "redirect:login.do";
     }
     
-    
+    @RequestMapping(value={"/profile.do" },method=RequestMethod.GET)
+    public ModelAndView goTOProfile(HttpSession session,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+    	 logger.debug("profile coming from home ");
+    	 ModelAndView prof =null;
+    	 if(session.getAttribute("userObject")!=null){
+     		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+     		if(userProfile.getUserType().equalsIgnoreCase("CAN")){
+     			prof =new ModelAndView("candidate-profile");
+     			prof.addObject("userType","CAN");
+    			
+			}else if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+				prof =new ModelAndView("employer-profile");
+				prof.addObject("userType", "EMP");
+				
+			}
+     	}
+    	 return prof;
+    }
 }    
 
  

@@ -35,7 +35,7 @@
 <link rel="stylesheet" href="assets/extras/owl.theme.css"
 	type="text/css">
 
-<link rel="stylesheet" href="assets/extras/settings.css" type="text/css">
+<!-- <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> -->
 
 <link rel="stylesheet" href="assets/extras/summernote.css"
 	type="text/css">
@@ -542,7 +542,7 @@
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/js/material.min.js"></script>
 	<script type="text/javascript" src="assets/js/material-kit.js"></script>
-	<script type="text/javascript" src="assets/js/color-switcher.js"></script>
+	<!-- <script type="text/javascript" src="assets/js/color-switcher.js"></script> -->
 	<script type="text/javascript" src="assets/js/jquery.parallax.js"></script>
 	<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.slicknav.js"></script>

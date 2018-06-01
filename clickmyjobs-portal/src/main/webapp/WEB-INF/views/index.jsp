@@ -70,28 +70,7 @@
                     <a class="active" href="index.do">
                     Home <i class="fa"></i>
                     </a>
-                    <!-- <ul class="dropdown">
-                      <li>
-                        <a class="active" href="index.do">
-                        Home 1
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-02.jsp">
-                        Home 2
-                        </a>                          
-                      </li>
-                      <li>
-                        <a href="index-03.jsp">
-                        Home 3
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-04.jsp">
-                        Home 4
-                        </a>
-                      </li>
-                    </ul> -->
+                   
                   </li>
                   <li>
                     <a href="about.do">
@@ -103,21 +82,7 @@
                         About
                         </a>
                       </li>
-                      <!-- <li>
-                        <a href="jobpage.do">
-                        Job Page
-                        </a>
-                      </li>
-                      <li>
-                        <a href="jobdetails.do">
-                        Job Details
-                        </a>
-                      </li>
-                      <li>
-                        <a href="resume.do">
-                        Resume Page
-                        </a>
-                      </li> -->
+                     
                       <li>
                         <a href="privacypolicy.do">
                         Privacy Policy
@@ -160,16 +125,7 @@
                         Add Resume
                         </a>
                       </li>
-                     <!--  <li>
-                        <a href="manageresumes.do">
-                        Manage Resumes
-                        </a>
-                      </li>
-                      <li>
-                        <a href="jobalerts">
-                        Job Alerts
-                        </a>
-                      </li> -->
+                     
                     </ul>
                   </li>
                   <li>
@@ -187,16 +143,7 @@
                         Manage Jobs
                         </a>
                       </li>
-                      <!-- <li>
-                        <a href="manageapplications.do">
-                        Manage Applications
-                        </a>
-                      </li>
-                      <li>
-                        <a href="browseresumes.do">
-                        Browse Resumes
-                        </a>
-                      </li> -->
+                     
                     </ul>
                   </li>
                   <li>
@@ -204,16 +151,7 @@
                     Blog <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown">
-                      <!-- <li>
-                        <a href="blog.do">
-                        Blog - Right Sidebar
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-left-sidebar.jsp">
-                        Blog - Left Sidebar
-                        </a>
-                      </li>-->
+                      
                       <li><a href="blog-full-post.do">Blog - Full Width</a></li> 
                       <li>
                         <a href="single-post.do">
@@ -223,10 +161,26 @@
                     </ul>
                   </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right float-right">
-                  <li class="left"><a href="addjobs.do"><i class="ti-pencil-alt"></i> Post A Job</a></li>
-                  <li class="right"><a href="my-account.do"><i class="ti-lock"></i>  Log In</a></li>
-                </ul>
+                <%-- <c:set var="user" value=${userObject}/> --%>
+              
+                <c:choose> 
+				  <c:when test="${userObject !=null}">
+				    <ul class="nav navbar-nav navbar-right float-right">
+	                  <li class="left"><a href="profile.do"><i class="ti-pencil-alt"></i>Profile</a></li>
+	                  <li class="right"><a href="logout.do"><i class="ti-lock"></i>Log out</a></li>
+	                </ul>
+				  </c:when>
+				  <c:otherwise>
+				     <ul class="nav navbar-nav navbar-right float-right">
+	                  <li class="left"><a href="addjobs.do"><i class="ti-pencil-alt"></i> Post A Job</a></li>
+	                  <li class="right"><a href="my-account.do"><i class="ti-lock"></i>  Log In</a></li>
+	                </ul>
+				  </c:otherwise>
+				</c:choose>
+                
+                
+                
+               
               </div>                           
             </div>
             <!-- Mobile Menu Start -->
@@ -504,25 +458,7 @@
     </section>
     <!-- Find Job Section End -->
 
-    <!-- Category Section Start -->
-    <section class="section text-center" >
-      <div class="container">
-                <!-- Start Animations Text -->
-                <h1>
-
-                    You are using Free Lite version of Job Board<br> Purchase Full version to Get all About us and Features
-                </h1>
-              <br>
-                <!-- End Animations Text -->
-
-                <!-- Start Buttons -->
-                <a rel="nofollow" target="_blank" href="https://rebrand.ly/gg-jobboard-purchase" class="btn btn-common btn-large"><i class="fa fa-cart"></i> Purchase Now</a>
-        </div>
-      </div>
-    </section>
-    <!-- Category Section End -->  
-
-    <!-- Featured Jobs Section Start -->
+ <!-- Featured Jobs Section Start -->
     <section class="featured-jobs section">
       <div class="container">
         <h2 class="section-title">
@@ -911,7 +847,7 @@
     <!-- Counter Section End -->
 
     <!-- Infobox Section Start -->
-    <section class="infobox section">
+    <!-- <section class="infobox section">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -923,7 +859,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Infobox Section End -->
 
     <!-- Footer Section Start -->
@@ -936,7 +872,10 @@
               <div class="widget">
                 <h3 class="block-title"><img src="assets/img/logo.png" class="img-responsive" alt="Footer Logo"></h3>
                 <div class="textwidget">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed.</p>
+                  <p>ClickMyjobs for Jobs is a product from ClickMyjobs Team that aims to help job seekers find job listings that are right for them. 
+                  ClickMyjobs for Jobs is a job search engine that compiles listings from many different sources, including other job search engines. 
+                  Instead of using a specific job search site, users can simply type a job into their ClickMyjobss search bar. 
+                  ClickMyjobs then pulls up related listings. Users can then narrow their search by type of job, location, company type, date posted, and more</p>
                 </div>
               </div>
             </div>
@@ -944,11 +883,11 @@
     					<div class="widget">
     						<h3 class="block-title">Quick Links</h3>
   							<ul class="menu">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Support</a></li>
-                  <li><a href="#">License</a></li>
-                  <li><a href="#">Terms & Conditions</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="about.do">About Us</a></li>
+                  <li><a href="contact.do">Support</a></li>
+                 <!--  <li><a href="#">License</a></li> -->
+                  <li><a href="privacypolicy.do">Terms & Conditions</a></li>
+                  <li><a href="contact.do">Contact</a></li>
                 </ul>
     					</div>
     				</div>

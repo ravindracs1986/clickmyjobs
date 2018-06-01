@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="assets/extras/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="assets/extras/owl.theme.css" type="text/css">
     <!-- Rev Slider CSS -->
-    <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> 
+    <!-- <link rel="stylesheet" href="assets/extras/settings.css" type="text/css">  -->
     <!-- Slicknav js -->
     <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
     <!-- Main Styles -->
