@@ -116,12 +116,12 @@
 					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown" style="background-color: #FF4F57;">
-							Account<span class="caret"></span>
+							Markarn Doe<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"
 								style="background-color: #FFE4E1;">Update Profile</a></li>
-							<li><a href="price.do"
+							<li><a href="offers.do"
 								style="background-color: #FFE4E1;">Balance</a></li>
 							<li><a href="changepassword.do"
 								style="background-color: #FFE4E1;">Change Password</a></li>

@@ -1,188 +1,237 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="author" content="Jobboard">
+<title>MyJobs-Portal-About Us</title>
+
 <link rel="shortcut icon" href="assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<title>MyJobs-Portal-Employer-Profile</title>
-
-<meta
-	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
-	name='viewport' />
-<meta name="viewport" content="width=device-width" />
-
-
-<!-- Bootstrap core CSS     -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
-<!-- Animation library for notifications   -->
-<link href="assets/css/animate.min.css" rel="stylesheet" />
-
-<!--  Light Bootstrap Table core CSS    -->
-<link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
-
-
-<!--  CSS for Demo Purpose, don't include it in your project     -->
-<link href="assets/css/demo.css" rel="stylesheet" />
-
-
-<!--     Fonts and icons     -->
-<link
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300'
-	rel='stylesheet' type='text/css'>
-<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
-<!--     extra css     -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="assets/css/jasny-bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-select.min.css"
+	type="text/css">
 
 <link rel="stylesheet" href="assets/css/material-kit.css"
 	type="text/css">
-<!-- Font Awesome CSS -->
+
 <link rel="stylesheet" href="assets/fonts/font-awesome.min.css"
 	type="text/css">
 <link rel="stylesheet" href="assets/fonts/themify-icons.css">
 
-<!-- Animate CSS -->
+<!-- <link rel="stylesheet" href="assets/css/color-switcher.css"
+	type="text/css"> -->
+
 <link rel="stylesheet" href="assets/extras/animate.css" type="text/css">
-<!-- Owl Carousel -->
+
 <link rel="stylesheet" href="assets/extras/owl.carousel.css"
 	type="text/css">
 <link rel="stylesheet" href="assets/extras/owl.theme.css"
 	type="text/css">
-<!-- Rev Slider CSS -->
+
 <link rel="stylesheet" href="assets/extras/settings.css" type="text/css">
-<!-- Slicknav js -->
+
 <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
-<!-- Main Styles -->
+
 <link rel="stylesheet" href="assets/css/main.css" type="text/css">
-<!-- Responsive CSS Styles -->
+
 <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 
-<!-- Color CSS Styles  -->
 <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css"
 	media="screen" />
-
-
 </head>
 <body>
-<input type="hidden" id="userType" value='${userType}'/>
-	<div class="wrapper">
-		<div class="sidebar" data-color="purple"
-			data-image="assets/img/sidebar-5.jpg" id="canId" style='display: none;'>
-				<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
-				</div>
 
-				<ul class="nav">
-					<li class="active"><a href="dashboard.do"> <i
-							class="pe-7s-graph"></i>
-							<p>Dashboard</p>
-					</a></li>
-					<li><a href="resume.do"> <i class="pe-7s-user"></i>
-							<p>My Resume</p>
-					</a></li>
-					<li><a href="bookmarked.do"> <i class="pe-7s-note2"></i>
-							<p>Bookmarked Jobs</p>
-					</a></li>
-					<li><a href="notifications.do"> <i
-							class="pe-7s-news-paper"></i>
-							<p>Notifications</p>
-					</a></li>
-					<li><a href="browsejobs.do"> <i class="pe-7s-science"></i>
-							<p>Browse jobs</p>
-					</a></li>
-					<li><a href="browsecategories.do"> <i
-							class="pe-7s-map-marker"></i>
-							<p>Browse Categories</p>
-					</a></li>
-					<li><a href="manage-applications.do"> <i
-							class="pe-7s-info"></i>
-							<p>Manage Applications</p>
-					</a></li>
-					<li><a href="job-alerts.do"> <i class="pe-7s-bell"></i>
-							<p>Job Alerts</p>
-					</a></li>
-					
-				</ul>
-			</div>
-		</div>
-		<div class="sidebar" data-color="purple"
-			data-image="assets/img/sidebar-5.jpg" id="empId" style='display: none;'>
-			<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
-				</div>
+	<div class="header">
+		<div class="logo-menu">
+			<nav class="navbar navbar-default main-navigation" role="navigation"
+				data-spy="affix" data-offset-top="50">
+				<div class="container">
 
-				<ul class="nav">
-					<li><a href="empdashboard.do"> <i
-							class="pe-7s-graph"></i>
-							<p>Dashboard</p>
-					</a></li>
-					<li><a href="empaddjobs.do"> <i class="pe-7s-user"></i>
-							<p>Add Jobs</p>
-					</a></li>
-					<li><a href="managejobs.do"> <i class="pe-7s-note2"></i>
-							<p>Manage Jobs</p>
-					</a></li>
-					<li class="active"><a href="empapplications.do"> <i
-							class="pe-7s-news-paper"></i>
-							<p>Manage Applications</p>
-					</a></li>
-					<li><a href="browseresumes.do"> <i class="pe-7s-science"></i>
-							<p>Browse Resumes</p>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		<div class="main-panel">
-			<nav class="navbar navbar-default navbar-fixed">
-				<div class="container-fluid" style="background-color: #fff">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#navigation-example-2">
+							data-target="#navbar">
 							<span class="sr-only">Toggle navigation</span> <span
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Dashboard</a>
+						<a class="navbar-brand logo" href="index.do"><img
+							src="assets/img/logo.png" alt=""></a>
 					</div>
+					<div class="collapse navbar-collapse" id="navbar">
 
-					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown" style="background-color: #FF4F57;">
-							Markarn Doe <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="update-profile.do"
-								style="background-color: #FFE4E1;">Update Profile</a></li>
-							<li><a href="price.do"
-								style="background-color: #FFE4E1;">Balance</a></li>
-							<li><a href="changepassword.do"
-								style="background-color: #FFE4E1;">Change Password</a></li>
-							<li><a href="logout.do" style="background-color: #FFE4E1;">Log
-									out</a></li>
+						<ul class="nav navbar-nav">
+							<li><a href="index.do"> Home <i class="fa"></i>
+							</a>
+								<!-- <ul class="dropdown">
+									<li><a href="index.do"> Home 1 </a></li>
+									<li><a href="index-02.jsp"> Home 2 </a></li>
+									<li><a href="index-03.jsp"> Home 3 </a></li>
+									<li><a href="index-04.jsp"> Home 4 </a></li>
+								</ul> --></li>
+							<li><a class="active" href="about.do"> About us <i
+									class="fa fa-angle-down"></i>
+							</a>
+								<ul class="dropdown">
+									<li><a href="about.do"> About </a></li>
+									<!-- <li><a href="jobpage.do"> Job Page </a></li>
+									<li><a href="jobdetails.do"> Job Details </a></li>
+									<li><a href="resume.do"> Resume Page </a></li> -->
+									<li><a href="privacypolicy.do"> Privacy Policy </a></li>
+									<li><a href="faq.do"> FAQ </a></li>
+									<li><a class="active" href="pricing.do"> Pricing
+											Tables </a></li>
+									<li><a href="contact.do"> Contact </a></li>
+								</ul></li>
+							<li><a href="#"> Candidates <i class="fa fa-angle-down"></i>
+							</a>
+								<ul class="dropdown">
+									<li><a href="browsejobs.do"> Browse Jobs </a></li>
+									<li><a href="browsecategories.do"> Browse Categories </a>
+									</li>
+									<li><a href="addResume.do"> Add Resume </a></li>
+									<!-- <li><a href="manageresumes.do"> Manage Resumes </a></li>
+									<li><a href="jobalerts.do"> Job Alerts </a></li> -->
+								</ul></li>
+							<li><a href="#"> Employers <i class="fa fa-angle-down"></i>
+							</a>
+								<ul class="dropdown">
+									<li><a href="addjobs.do"> Add Job </a></li>
+									<li><a href="managejobs.do"> Manage Jobs </a></li>
+									<!-- <li><a href="manageapplications.do"> Manage
+											Applications </a></li>
+									<li><a href="browseresumes.do"> Browse Resumes </a></li> -->
+								</ul></li>
+							<li><a href="blog.do"> Blog <i class="fa fa-angle-down"></i>
+							</a>
+								<ul class="dropdown">
+									<!-- <li><a href="blog.do"> Blog - Right Sidebar </a></li>
+									<li><a href="blog-left-sidebar.jsp"> Blog - Left
+											Sidebar </a></li> -->
+									<li><a href="blog-full-post.do">Blog - Full Width</a></li>
+									<li><a href="single-post.do"> Blog Single Post </a></li>
+								</ul></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right float-right">
+							<li class="left"><a href="addjobs.do"><i
+									class="ti-pencil-alt"></i> Post A Job</a></li>
+							<li class="right"><a href="my-account.do"><i
+									class="ti-lock"></i> Log In</a></li>
 						</ul>
 					</div>
-
-
 				</div>
+
+				<ul class="wpb-mobile-menu">
+					<li><a href="index.do">Home</a>
+						<!-- <ul>
+							<li><a href="index.do">Home 1</a></li>
+							<li><a href="index-02.jsp">Home 2</a></li>
+							<li><a href="index-03.jsp">Home 3</a></li>
+							<li><a href="index-04.jsp">Home 4</a></li>
+						</ul> --></li>
+					<li><a class="active" href="about.do">About us</a>
+						<ul>
+							<li><a href="about.do">About</a></li>
+							<!-- <li><a href="jobpage.do">Job Page</a></li>
+							<li><a href="jobdetails.do">Job Details</a></li>
+							<li><a href="resume.do">Resume Page</a></li> -->
+							<li><a href="privacypolicy.do">Privacy Policy</a></li>
+							<li><a href="faq.do">FAQ</a></li>
+							<li><a class="active" href="pricing.do">Pricing Tables</a></li>
+							<li><a href="contact.do">Contact</a></li>
+						</ul></li>
+					<li><a href="#">For Candidates</a>
+						<ul>
+							<li><a href="browsejobs.do">Browse Jobs</a></li>
+							<li><a href="browsecategories.do">Browse Categories</a></li>
+							<li><a href="addResume.do">Add Resume</a></li>
+							<!-- <li><a href="manageresumes.do">Manage Resumes</a></li>
+							<li><a href="jobalerts.do">Job Alerts</a></li> -->
+						</ul></li>
+					<li><a href="#">For Employers</a>
+						<ul>
+							<li><a href="addjobs.do">Add Job</a></li>
+							<li><a href="managejobs.do">Manage Jobs</a></li>
+							<!-- <li><a href="manageapplications.do">Manage Applications</a></li>
+							<li><a href="browseresumes.do">Browse Resumes</a></li> -->
+						</ul></li>
+					<li><a href="blog.do">Blog</a>
+						<ul class="dropdown">
+							<!-- <li><a href="blog.do">Blog - Right Sidebar</a></li>
+							<li><a href="blog-left-sidebar.jsp">Blog - Left Sidebar</a></li> -->
+							<li><a href="blog-full-post.do">Blog - Full Width</a></li>
+							<li><a href="single-post.do">Blog Single Post</a></li>
+						</ul></li>
+					<li class="btn-m"><a href="addjobs.do"><i
+							class="ti-pencil-alt"></i> Post A Job</a></li>
+					<li class="btn-m"><a href="my-account.do"><i
+							class="ti-lock"></i> Log In</a></li>
+				</ul>
 
 			</nav>
 
-			<div class="content">
-				<div class="container-fluid">
-					<div class="card">
-						<div class="content">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<section id="pricing-table" class="section">
+			<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+
+				<div class="close" data-toggle="offcanvas" data-target=".navmenu">
+					<i class="ti-close"></i>
+				</div>
+				<h3 class="title-menu">All About us</h3>
+				<ul class="nav navmenu-nav">
+					<li><a href="index.do">Home</a></li>
+					<!-- <li><a href="index-02.jsp">Home Page 2</a></li>
+					<li><a href="index-03.jsp">Home Page 3</a></li>
+					<li><a href="index-04.jsp">Home Page 4</a></li> -->
+					<li><a href="about.do">About us</a></li>
+					<li><a href="jobpage.do">Job Page</a></li>
+					<li><a href="jobdetails.do">Job Details</a></li>
+					<li><a href="resume.do">Resume Page</a></li>
+					<li><a href="privacypolicy.do">Privacy Policy</a></li>
+					<li><a href="pricing.do">Pricing Tables</a></li>
+					<li><a href="browsejobs.do">Browse Jobs</a></li>
+					<li><a href="browsecategories.do">Browse Categories</a></li>
+					<li><a href="addResume.do">Add Resume</a></li>
+					<li><a href="manageresumes.do">Manage Resumes</a></li>
+					<li><a href="jobalerts.do">Job Alerts</a></li>
+					<li><a href="addjobs.do">Add Job</a></li>
+					<li><a href="managejobs.do">Manage Jobs</a></li>
+					<li><a href="manageapplications.do">Manage Applications</a></li>
+					<li><a href="browseresumes.do">Browse Resumes</a></li>
+					<li><a href="contact.do">Contact</a></li>
+					<li><a href="faq.do">Faq</a></li>
+					<li><a href="my-account.do">Login</a></li>
+				</ul>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<div class="page-header"
+		style="background: url(assets/img/banner1.jpg);">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="breadcrumb-wrapper">
+						<h2 class="product-title">Pricing Plan</h2>
+						<ol class="breadcrumb">
+							<li><a href="#"><i class="ti-home"></i> Home</a></li>
+							<li class="current">Pricing Plan</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<section id="pricing-table" class="section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
@@ -253,20 +302,7 @@
 	</section>
 
 
-
-
-								</div>
-
-							</div>
-							<br> <br>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Footer Section Start -->
+	<!-- Footer Section Start -->
     <footer>
     	<!-- Footer Area Start -->
     	<section class="footer-Content">
@@ -344,56 +380,44 @@
     	<!-- Copyright End -->
 
     </footer>
-    <!-- Footer Section End --> 
+    <!-- Footer Section End -->
 
+
+	<a href="#" class="back-to-top"> <i class="ti-arrow-up"></i>
+	</a>
+	<div id="loading">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+				<div class="object" id="object_five"></div>
+				<div class="object" id="object_six"></div>
+				<div class="object" id="object_seven"></div>
+				<div class="object" id="object_eight"></div>
+			</div>
 		</div>
 	</div>
 
-
+	<script type="text/javascript" src="assets/js/jquery-min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/material.min.js"></script>
+	<script type="text/javascript" src="assets/js/material-kit.js"></script>
+	<!-- <script type="text/javascript" src="assets/js/color-switcher.js"></script> -->
+	<script type="text/javascript" src="assets/js/jquery.parallax.js"></script>
+	<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.slicknav.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="assets/js/waypoints.min.js"></script>
+	<script type="text/javascript" src="assets/js/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="assets/js/form-validator.min.js"></script>
+	<script type="text/javascript" src="assets/js/contact-form-script.js"></script>
+	<script type="text/javascript"
+		src="assets/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript"
+		src="assets/js/jquery.themepunch.tools.min.js"></script>
 </body>
-
-<!--   Core JS Files   -->
-<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-<script type="text/javascript">
-	
-$(document).ready(function(){
-	var userTypeValue = $("#userType").val();
-	if(userTypeValue=='EMP'){
-		$("#empId").show();
-		$("#canId").hide();
-	}else{
-		$("#canId").show();
-		$("#empId").hide();
-		
-	}
-	
-	
-
-});
-	
-	
-	
-</script>
-
-
 </html>

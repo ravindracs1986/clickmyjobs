@@ -69,8 +69,7 @@
 <body>
 <input type="hidden" id="userType" value='${userType}'/>
 	<div class="wrapper">
-		<div class="sidebar" data-color="purple"
-			data-image="assets/img/sidebar-5.jpg" id="canId" style='display: none;'>
+		<div class="sidebar" data-image="assets/img/sidebar-5.jpg" style="background-color:#DCDCDC" id="canId" style='display: none;'>
 				<div class="sidebar-wrapper">
 				<div class="logo">
 					<a href="http://www.creative-tim.com" class="simple-text">
@@ -78,7 +77,7 @@
 				</div>
 
 				<ul class="nav">
-					<li class="active"><a href="dashboard.do"> <i
+					<li><a href="dashboard.do"> <i
 							class="pe-7s-graph"></i>
 							<p>Dashboard</p>
 					</a></li>
@@ -129,7 +128,7 @@
 					<li><a href="managejobs.do"> <i class="pe-7s-note2"></i>
 							<p>Manage Jobs</p>
 					</a></li>
-					<li class="active"><a href="empapplications.do"> <i
+					<li><a href="empapplications.do"> <i
 							class="pe-7s-news-paper"></i>
 							<p>Manage Applications</p>
 					</a></li>
@@ -162,8 +161,8 @@
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"
 								style="background-color: #FFE4E1;">Update Profile</a></li>
-							<li><a href="price.do"
-								style="background-color: #FFE4E1;">Balance</a></li>
+							<li><a href="offers.do"
+								style="background-color: #FFE4E1;" id="balanceId">Balance</a></li>
 							<li><a href="changepassword.do"
 								style="background-color: #FFE4E1;">Change Password</a></li>
 							<li><a href="logout.do" style="background-color: #FFE4E1;">Log
@@ -266,10 +265,12 @@ $(document).ready(function(){
 	var userTypeValue = $("#userType").val();
 	if(userTypeValue=='EMP'){
 		$("#empId").show();
+		$("#balanceId").show();
 		$("#canId").hide();
 	}else{
 		$("#canId").show();
 		$("#empId").hide();
+		$("#balanceId").hide();
 		
 	}
 	

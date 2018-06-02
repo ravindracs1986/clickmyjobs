@@ -88,6 +88,19 @@ public class EmployersController {
 	        return response;
 	        
 	       
+	    }
+	    
+	    
+	    @RequestMapping(value = "/offers.do", method = RequestMethod.GET)
+	    public ModelAndView offers() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        
+	        ModelAndView response =new ModelAndView("offers");
+	        response.addObject("userType","EMP");
+	        return response;
+	        
+	       
 	    } 
 	    
 }

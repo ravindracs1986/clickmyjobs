@@ -52,7 +52,7 @@
 <link rel="stylesheet" href="assets/extras/owl.theme.css"
 	type="text/css">
 <!-- Rev Slider CSS -->
-<link rel="stylesheet" href="assets/extras/settings.css" type="text/css">
+<!-- <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> -->
 <!-- Slicknav js -->
 <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
 <!-- Main Styles -->
@@ -78,21 +78,21 @@
 				</div>
 
 				<ul class="nav">
-					<li><a href="empdashboard.do"> <i
-							class="pe-7s-graph"></i>
+					<li><a href="empdashboard.do"> <i class="pe-7s-graph"></i>
 							<p>Dashboard</p>
 					</a></li>
 					<li><a href="empaddjobs.do"> <i class="pe-7s-user"></i>
 							<p>Add Jobs</p>
 					</a></li>
-					<li><a href="managejobs.do"> <i class="pe-7s-note2"></i>
+					<li><a href="managejobs.do"> <i
+							class="pe-7s-note2"></i>
 							<p>Manage Jobs</p>
 					</a></li>
 					<li><a href="empapplications.do"> <i
 							class="pe-7s-news-paper"></i>
 							<p>Manage Applications</p>
 					</a></li>
-					<li class="active"><a href="browseresumes.do"> <i class="pe-7s-science"></i>
+					<li><a href="browseresumes.do"> <i class="pe-7s-science"></i>
 							<p>Browse Resumes</p>
 					</a></li>
 
@@ -110,19 +110,18 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Dashboard</a>
+						<a class="navbar-brand" href="#">Welcome ,Markarn Doe</a>
 					</div>
 
 					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown" style="background-color: #FF4F57;">
-							Markarn Doe <span class="caret"></span>
+							Account<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"
 								style="background-color: #FFE4E1;">Update Profile</a></li>
-							<li><a href="offers.do"
-								style="background-color: #FFE4E1;">Balance</a></li>
+							<li><a href="offers.do" style="background-color: #FFE4E1;">Balance</a></li>
 							<li><a href="changepassword.do"
 								style="background-color: #FFE4E1;">Change Password</a></li>
 							<li><a href="logout.do" style="background-color: #FFE4E1;">Log
@@ -141,78 +140,85 @@
 						<div class="content">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<div class="manager-resumes-item">
-										<div class="manager-content">
-											<a href="resume.do"><img class="resume-thumb"
-												src="assets/img/jobs/avatar.jpg" alt=""></a>
-											<div class="manager-info">
-												<div class="manager-name">
-													<h4>
-														<a href="#">John Doe</a>
-													</h4>
-													<h5>Front-end developer</h5>
+									<section id="pricing-table" class="section">
+										<div class="container">
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="table">
+														<div class="title">
+															<h3>Pricing Plan 1</h3>
+														</div>
+														<div class="pricing-header">
+															<p class="price-value">
+																<sup>$</sup>0
+															</p>
+															<p class="price-quality">/forever</p>
+														</div>
+														<ul class="description">
+															<li>Post 1 Job</li>
+															<li>No Featured Job</li>
+															<li>Edit Your Job Listing</li>
+															<li>Manage Application</li>
+															<li>30-day Expired</li>
+														</ul>
+														<button class="btn btn-common" type="submit">Get
+															Started</button>
+													</div>
 												</div>
-												<div class="manager-meta">
-													<span class="location"><i class="ti-location-pin"></i>
-														Cupertino, CA, USA</span> <span class="rate"><i
-														class="ti-time"></i> $55 per hour</span>
+												<div class="col-sm-3">
+													<div class="table" id="active-tb">
+														<div class="title">
+															<h3>Pricing Plan 2</h3>
+														</div>
+														<div class="pricing-header">
+															<p class="price-value">
+																<sup>$</sup>99
+															</p>
+															<p class="price-quality">/90 DAYS</p>
+														</div>
+														<ul class="description">
+															<li>Post 1 Job</li>
+															<li>No Featured Job</li>
+															<li>Edit Your Job Listing</li>
+															<li>Manage Application</li>
+															<li>30-day Expired</li>
+														</ul>
+														<button class="btn btn-common" type="submit">Get
+															Started</button>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="table">
+														<div class="title">
+															<h3>Pricing Plan 3</h3>
+														</div>
+														<div class="pricing-header">
+															<p class="price-value">
+																<sup>$</sup>199
+															</p>
+															<p class="price-quality">/180 DAYS</p>
+														</div>
+														<ul class="description">
+															<li>Post 1 Job</li>
+															<li>No Featured Job</li>
+															<li>Edit Your Job Listing</li>
+															<li>Manage Application</li>
+															<li>30-day Expired</li>
+														</ul>
+														<button class="btn btn-common" type="submit">Get
+															Started</button>
+													</div>
 												</div>
 											</div>
 										</div>
-										<div class="item-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-												Dolore, qui aspernatur accusantium! Molestiae, cum cupiditate
-												nam optio dignissimos magnam velit, perspiciatis amet qui aut
-												nobis, quisquam, laudantium vitae eos ipsam.</p>
-											<div class="tag-list">
-												<span>HTML5</span> <span>CSS3</span> <span>Bootstrap</span> <span>Wordpress</span>
-											</div>
-										</div>
-									</div>
+									</section>
 
-									<div class="manager-resumes-item">
-										<div class="manager-content">
-											<a href="resume.do"><img class="resume-thumb"
-												src="assets/img/jobs/avatar.jpg" alt=""></a>
-											<div class="manager-info">
-												<div class="manager-name">
-													<h4>
-														<a href="#">John Doe</a>
-													</h4>
-													<h5>Front-end developer</h5>
-												</div>
-												<div class="manager-meta">
-													<span class="location"><i class="ti-location-pin"></i>
-														Cupertino, CA, USA</span> <span class="rate"><i
-														class="ti-time"></i> $55 per hour</span>
-												</div>
-											</div>
-										</div>
-										<div class="item-body">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-												Dolore, qui aspernatur accusantium! Molestiae, cum cupiditate
-												nam optio dignissimos magnam velit, perspiciatis amet qui aut
-												nobis, quisquam, laudantium vitae eos ipsam.</p>
-											<div class="tag-list">
-												<span>HTML5</span> <span>CSS3</span> <span>Bootstrap</span> <span>Wordpress</span>
-											</div>
-										</div>
-									</div>
 
-										<ul class="pagination">
-											<li class="active"><a href="#" class="btn btn-common"><i
-													class="ti-angle-left"></i> prev</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><a href="#">5</a></li>
-											<li class="active"><a href="#" class="btn btn-common">Next
-													<i class="ti-angle-right"></i>
-											</a></li>
-							 </ul>
+
+
+
 								</div>
-								
+
 							</div>
 							<br> <br>
 

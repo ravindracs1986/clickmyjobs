@@ -1,5 +1,7 @@
 package com.clickmyjobs.portal.web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.clickmyjobs.portal.persist.entity.UserProfile;
 
 
 
@@ -43,17 +47,28 @@ public class CandidateController {
 	    }
 	    
 	    @RequestMapping(value = "/browsejobs.do", method = RequestMethod.GET)
-	    public ModelAndView brousejobs() {
-	    	System.out.println("addResume homeee##########");
-	        logger.debug("redirect to success page");
-	        return new ModelAndView("browse-jobs");
+	    public ModelAndView brousejobs(HttpSession session) {
+	        ModelAndView response =new ModelAndView("browse-jobs");
+	       
+	    	if(session.getAttribute("userObject")!=null){
+	    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+	    		response.addObject("userObject",userProfile);
+	    	}
+	    	return response;
+	        
+	        
 	    }
 
 	    @RequestMapping(value = "/browsecategories.do", method = RequestMethod.GET)
-	    public ModelAndView brousecategry() {
-	    	System.out.println("jobalerts jobalerts##########");
-	        logger.debug("redirect to success page");
-	        return new ModelAndView("browse-categories");
+	    public ModelAndView brousecategry(HttpSession session) {
+	    	
+	        ModelAndView response =new ModelAndView("browse-categories");
+		    if(session.getAttribute("userObject")!=null){
+	    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+	    		response.addObject("userObject",userProfile);
+	    	}
+	    	return response;
+	        
 	    }
 	    
 	    @RequestMapping(value = "/manageresumes.do", method = RequestMethod.GET)

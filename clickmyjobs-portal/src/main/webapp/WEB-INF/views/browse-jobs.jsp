@@ -1,4 +1,6 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,20 +71,12 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.do"> Home <i class="fa"></i>
 							</a>
-								<!-- <ul class="dropdown">
-									<li><a class="active" href="index.do"> Home 1 </a></li>
-									<li><a href="index-02.jsp"> Home 2 </a></li>
-									<li><a href="index-03.jsp"> Home 3 </a></li>
-									<li><a href="index-04.jsp"> Home 4 </a></li>
-								</ul> --></li>
+								
 							<li><a href="about.do"> About us <i
 									class="fa fa-angle-down"></i>
 							</a>
 								<ul class="dropdown">
 									<li><a href="about.do"> About </a></li>
-									<!-- <li><a href="jobpage.do"> Job Page </a></li>
-									<li><a href="jobdetails.do"> Job Details </a></li>
-									<li><a href="resume.do"> Resume Page </a></li> -->
 									<li><a href="privacypolicy.do"> Privacy Policy </a></li>
 									<li><a href="faq.do"> FAQ </a></li>
 									<li><a href="pricing.do"> Pricing Tables </a></li>
@@ -97,51 +91,42 @@
 									<li><a href="browsecategories.do"> Browse Categories </a>
 									</li>
 									<li><a href="addResume.do"> Add Resume </a></li>
-									<!-- <li><a href="manageresumes.do"> Manage Resumes </a></li>
-									<li><a href="jobalerts.do"> Job Alerts </a></li> -->
 								</ul></li>
 							<li><a href="#"> Employers <i class="fa fa-angle-down"></i>
 							</a>
 								<ul class="dropdown">
 									<li><a href="addjobs.do"> Add Job </a></li>
 									<li><a href="managejobs.do"> Manage Jobs </a></li>
-									<!-- <li><a href="manageapplications.do"> Manage
-											Applications </a></li>
-									<li><a href="browseresumes.do"> Browse Resumes </a></li> -->
 								</ul></li>
 							<li><a href="blog.do"> Blog <i class="fa fa-angle-down"></i>
 							</a>
 								<ul class="dropdown">
-									<!-- <li><a href="blog.do"> Blog - Right Sidebar </a></li>
-									<li><a href="blog-left-sidebar.jsp"> Blog - Left
-											Sidebar </a></li> -->
 									<li><a href="blog-full-post.do">Blog - Full Width</a></li>
 									<li><a href="single-post.do"> Blog Single Post </a></li>
 								</ul></li>
 						</ul>
-						<ul class="nav navbar-nav navbar-right float-right">
-							<li class="left"><a href="addjobs.do"><i
-									class="ti-pencil-alt"></i> Post A Job</a></li>
-							<li class="right"><a href="my-account.do"><i
-									class="ti-lock"></i> Log In</a></li>
-						</ul>
+						 <c:choose> 
+							  <c:when test="${userObject !=null}">
+							    <ul class="nav navbar-nav navbar-right float-right">
+				                  <li class="left"><a href="profile.do"><i class="ti-pencil-alt"></i>Profile</a></li>
+				                  <li class="right"><a href="logout.do"><i class="ti-lock"></i>Log out</a></li>
+				                </ul>
+							  </c:when>
+							  <c:otherwise>
+							     <ul class="nav navbar-nav navbar-right float-right">
+				                  <li class="left"><a href="addjobs.do"><i class="ti-pencil-alt"></i> Post A Job</a></li>
+				                  <li class="right"><a href="my-account.do"><i class="ti-lock"></i>  Log In</a></li>
+				                </ul>
+							  </c:otherwise>
+							</c:choose>
 					</div>
 				</div>
 
 				<ul class="wpb-mobile-menu">
-					<li><a href="index.do">Home</a>
-						<!-- <ul>
-							<li><a href="index.do">Home 1</a></li>
-							<li><a href="index-02.jsp">Home 2</a></li>
-							<li><a href="index-03.jsp">Home 3</a></li>
-							<li><a href="index-04.jsp">Home 4</a></li>
-						</ul> --></li>
+					<li><a href="index.do">Home</a></li>
 					<li><a href="about.do">About us</a>
 						<ul>
 							<li><a href="about.do">About</a></li>
-							<!-- <li><a href="jobpage.do">Job Page</a></li>
-							<li><a href="jobdetails.do">Job Details</a></li>
-							<li><a href="resume.do">Resume Page</a></li> -->
 							<li><a href="privacypolicy.do">Privacy Policy</a></li>
 							<li><a href="faq.do">FAQ</a></li>
 							<li><a href="pricing.do">Pricing Tables</a></li>
@@ -152,20 +137,14 @@
 							<li><a class="active" href="browsejobs.do">Browse Jobs</a></li>
 							<li><a href="browsecategories.do">Browse Categories</a></li>
 							<li><a href="addResume.do">Add Resume</a></li>
-							<!-- <li><a href="manageresumes.do">Manage Resumes</a></li>
-							<li><a href="jobalerts.do">Job Alerts</a></li> -->
 						</ul></li>
 					<li><a href="#">For Employers</a>
 						<ul>
 							<li><a href="addjobs.do">Add Job</a></li>
 							<li><a href="managejobs.do">Manage Jobs</a></li>
-							<!-- <li><a href="manageapplications.do">Manage Applications</a></li>
-							<li><a href="browseresumes.do">Browse Resumes</a></li> -->
 						</ul></li>
 					<li><a href="blog.do">Blog</a>
 						<ul class="dropdown">
-							<!-- <li><a href="blog.do">Blog - Right Sidebar</a></li>
-							<li><a href="blog-left-sidebar.jsp">Blog - Left Sidebar</a></li> -->
 							<li><a href="blog-full-post.do">Blog - Full Width</a></li>
 							<li><a href="single-post.do">Blog Single Post</a></li>
 						</ul></li>
@@ -185,9 +164,6 @@
 				<h3 class="title-menu">All About us</h3>
 				<ul class="nav navmenu-nav">
 					<li><a href="index.do">Home</a></li>
-					<!-- <li><a href="index-02.jsp">Home Page 2</a></li>
-					<li><a href="index-03.jsp">Home Page 3</a></li>
-					<li><a href="index-04.jsp">Home Page 4</a></li> -->
 					<li><a href="about.do">About us</a></li>
 					<li><a href="jobpage.do">Job Page</a></li>
 					<li><a href="jobdetails.do">Job Details</a></li>
@@ -212,7 +188,7 @@
 
 		</div>
 	</div>
-	</div>
+	
 
 
 	<div class="page-header"

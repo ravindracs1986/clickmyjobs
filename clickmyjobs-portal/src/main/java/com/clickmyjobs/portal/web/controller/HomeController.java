@@ -210,12 +210,22 @@ public class HomeController {
     }
     
     @RequestMapping(value = {"/changepassword.do" }, method = RequestMethod.GET)
-    public ModelAndView changePassword() {
-    	logger.info("testt homeee##########");
-        logger.debug("redirect to success page");
-        ModelAndView response =new ModelAndView("change-password");
-        response.addObject("userType","EMP");
-        return response;
+    public ModelAndView changePassword(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+    	logger.info("change password started");
+        ModelAndView responseObj =new ModelAndView("change-password");
+        //response.addObject("userType","EMP");
+        if(session.getAttribute("userObject")!=null){
+    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+    		if(userProfile.getUserType().equalsIgnoreCase("CAN")){
+    			responseObj.addObject("userType","CAN");
+   			
+			}else if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+				
+				responseObj.addObject("userType", "EMP");
+				
+			}
+    	}
+   	 return responseObj;
     }
     
     @RequestMapping(value = {"/logout.do" }, method = RequestMethod.GET)
@@ -229,11 +239,24 @@ public class HomeController {
     }
     
     @RequestMapping(value = {"/update-profile.do" }, method = RequestMethod.GET)
-    public ModelAndView updateProfile() {
+    public ModelAndView updateProfile(HttpSession session) {
     	
         logger.debug("redirect to success page");
         ModelAndView response =new ModelAndView("user");
-        response.addObject("userType","EMP");
+        //response.addObject("userType","EMP");
+        if(session.getAttribute("userObject")!=null){
+    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+    		if(userProfile.getUserType().equalsIgnoreCase("CAN")){
+    			
+    			response.addObject("userType","CAN");
+   			
+			}else if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+				response.addObject("userType", "EMP");
+				
+			}
+    	}
+        
+        
         return response;
        
     }

@@ -121,7 +121,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"
 								style="background-color: #FFE4E1;">Update Profile</a></li>
-							<li><a href="price.do"
+							<li><a href="offers.do"
 								style="background-color: #FFE4E1;">Balance</a></li>
 							<li><a href="changepassword.do"
 								style="background-color: #FFE4E1;">Change Password</a></li>
