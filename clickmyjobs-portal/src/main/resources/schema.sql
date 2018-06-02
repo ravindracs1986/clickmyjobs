@@ -68,4 +68,24 @@ CREATE TABLE `job_portal`.`profile` (
   `userId` INT NULL,
   PRIMARY KEY (`Skills_id`));
 
-
+CREATE TABLE `job_portal`.`jobs_details` (
+  `idjobs_details_id` INT NOT NULL,
+  `email` VARCHAR(45) NULL,
+  `location` VARCHAR(45) NULL,
+  `category` VARCHAR(45) NULL,
+  `Job_tags` VARCHAR(45) NULL,
+  `description` VARCHAR(200) NULL,
+  `application_email` VARCHAR(45) NULL,
+  `closing_date` DATE NULL,
+  `company_name` VARCHAR(45) NULL,
+  `company_website` VARCHAR(45) NULL,
+  `company_discription` VARCHAR(200) NULL,
+  `jd_file` BLOB NULL,
+  PRIMARY KEY (`idjobs_details_id`));
+  
+  CREATE TABLE `job_portal`.`job_tags` (
+  `job_tag_id` INT NOT NULL,
+  `Job_tags` VARCHAR(45) NULL,
+  `jobs_details_id` INT NULL,
+  `job_tag_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`job_tag_id`));
