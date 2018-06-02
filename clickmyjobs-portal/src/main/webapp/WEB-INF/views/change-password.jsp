@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -154,13 +157,13 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Dashboard</a>
+						<a class="navbar-brand" href="#">Welcome,${userObject.name}</a>
 					</div>
 
 					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown" style="background-color: #FF4F57;">
-							Markarn Doe <span class="caret"></span>
+							${userObject.name}<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"
