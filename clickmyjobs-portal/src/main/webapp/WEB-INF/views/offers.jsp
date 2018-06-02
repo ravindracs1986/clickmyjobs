@@ -72,9 +72,11 @@
 		<div class="sidebar" data-color="purple"
 			data-image="assets/img/sidebar-5.jpg">
 			<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
+				<div class="logo logo_grid">
+					<h2>
+						<a href="http://clickmyjobs.com">Click<span>myjobs.com</span>
+						</a>
+					</h2>
 				</div>
 
 				<ul class="nav">
@@ -116,7 +118,7 @@
 					<div class="dropdown navbar-right collapse navbar-collapse btn-rm">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown" style="background-color: #FF4F57;">
-							Account<span class="caret"></span>
+							Markarn Doe<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="update-profile.do"

@@ -71,9 +71,11 @@
 	<div class="wrapper">
 		<div class="sidebar" data-image="assets/img/sidebar-5.jpg" style="background-color:#DCDCDC" id="canId" style='display: none;'>
 				<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
+				<div class="logo logo_grid">
+					<h2>
+						<a href="http://clickmyjobs.com">Click<span>myjobs.com</span>
+						</a>
+					</h2>
 				</div>
 
 				<ul class="nav">
@@ -112,9 +114,11 @@
 		<div class="sidebar" data-color="purple"
 			data-image="assets/img/sidebar-5.jpg" id="empId" style='display: none;'>
 			<div class="sidebar-wrapper">
-				<div class="logo">
-					<a href="http://www.creative-tim.com" class="simple-text">
-						Creative Tim </a>
+				<div class="logo logo_grid">
+					<h2>
+						<a href="http://clickmyjobs.com">Click<span>myjobs.com</span>
+						</a>
+					</h2>
 				</div>
 
 				<ul class="nav">

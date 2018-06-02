@@ -1,5 +1,9 @@
 package com.clickmyjobs.portal.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.clickmyjobs.portal.persist.entity.UserProfile;
 
 
 
@@ -37,10 +43,20 @@ public class EmployersController {
 	    }
 
 	    @RequestMapping(value = "/managejobs.do", method = RequestMethod.GET)
-	    public ModelAndView manageJobs() {
-	    	System.out.println("jobalerts jobalerts##########");
-	        logger.debug("redirect to success page");
-	        return new ModelAndView("manage-jobs");
+	    public ModelAndView manageJobs(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+	    	if(session.getAttribute("userObject")!=null){
+	    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+	    		 if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+	    			ModelAndView responseObj =new ModelAndView("manage-jobs");
+					responseObj.addObject("userType", "EMP");
+					return responseObj;
+				}
+	    	}else{
+	    		return new ModelAndView("redirect:my-account.do");
+	    	}
+	        
+	    	return new ModelAndView("redirect:index.do");
+	        
 	    }
 	    
 	    @RequestMapping(value = "/manageapplications.do", method = RequestMethod.GET)

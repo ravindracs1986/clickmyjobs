@@ -3448,3 +3448,18 @@ blockquote p a:hover {
   border: none;
   background: transparent;
 }
+
+ .logo_grid h2 a {
+    font-size: 1.0em;
+    color: #FF4F57;
+    text-decoration: none;
+    
+    font-weight: 600;
+} 
+
+.logo_grid h2 a span {
+    display: inline-block;
+    color: #FF4F57;
+    line-height: 1;
+    font-size: 20px;
+}
