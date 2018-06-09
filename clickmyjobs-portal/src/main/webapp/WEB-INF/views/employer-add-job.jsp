@@ -16,7 +16,8 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
+ <!--  <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css"> --> 
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
@@ -37,7 +38,7 @@
 
 	<link rel="stylesheet" href="assets/css/material-kit.css" type="text/css">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" type="text/css"> 
+    
     <link rel="stylesheet" href="assets/fonts/themify-icons.css"> 
 
 <link rel="stylesheet" href="assets/fonts/glyphicons-halflings-regular.woff2"> 
@@ -59,7 +60,7 @@
     <!-- Color CSS Styles  -->
     <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css" media="screen" />
     
-    <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+  
    <!--  <link href="assets/fonts/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
     
     <style type="text/css">
@@ -68,10 +69,16 @@
 	  display: inline-block;
 	  padding: 6px 12px;
 	  cursor: pointer;
+	  background: #f5f5f5;
 	}
     
     </style>
-
+	<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+   <!--   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap-datetimepicker.js"></script>
+	<!-- <script src="assets/js/moment-with-locales.min.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.min.js"></script> -->
 </head>
 <body>
 
@@ -157,8 +164,8 @@
 					<div class="card">
 						<div class="content">
 							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-								<h3 class="alerts-title">Add Job</h3><br>
+								<div class="col-md-6 col-sm-6 col-xs-6">
+								<h3 class="alerts-title" style="text-decoration: underline;">Add Job</h3><br>
 									<div class="page-ads box">
 										<form:form class="form-ad" modelAttribute="addJobDto" method="post" action="${pageContext.request.contextPath}/empaddjobs.do" enctype="multipart/form-data">
 											<div class="form-group">
@@ -177,7 +184,7 @@
 												<label class="control-label">Category</label>
 												<div class="search-category-container">
 													<label class="styled-select"> <form:select
-														class="dropdown-product selectpicker" id="category" name="category" path="category" multiple="true">
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="category" name="category" path="category" multiple="true">
 															<form:option value="ALL" >All Categories</form:option>
 															<form:option value="Finc" >Finance</form:option>
 															<form:option value="IT&Eng" >IT & Engineering</form:option>
@@ -198,48 +205,119 @@
 												<p class="note">Comma separate tags, such as required skills
 													or technologies, for this job.</p>
 											</div>
-											<div class="form-group">
-												<label class="control-label" for="textarea">Description</label>
-												<form:input type="textarea" class="form-control" name="description" id ="description" path="description"
-													placeholder="Description of job "/>
-													<p class="note">Provide the full description of job profile which you are looking</p>
-											</div>
-											<!-- <section id="editor">
-												<div id="summernote">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Rem quia aut modi fugit, ratione saepe perferendis odio
-														optio repellat dolorum voluptas excepturi possimus similique
-														veritatis nobis. Provident cupiditate delectus, optio?</p>
+											
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label> Job Description</label>
+														<form:textarea rows="5" class="form-control"
+															placeholder="Provide the full description of job profile which you are looking" id ="description" path="description"></form:textarea>
+													</div>
 												</div>
-											</section> -->
+											</div>
+											
 											<div class="form-group">
 												<label class="control-label">Application email / URL</label> <form:input
 													type="text" class="form-control" name="application_email" id ="application_email" path="application_email"
 													placeholder="Enter an email address or website URL"/>
 											</div>
-											<%-- <div class="form-group">
-												<label class="control-label">Closing Date <span>(optional)</span></label>
-												<form:input type="text" class="form-control" name="closing_date" id ="closing_date" path="closing_date" placeholder="yyyy-mm-dd"/>
-												<p class="note">Deadline for new applicants.</p>
-												<div class='input-group date' id='closingDatePicker'>
-								                    <form:input type="text" class="form-control" name="closing_date" id ="closing_date" path="closing_date" />
-								                    <span class="input-group-addon">
-								                        <span class="glyphicon glyphicon-calendar"></span>
-								                    </span>
+								            
+								            
+								           <div class="form-group">
+								             <label class="control-label">End Date</label>
+								                <form:input type='text' class="form-control" name="closing_date" id ="closing_date" path="closing_date"
+								                    placeholder="YYYY-MM-DD"/>
+								                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+								                    </span> -->
+								               
+								            </div> 
+								           <!--  <div class="form-group">
+								                <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
+								                <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+								                    <input class="form-control" size="16" type="text" value="" readonly>
+								                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+													<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 								                </div>
-								            </div> --%>
+												<input type="hidden" id="dtp_input1" value="" /><br/>
+								            </div> -->
 								            
-								             <div class="form-group">
-								                <div class='input-group date' id='datetimepicker1'>
-								                    <input type='text' class="form-control" />
-								                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-								                    </span>
-								                </div>
-								            </div>
-								            
-								            
+											
+									</div>
+								</div>
+								
+								<div class="col-md-6 col-sm-6 col-xs-6">
+										<h3 class="alerts-title" style="text-decoration: underline;">Other Details</h3><br>
+										<div class="page-ads box">
+											<div class="form-group">
+												<label class="control-label">Qualification</label>
+												<div class="search-category-container">
+													<label class="styled-select"> <form:select
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="qualification" name="qualification" path="qualification" multiple="true">
+															<form:option value="" selected="selected" disabled="disabled">-- select one --</form:option>
+														    <form:option value="No formal education">No formal education</form:option>
+														    <form:option value="Primary education">Primary education</form:option>
+														    <form:option value="Secondary education">Secondary education or high school</form:option>
+														    <form:option value="GED">GED</form:option>
+														    <form:option value="Vocational qualification">Vocational qualification</form:option>
+														    <form:option value="Bachelor's degree">Bachelor's degree</form:option>
+														    <form:option value="Master's degree">Master's degree</form:option>
+														    <form:option value="Doctorate or higher">Doctorate or higher</form:option>
+															
+															
+													</form:select>
+													</label>
+												</div>
+											</div>
+											
+											
+											<div class="form-group">
+												<label class="control-label">Experience <span></span></label>
+												
+												<div class="search-category-container">
+													<label class="styled-select"> <form:select
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="qualification" name="experience" path="experience" multiple="true">
+															<form:option value="" selected="selected" disabled="disabled">-- select one --</form:option>
+														    <form:option value="1">0-1Year</form:option>
+														    <form:option value="2">0-3Year</form:option>
+														    <form:option value="3">3-5Year</form:option>
+														    <form:option value="4">5 -10Year</form:option>
+														    <form:option value="5">Others</form:option>
+													</form:select>
+													</label>
+												</div>
+												
+												
+												
+											</div>
+											<div class="form-group">
+												<label class="control-label">Employment Type</label>
+												<div class="search-category-container">
+													<label class="styled-select"> <form:select
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="employement_type" name="employement_type" path="employement_type" multiple="true">
+															<form:option value="" selected="selected" disabled="disabled">-- select one --</form:option>
+														    <form:option value="1">Full-Time</form:option>
+														    <form:option value="2">Part-Time</form:option>
+														    
+													</form:select>
+													</label>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label">Salary Rang <span>(optional)</span></label>
+												<div class="search-category-container ">
+													<label class="styled-select"> <form:select
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="salary_rang" name="salary_rang" path="salary_rang" multiple="true">
+															<form:option value="" selected="selected" disabled="disabled">-- select one --</form:option>
+														    <form:option value="1">0-3000</form:option>
+														    <form:option value="2">0-5000</form:option>
+														    <form:option value="3">0-10000</form:option>
+														    <form:option value="4">Others</form:option>
+													</form:select>
+													</label>
+												</div>
+											</div>
 											<div class="divider">
-												<h3>Company Details</h3>
+												<h3 style="text-decoration: underline;">Company Details</h3>
 											</div>
 											<div class="form-group">
 												<label class="control-label">Company Name</label> <form:input
@@ -251,20 +329,17 @@
 												<form:input type="text" class="form-control" name="company_website" id ="company_website" path="company_website" placeholder="http://"/>
 											</div>
 											<div class="form-group">
-												<label class="control-label">Tagline <span>(optional)</span></label>
-												<form:input type="text" class="form-control" name="company_discription" id ="company_discription" path="company_discription"
-													placeholder="Briefly describe your company"/>
+												<label> Company Description</label>
+														<form:textarea rows="5" class="form-control"
+															placeholder="Provide the description of Company profile" id ="company_discription" path="company_discription"></form:textarea>
+													
+													
+													
 											</div>
-											<%-- <div class="form-group">
-												<label class="control-label">Tagline <span>(optional)</span></label>
-												<form:input type="text" class="form-control" name="closing_date" id ="closing_date" path="closing_date"
-													placeholder="Briefly describe your company">
-											</div> --%>
 											<div class="form-group">
 												<div class="button-group">
 													<div class="action-buttons">
 														<div class="upload-button">
-															<!-- <button class="btn btn-common btn-sm">Browse</button> -->
 															<label for="file-upload" class="custom-file-upload">
 				    											<i class="fa fa-cloud-upload"></i> Browse Job Description
 				 											 </label>
@@ -273,15 +348,14 @@
 													</div>
 												</div>
 											</div>
-											<!-- <a href="#" class="btn btn-common">Submit your job</a> -->
-											<button class="btn btn-common" type="submit">Submit your job</button>
+											
+									
+									    </div>
+								</div><br>
+								
+								<!-- <a href="#" class="btn btn-common">Submit your job</a> -->
+											<button class="btn btn-common pull-right" type="submit">Submit your job</button>
 										</form:form>
-									</div>
-
-									
-									
-
-								</div>
 
 							</div>
 							<br> <br>
@@ -317,17 +391,11 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
+    
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
+	
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -337,26 +405,14 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-	<script src="assets/js/moment-with-locales.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="assets/js/clickjobs-datepicker.js"></script>
+	
+	
+	<!-- <script src="assets/js/clickjobs-datepicker.js"></script> -->
 <script type="text/javascript">
 
 $(function () {
-    /* $('#datetimepicker1').datetimepicker({
-        defaultDate: "11/1/2013",
-        disabledDates: [
-            moment("12/25/2013"),
-            new Date(2013, 11 - 1, 21),
-            "11/22/2013 00:53"
-        ]
-    }); */
-    //alert("hiii");
-    //$( "#datetimepicker1" ).datetimepicker();
-   /*  $( function() {
-        $( "#datetimepicker1" ).datepicker();
-      } ); */
-    
+	
+	
     
 });
 

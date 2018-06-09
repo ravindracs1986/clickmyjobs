@@ -93,6 +93,7 @@ a:focus {
   -o-transition: all .3s linear;
   transition: all .3s linear;
   border: none;
+  margin: 35px 60px -7px -138px;
 }
 .btn-common:hover,
 .btn-common:focus {
@@ -932,7 +933,6 @@ nav#menu span.fa.fa-bars:hover {
   background: #fff;
 }
 .styled-select:before {
-  content: "\e651";
   float: left;
   position: absolute;
   font-family: themify;
@@ -940,6 +940,7 @@ nav#menu span.fa.fa-bars:hover {
   left: 2px;
   padding: 13px;
   z-index: 999;
+  cursor: pointer;
 }
 .styled-select > select {
   background: transparent;

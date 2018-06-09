@@ -19,6 +19,11 @@ public class AddJobDto {
 	private MultipartFile file;
 	private Long userId;
 	
+	private String qualification;
+	private String experience;
+	private String employement_type;
+	private String salary_rang;
+	
 	public Long getJobs_details_id() {
 		return jobs_details_id;
 	}
@@ -104,6 +109,30 @@ public class AddJobDto {
 	}
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+	public String getQualification() {
+		return qualification;
+	}
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+	public String getExperience() {
+		return experience;
+	}
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	public String getEmployement_type() {
+		return employement_type;
+	}
+	public void setEmployement_type(String employement_type) {
+		this.employement_type = employement_type;
+	}
+	public String getSalary_rang() {
+		return salary_rang;
+	}
+	public void setSalary_rang(String salary_rang) {
+		this.salary_rang = salary_rang;
 	}
 	
 	
