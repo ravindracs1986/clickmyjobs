@@ -1,6 +1,7 @@
 package com.clickmyjobs.portal.config;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
@@ -122,4 +123,17 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     }
     
     @Bean public Mapper dozerMapper() { return new DozerBeanMapper(); }
+    
+    
+    @Bean(name="multipartResolver") 
+    public CommonsMultipartResolver getResolver() throws IOException{
+        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+         
+        //Set the maximum allowed size (in bytes) for each individual file.
+        //resolver.setMaxUploadSizePerFile(5242880);//5MB
+        resolver.setMaxUploadSize(5242880);
+        //You may also set other available properties.
+         
+        return resolver;
+    }
 }

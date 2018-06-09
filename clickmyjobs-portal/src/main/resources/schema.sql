@@ -69,11 +69,11 @@ CREATE TABLE `job_portal`.`profile` (
   PRIMARY KEY (`Skills_id`));
 
 CREATE TABLE `job_portal`.`jobs_details` (
-  `idjobs_details_id` INT NOT NULL,
+  `jobs_details_id` INT NOT NULL,
   `email` VARCHAR(45) NULL,
   `location` VARCHAR(45) NULL,
   `category` VARCHAR(45) NULL,
-  `Job_tags` VARCHAR(45) NULL,
+  `job_tags` VARCHAR(45) NULL,
   `description` VARCHAR(200) NULL,
   `application_email` VARCHAR(45) NULL,
   `closing_date` DATE NULL,
@@ -89,3 +89,12 @@ CREATE TABLE `job_portal`.`jobs_details` (
   `jobs_details_id` INT NULL,
   `job_tag_name` VARCHAR(45) NULL,
   PRIMARY KEY (`job_tag_id`));
+  
+  CREATE TABLE job_portal.jobs_details_tag (
+	`jobs_details_id` INT NOT NULL,
+	`job_tag_id` INT NOT NULL,
+	PRIMARY KEY (`jobs_details_id`, `job_tag_id`),
+	INDEX `FK_JOB_TAG` (`job_tag_id`),
+	CONSTRAINT `FK_JOBS_DETAILS` FOREIGN KEY (`jobs_details_id`) REFERENCES `jobs_details` (`jobs_details_id`),
+	CONSTRAINT `FK_JOB_TAG` FOREIGN KEY (`job_tag_id`) REFERENCES `job_tags` (`job_tag_id`)
+)

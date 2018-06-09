@@ -3,9 +3,14 @@ package com.clickmyjobs.portal.core;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+
 
 public abstract class AbstractEntity {
 
+	
+	//@Column(name = "CRT_TS", nullable = false, length = 50)
+	//private Timestamp crtTs;
 		//public abstract String getCrtUsrId();
 		//public abstract void setCrtUsrId(String crtUsrId);
 		public abstract Timestamp getCrtTs();

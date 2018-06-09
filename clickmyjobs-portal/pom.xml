@@ -63,6 +63,12 @@
 			<artifactId>joda-time</artifactId>
 			<version>${joda-time.version}</version>
 		</dependency>
+		<!-- Commons Fileupload -->
+		  <dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.3.2</version>
+		  </dependency>
 		
 		<dependency>
 			<groupId>org.springframework.data</groupId>
