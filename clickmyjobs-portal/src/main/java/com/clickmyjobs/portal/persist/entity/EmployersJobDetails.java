@@ -48,9 +48,11 @@ public class EmployersJobDetails extends AbstractEntity implements java.io.Seria
 	@Column(name = "job_title", nullable = false)
 	private String job_title;
 	
+	@Column(name = "country", nullable = false)
+	private String country;
 	
-	@Column(name = "location", nullable = false)
-	private String location;
+	@Column(name = "city", nullable = false)
+	private String city;
 
 	@Column(name = "category", nullable = false)
 	private String category;
@@ -81,6 +83,20 @@ public class EmployersJobDetails extends AbstractEntity implements java.io.Seria
 	
 	@Column(name = "userId", nullable = false)
 	private Long userId;
+	
+	@Column(name = "qualification", nullable = false)
+	private String qualification;
+	@Column(name = "experience", nullable = false)
+	private String experience;
+	
+	@Column(name = "employement_type", nullable = false)
+	private String employement_type;
+	@Column(name = "salary_rang", nullable = false)
+	private String salary_rang;
+	/*@Column(name = "company_logo", nullable = false)
+	private byte[] company_logo;*/
+	
+	
 	
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
@@ -117,13 +133,7 @@ public class EmployersJobDetails extends AbstractEntity implements java.io.Seria
 		this.job_title = job_title;
 	}
 
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
+	
 
 	public String getCategory() {
 		return category;
@@ -132,14 +142,6 @@ public class EmployersJobDetails extends AbstractEntity implements java.io.Seria
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	/*public Long getJob_tags() {
-		return job_tags;
-	}
-
-	public void setJob_tags(Long job_tags) {
-		this.job_tags = job_tags;
-	}*/
 
 	public String getDescription() {
 		return description;
@@ -221,5 +223,52 @@ public class EmployersJobDetails extends AbstractEntity implements java.io.Seria
 		this.job_tags = job_tags;
 	}
 
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public String getEmployement_type() {
+		return employement_type;
+	}
+
+	public void setEmployement_type(String employement_type) {
+		this.employement_type = employement_type;
+	}
+
+	public String getSalary_rang() {
+		return salary_rang;
+	}
+
+	public void setSalary_rang(String salary_rang) {
+		this.salary_rang = salary_rang;
+	}
 
 }

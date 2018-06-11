@@ -7,7 +7,8 @@ public class AddJobDto {
 	private Long jobs_details_id;
 	private String email;
 	private String job_title;
-	private String location;
+	private String country;
+	private String city;
 	private String category;
 	private String tags;
 	private String description;
@@ -23,6 +24,7 @@ public class AddJobDto {
 	private String experience;
 	private String employement_type;
 	private String salary_rang;
+	/*private byte[] company_logo;*/
 	
 	public Long getJobs_details_id() {
 		return jobs_details_id;
@@ -42,11 +44,18 @@ public class AddJobDto {
 	public void setJob_title(String job_title) {
 		this.job_title = job_title;
 	}
-	public String getLocation() {
-		return location;
+	
+	public String getCountry() {
+		return country;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
 	}
 	public String getCategory() {
 		return category;
@@ -134,8 +143,5 @@ public class AddJobDto {
 	public void setSalary_rang(String salary_rang) {
 		this.salary_rang = salary_rang;
 	}
-	
-	
-	
 
 }

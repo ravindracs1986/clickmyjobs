@@ -158,16 +158,17 @@ $('#mask').click(function () {
 <body>
 <!--PopUP -->
 <div id="boxes">
+
   <div id="dialog" class="window">
   <input type="hidden" name="path" id ="path" value="${pageContext.request.contextPath}/index.do"/>
     Please provide OTP which you have received Via Mail while registration<br><br>
 	<form:form action="${pageContext.request.contextPath}/athenticate.do" method="post">
             Please enter OTP:  <input type="password" name="userOTP" style="background-color: #fefefe;border: 3px solid #888; width: 213px;height: 31px;" maxlength="6"/> <br>
-			<%-- <input type="hidden" name="userId" value="${userId}"/>
-			<input type="hidden" name="name" value="${name}"/>
-			<input type="hidden" name="email" value="${email}"/>
-			<input type="hidden" name="phone" value="${phone}"/> --%>
-			<%-- <div class="message userOTPError" id="message1"><c:out value="${wrongOTP}"/></div> --%>
+			<input type="hidden" name="email" value="${usrObj.email}"/>
+			<input type="hidden" name="userId" value="${usrObj.userId}"/>
+			<input type="hidden" name="otp" value="${usrObj.otp}"/>
+			<%-- <input type="hidden" name="usrObj" value="${usrObj}"/> --%>
+			<div class="message userOTPError" id="errorMessage"><c:out value="${wrongOTP}"/></div> 
 			<div id="popupfoot"> 
 			<a href="#" class="agree">
 			<input type="submit" name="otpSubt"

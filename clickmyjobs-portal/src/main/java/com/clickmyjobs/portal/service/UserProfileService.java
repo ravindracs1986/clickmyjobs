@@ -36,6 +36,14 @@ public class UserProfileService extends com.clickmyjobs.portal.core.AbstractServ
 		UserProfile usr= userProfileRepo.findbyEmail(email);
 		return usr;
 	}	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public int updateAuthentication(String status,String email){
+		log.info("updateAuthentication in UserProfileService class ");
+		
+		int usr= userProfileRepo.updateAuthentication(status,email);
+		return usr;
+	}
+	
 	
 	/*@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public IscCrtValidationDtl updateOrInserIscCrt(IscCrtValidationDtlDto iscCrtValidationDtlDto){

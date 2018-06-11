@@ -158,7 +158,7 @@
 									<p>Keywords</p>
 								</div>
 								<div class="col-md-3">
-									<p>Candidates</p>
+									<p>Tags</p>
 								</div>
 								<div class="col-md-3">
 									<p>Featured</p>
@@ -190,7 +190,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="alerts-content">
+						<!-- <!-- <div class="alerts-content">
 							<div class="row">
 								<div class="col-md-3">
 									<h3>Web Designer</h3>
@@ -264,7 +264,7 @@
 									</p>
 								</div>
 							</div>
-						</div>
+						</div> --> -->
 
 						<br>
 						<ul class="pagination">

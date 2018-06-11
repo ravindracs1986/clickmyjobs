@@ -40,8 +40,6 @@ import com.clickmyjobs.portal.validators.LoginFormValidator;
 import com.clickmyjobs.portal.validators.UserFormValidator;
 
 @Controller
-//@Scope("request")
-//@SessionAttributes("userObject")
 public class HomeController {
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -148,20 +146,13 @@ public class HomeController {
     				String status =userObject.getStatus();
     				String userTpe =userObject.getUserType();
     				if(status.equalsIgnoreCase("INACTIVE")){
-    					//popup
-    					//ModelAndView prof =new ModelAndView("popup");
-						//prof.addObject("usrObj",usrObj);
-    					//model.put("usrObj", usrObj);
     					 redir.addFlashAttribute("usrObj",userObject);
     					return "redirect:athenticate.do";
-						//return prof;
     					
     				}else{
     					if(userTpe.equalsIgnoreCase("CAN")){
     						model.put("userType", "CAN");
     						 request.getSession().setAttribute("userObject", userObject);
-    						//ModelAndView prof =new ModelAndView("candidate-profile");
-    						//prof.addObject("userType","CAN");
     						return "candidate-profile";
     					}else if(userTpe.equalsIgnoreCase("EMP")){
     						request.getSession().setAttribute("userObject", userObject);
@@ -272,22 +263,48 @@ public class HomeController {
        
     }
     
-    @RequestMapping(value = {"/athenticate.do" },params="validate", method = RequestMethod.POST)
-    public ModelAndView athenticate(UserFormDto userFormDto,HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = {"/athenticate.do" }, method = RequestMethod.POST)
+    public ModelAndView athenticate(HttpServletRequest request, HttpServletResponse response,Model model) {
     	ModelAndView authentication =new ModelAndView("popup");
-        logger.debug("redirect to success page");
-        if(userFormDto!=null && userFormDto.getUserType()!=null){
-        if(userFormDto.getUserType().equalsIgnoreCase("CAN")){
-			ModelAndView prof =new ModelAndView("candidate-profile");
-			prof.addObject("userType","CAN");
-			return prof;
-		}else if(userFormDto.getUserType().equalsIgnoreCase("EMP")){
-			ModelAndView prof =new ModelAndView("employer-profile");
-			prof.addObject("userType","EMP");
-			return prof;
-		}
-        
-        }
+    	 String email = request.getParameter("email");
+    	 String otp = request.getParameter("userOTP");
+    	 UserProfile userObject=userProfileService.getUserProfile(email);
+    	if(userObject!=null && userObject.getOtp()!=null){
+    		String servOtp= userObject.getOtp();
+    		if(servOtp.equalsIgnoreCase(otp)){
+    			 int reslt=userProfileService.updateAuthentication("ACTIVE",userObject.getEmail());
+    			 logger.info("after updating result status:: "+reslt);
+    		        UserFormDto userFormDto = mapper.map(userObject, UserFormDto.class);
+    		        if(userFormDto!=null && userFormDto.getUserType()!=null){
+    		        if(userFormDto.getUserType().equalsIgnoreCase("CAN")){
+    					ModelAndView prof =new ModelAndView("candidate-profile");
+    					request.getSession().setAttribute("userObject", userObject);
+    					prof.addObject("userType","CAN");
+    					return prof;
+    				}else if(userFormDto.getUserType().equalsIgnoreCase("EMP")){
+    					ModelAndView prof =new ModelAndView("employer-profile");
+    					request.getSession().setAttribute("userObject", userObject);
+    					prof.addObject("userType","EMP");
+    					return prof;
+    				}else{
+    					//UserProfile usrObj = (UserProfile)model.asMap().get("usrObj");
+    			    	authentication.addObject("usrObj",userObject);
+    					return authentication;
+    				}
+    		        
+    		        }
+    			
+    		}else{
+    			
+    			ModelAndView temp =new ModelAndView("popup");
+    			temp.addObject("usrObj",userObject);
+    			temp.addObject("wrongOTP","Wrong OTP please try again");
+				return temp;
+    		}
+    		
+    		
+    	}
+       
        
         return authentication;
        
@@ -306,10 +323,12 @@ public class HomeController {
     	 if(session.getAttribute("userObject")!=null){
      		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
      		if(userProfile.getUserType().equalsIgnoreCase("CAN")){
+     			request.getSession().setAttribute("userObject", userProfile);
      			prof =new ModelAndView("candidate-profile");
      			prof.addObject("userType","CAN");
     			
 			}else if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+				request.getSession().setAttribute("userObject", userProfile);
 				prof =new ModelAndView("employer-profile");
 				prof.addObject("userType", "EMP");
 				

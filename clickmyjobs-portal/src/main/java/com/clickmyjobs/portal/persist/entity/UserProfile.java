@@ -54,6 +54,9 @@ public class UserProfile extends AbstractEntity implements java.io.Serializable{
 	@Column(name = "otp", nullable = false)
 	private String otp;
 	
+	@Column(name = "logo", nullable = true)
+	private byte[] logo;
+	
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
 	
@@ -127,6 +130,15 @@ public class UserProfile extends AbstractEntity implements java.io.Serializable{
 
 	public void setOtp(String otp) {
 		this.otp = otp;
+	}
+
+	
+	public byte[] getLogo() {
+		return logo;
+	}
+
+	public void setLogo(byte[] logo) {
+		this.logo = logo;
 	}
 
 	@Override

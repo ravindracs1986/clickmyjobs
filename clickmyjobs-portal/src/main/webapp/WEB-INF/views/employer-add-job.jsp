@@ -176,9 +176,21 @@
 												<label class="control-label">Job Title</label> <form:input
 													type="text" class="form-control" name="job_title" id ="job_title" path="job_title" placeholder="Job Title" />
 											</div>
+											
 											<div class="form-group">
-												<label class="control-label">Location <span>(optional)</span></label>
-												<form:input type="text" class="form-control" name="location" id ="location" path="location" placeholder="e.g.London"/>
+												<label class="control-label">Country</label>
+												<div class="search-category-container">
+													<label class="styled-select"> <form:select
+														class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="country" name="country" path="country" multiple="true">
+															<form:option value="IN" >India</form:option>
+															<form:option value="MYS" >Malaysia</form:option>
+													</form:select>
+													</label>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label">City</label>
+												<form:input type="text" class="form-control" name="city" id ="city" path="city" placeholder="e.g.London"/>
 											</div>
 											<div class="form-group">
 												<label class="control-label">Category</label>
@@ -210,7 +222,7 @@
 												<div class="col-md-12">
 													<div class="form-group">
 														<label> Job Description</label>
-														<form:textarea rows="5" class="form-control"
+														<form:textarea rows="8" class="form-control"
 															placeholder="Provide the full description of job profile which you are looking" id ="description" path="description"></form:textarea>
 													</div>
 												</div>
@@ -223,14 +235,14 @@
 											</div>
 								            
 								            
-								           <div class="form-group">
+								          <%--  <div class="form-group">
 								             <label class="control-label">End Date</label>
 								                <form:input type='text' class="form-control" name="closing_date" id ="closing_date" path="closing_date"
 								                    placeholder="YYYY-MM-DD"/>
 								                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 								                    </span> -->
 								               
-								            </div> 
+								            </div> --%> 
 								           <!--  <div class="form-group">
 								                <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
 								                <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
@@ -248,6 +260,15 @@
 								<div class="col-md-6 col-sm-6 col-xs-6">
 										<h3 class="alerts-title" style="text-decoration: underline;">Other Details</h3><br>
 										<div class="page-ads box">
+										
+										 <div class="form-group">
+								             <label class="control-label">Application End Date</label>
+								                <form:input type='text' class="form-control" name="closing_date" id ="closing_date" path="closing_date"
+								                    placeholder="YYYY-MM-DD"/>
+								                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+								                    </span> -->
+								               
+								            </div>
 											<div class="form-group">
 												<label class="control-label">Qualification</label>
 												<div class="search-category-container">

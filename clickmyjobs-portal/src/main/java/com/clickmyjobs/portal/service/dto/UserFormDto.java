@@ -1,12 +1,5 @@
 package com.clickmyjobs.portal.service.dto;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.apache.commons.lang3.StringUtils;
-import org.dozer.Mapping;
-
 public class UserFormDto {
 
     private Long userId;
@@ -30,7 +23,7 @@ public class UserFormDto {
     private boolean rememberme;
     
     private String otp;
-    
+    private byte[] logo;
     
 	public Long getUserId() {
 		return userId;
@@ -117,6 +110,14 @@ public class UserFormDto {
 
 	public void setOtp(String otp) {
 		this.otp = otp;
+	}
+
+	public byte[] getLogo() {
+		return logo;
+	}
+
+	public void setLogo(byte[] logo) {
+		this.logo = logo;
 	}
     
     

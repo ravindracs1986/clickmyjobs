@@ -1,6 +1,5 @@
 package com.clickmyjobs.portal.web.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
@@ -9,7 +8,6 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
@@ -18,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +27,7 @@ import com.clickmyjobs.portal.persist.entity.EmployersJobDetails;
 import com.clickmyjobs.portal.persist.entity.JobTags;
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.EmloyersService;
-import com.clickmyjobs.portal.service.UserProfileService;
 import com.clickmyjobs.portal.service.dto.AddJobDto;
-import com.clickmyjobs.portal.service.dto.UserFormDto;
 import com.clickmyjobs.portal.utils.DateUtil;
 
 
