@@ -93,7 +93,7 @@ a:focus {
   -o-transition: all .3s linear;
   transition: all .3s linear;
   border: none;
-  margin: 35px 60px -7px -138px;
+ 
 }
 .btn-common:hover,
 .btn-common:focus {
