@@ -1,8 +1,10 @@
 package com.clickmyjobs.portal.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +31,7 @@ import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.EmloyersService;
 import com.clickmyjobs.portal.service.dto.AddJobDto;
 import com.clickmyjobs.portal.utils.DateUtil;
+import com.clickmyjobs.portal.utils.StaticMap;
 
 
 
@@ -47,6 +50,9 @@ public class EmployersController {
 	    @Autowired
 	    private MessageSource ms;
 	    
+	   /* @Autowired
+	    private StaticMap staticMap;*/
+	    
 	    
 	    
 	    @RequestMapping(value = "/addjobs.do", method = RequestMethod.GET)
@@ -57,12 +63,31 @@ public class EmployersController {
 	    }
 
 	    @RequestMapping(value = "/managejobs.do", method = RequestMethod.GET)
-	    public ModelAndView manageJobs(HttpSession session,HttpServletRequest request, HttpServletResponse response) {
+	    public ModelAndView manageJobs(HttpSession session,@ModelAttribute("addJobDto")AddJobDto addJobDto,BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 	    	if(session.getAttribute("userObject")!=null){
+	    		List<AddJobDto> addJobDtoList = new ArrayList<AddJobDto>();
 	    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
 	    		 if(userProfile.getUserType().equalsIgnoreCase("EMP")){
 	    			ModelAndView responseObj =new ModelAndView("manage-jobs");
 					responseObj.addObject("userType", "EMP");
+					
+					Long profileId=userProfile.getUserId();
+					List<EmployersJobDetails> jobDetails=emloyersService.getJobDetails(profileId);
+					if(jobDetails!=null && jobDetails.size()>0){
+						for (EmployersJobDetails employersJobDetails : jobDetails) {
+							AddJobDto addJobDto1 = mapper.map(employersJobDetails, AddJobDto.class);
+							String dat=DateUtil.getFormatBigEndianTimeWithDash(employersJobDetails.getClosing_date());
+							addJobDto1.setJobExpDate(dat);
+							addJobDto1.setEmployement_type(StaticMap.getJobTypeMap().get(addJobDto1.getEmployement_type()));
+							
+							addJobDtoList.add(addJobDto1);
+						}
+						
+						
+					}
+					responseObj.addObject("jobDetails", addJobDtoList);
+					
+					
 					return responseObj;
 				}
 	    	}else{
@@ -72,6 +97,40 @@ public class EmployersController {
 	    	return new ModelAndView("redirect:index.do");
 	        
 	    }
+	    
+	    @RequestMapping(value = "/managejobs.do", method = RequestMethod.POST)
+	    public ModelAndView manageJobsPost(HttpSession session,@ModelAttribute("addJobDto")AddJobDto addJobDto,HttpServletRequest request, HttpServletResponse response,BindingResult result, ModelMap model) {
+	    	if(session.getAttribute("userObject")!=null){
+	    		List<AddJobDto> addJobDtoList = new ArrayList<AddJobDto>();
+	    		UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
+	    		 if(userProfile.getUserType().equalsIgnoreCase("EMP")){
+	    			ModelAndView responseObj =new ModelAndView("manage-jobs");
+					responseObj.addObject("userType", "EMP");
+					
+					Long profileId=userProfile.getUserId();
+					List<EmployersJobDetails> jobDetails=emloyersService.getJobDetails(profileId);
+					if(jobDetails!=null && jobDetails.size()>0){
+						for (EmployersJobDetails employersJobDetails : jobDetails) {
+							AddJobDto addJobDto1 = mapper.map(employersJobDetails, AddJobDto.class);
+							addJobDto1.setJobExpDate(DateUtil.getFormatDate(employersJobDetails.getClosing_date(), "YYYY-DD-MM"));
+							addJobDtoList.add(addJobDto1);
+						}
+						
+						
+					}
+					responseObj.addObject("jobDetails", addJobDtoList);
+					
+					
+					return responseObj;
+				}
+	    	}else{
+	    		return new ModelAndView("redirect:my-account.do");
+	    	}
+	        
+	    	return new ModelAndView("redirect:index.do");
+	        
+	    }
+	    
 	    
 	    @RequestMapping(value = "/manageapplications.do", method = RequestMethod.GET)
 	    public ModelAndView manageApplications() {
@@ -105,7 +164,8 @@ public class EmployersController {
 	    		 
 	    	 }else{
 	    		 String jobTags=addJobDto.getTags();
-	    		 
+	    		 String jobExpDate=addJobDto.getJobExpDate();
+	    		 Date clsDate=DateUtil.convertStrDateToDate(jobExpDate);
 	    		 MultipartFile multipartFile = addJobDto.getFile();
 	    		 if(jobTags!=null){
 	    			 String[] parts = jobTags.split(",");
@@ -119,26 +179,19 @@ public class EmployersController {
 	    		 }
 	    		 
 	    		 UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
-	    		 
 	    		 EmployersJobDetails employersJobDetails = mapper.map(addJobDto, EmployersJobDetails.class);
-	    		 
-	    		
-	    		 try {
+	    		try {
 					employersJobDetails.setJd_file(multipartFile.getBytes());
 					employersJobDetails.setJob_tags(jobtag);
 					employersJobDetails.setUserId(userProfile.getUserId());
+					employersJobDetails.setClosing_date(clsDate);
 				} catch (IOException e) {
 					e.printStackTrace();
 					 logger.info("IOException===>>"+e.getMessage());
 				}
 	    		 employersJobDetails.setCrtTs(DateUtil.convertDate2SqlTimeStamp(new Date()));
 	    		 EmployersJobDetails obj= emloyersService.saveJobDetails(employersJobDetails);
-	    		 
-	    		 //FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File(UPLOAD_LOCATION + fileBucket.getFile().getOriginalFilename()));
-	 			//String fileName = multipartFile.getOriginalFilename();
-	 			
-	    		 
-	    		 
+	    			 
 	    	 }
 	        logger.debug("redirect to success page");
 	        return new ModelAndView("employer-add-job");

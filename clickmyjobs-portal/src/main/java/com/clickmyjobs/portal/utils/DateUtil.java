@@ -21,7 +21,7 @@ import org.joda.time.Years;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import com.bestinet.isc.sdk.constants.BaseConstants;
+
 
 public class DateUtil {
 	
@@ -294,13 +294,22 @@ public class DateUtil {
     }
     
     public static String getFormatBigEndianTimeWithDash(Date date){
-        String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-                SimpleDateFormat sdf =  new SimpleDateFormat(DATE_FORMAT);
-                if(date!=null){
-                   return sdf.format(date);
-                }else{
-                    return "";
-                }
+    	String dayString = date.toString();
+    	String datObj="";
+        SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+        Date tempDate;
+		try {
+			tempDate = simpledateformat.parse(dayString);
+			SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");           
+	        System.out.println("Output date is = "+outputDateFormat.format(tempDate));
+	        datObj=outputDateFormat.format(tempDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+    	
+    	return datObj;
     }
     
     public static String getFormatBigEndianWithDash(Date date){

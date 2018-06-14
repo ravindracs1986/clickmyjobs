@@ -1,5 +1,7 @@
 package com.clickmyjobs.portal.persist.repo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.jpa.repository.Query;
@@ -18,7 +20,9 @@ import com.clickmyjobs.portal.persist.entity.UserProfile;
 @Qualifier("emloyersServiceRepo")
 public interface EmloyersServiceRepo extends GenericRepository<EmployersJobDetails> {
 
-	/*@Query("select usr from UserProfile usr where usr.email = :email")
-	public UserProfile findbyEmail(@Param("email") String email);*/
+	@Query("select jobs from EmployersJobDetails jobs where jobs.userId = :userId")
+	public List<EmployersJobDetails> getJobDetails(@Param("userId") Long userId);
+	
+	
 
 }

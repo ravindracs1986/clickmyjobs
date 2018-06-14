@@ -67,6 +67,22 @@
 <link rel="stylesheet" type="text/css" href="assets/css/colors/red.css"
 	media="screen" />
 
+<style type="text/css">
+.selectClass {
+	margin: 2px 9px 0px 5px;
+}
+
+.inputclass {
+	border: none;
+	pointer-events: none;
+}
+
+.submClass {
+	margin: 2px 9px 0px 19px;
+	border-radius: 62px !important;
+	padding: 4px 30px !important;
+}
+</style>
 
 </head>
 <body>
@@ -154,117 +170,74 @@
 								<div class="col-md-3">
 									<p>Name</p>
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-2">
 									<p>Keywords</p>
 								</div>
-								<div class="col-md-3">
-									<p>Tags</p>
+								<div class="col-md-2">
+									<p>Job Exp Date</p>
 								</div>
-								<div class="col-md-3">
-									<p>Featured</p>
+								<div class="col-md-2">
+									<p style="margin: 3px 26px 10px 23px;">Options</p>
 								</div>
+								<div class="col-md-2">
+									<p style="margin: 3px 26px 10px 23px;">Action</p>
+								</div>
+								
 							</div>
 						</div>
-						<div class="alerts-content">
-							<div class="row">
-								<div class="col-md-3">
-									<h3>Web Designer</h3>
-									<span class="location"><i class="ti-location-pin"></i>
-										Manhattan, NYC</span>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<span class="full-time">Full-Time</span>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<div class="can-img">
-										<a href="#"><img src="assets/img/jobs/candidates.png"
-											alt=""></a>
+						
+						<c:if test="${not empty jobDetails}">
+
+								<ul>
+									<c:forEach var="jobDetail" items="${jobDetails}">
+									<div class="alerts-content">
+										<div class="row">
+										<form:form class="form-ad" modelAttribute="addJobDto" method="post" action="${pageContext.request.contextPath}/managejobs.do" enctype="multipart/form-data">
+											<div class="col-md-3">
+												<h3>${jobDetail.job_title}</h3>
+												<span class="location"><i class="ti-location-pin"></i>
+													${jobDetail.country},${jobDetail.city}</span>
+											</div>
+											<div class="col-md-2">
+												<p>
+													<span class="full-time">${jobDetail.employement_type}</span>
+												</p>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+												   <form:input type="text" class="inputclass" name="jobExpDate" id ="jobExpDate" path="jobExpDate" value="${jobDetail.jobExpDate}"/>
+												</div>
+											
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="search-category-container selectClass">
+														 <form:select
+															class="dropdown-product selectpicker styled-select" style="cursor: pointer;" id="option" name="option" path="option" multiple="true">
+																<form:option value="" selected="selected" disabled="disabled">-- select one --</form:option>
+															    <form:option value="DEL">DELETE</form:option>
+															    <form:option value="UPDT">UPDATE</form:option>
+															   
+														</form:select>
+													
+													</div>
+												</div>
+													
+											</div>
+											<div class="col-md-2">
+												<button class="btn btn-common submClass" type="submit">Submit</button>
+											
+											</div>
+											</form:form>
+											
+										</div>
 									</div>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<i class="ti-star"></i>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- <!-- <div class="alerts-content">
-							<div class="row">
-								<div class="col-md-3">
-									<h3>Web Designer</h3>
-									<span class="location"><i class="ti-location-pin"></i>
-										Manhattan, NYC</span>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<span class="full-time">Full-Time</span>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<div class="can-img">
-										<a href="#"><img src="assets/img/jobs/candidates.png"
-											alt=""></a>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<i class="ti-star"></i>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="alerts-content">
-							<div class="row">
-								<div class="col-md-3">
-									<h3>Web Designer</h3>
-									<span class="location"><i class="ti-location-pin"></i>
-										Manhattan, NYC</span>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<span class="full-time">Full-Time</span>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<div class="can-img">
-										<a href="#"><img src="assets/img/jobs/candidates.png"
-											alt=""></a>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<i class="ti-star"></i>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="alerts-content">
-							<div class="row">
-								<div class="col-md-3">
-									<h3>Web Designer</h3>
-									<span class="location"><i class="ti-location-pin"></i>
-										Manhattan, NYC</span>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<span class="full-time">Full-Time</span>
-									</p>
-								</div>
-								<div class="col-md-3">
-									<div class="can-img">
-										<a href="#"><img src="assets/img/jobs/candidates.png"
-											alt=""></a>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<p>
-										<i class="ti-star"></i>
-									</p>
-								</div>
-							</div>
-						</div> --> -->
+									</c:forEach>
+								</ul>
+						
+							</c:if>
+						
+						
 
 						<br>
 						<ul class="pagination">

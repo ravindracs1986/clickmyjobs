@@ -13,7 +13,7 @@ public class AddJobDto {
 	private String tags;
 	private String description;
 	private String application_email;
-	private String closing_date;
+	private String jobExpDate;
 	private String company_name;
 	private String company_website;
 	private String company_discription;
@@ -24,6 +24,7 @@ public class AddJobDto {
 	private String experience;
 	private String employement_type;
 	private String salary_rang;
+	private String option;
 	/*private byte[] company_logo;*/
 	
 	public Long getJobs_details_id() {
@@ -82,11 +83,12 @@ public class AddJobDto {
 	public void setApplication_email(String application_email) {
 		this.application_email = application_email;
 	}
-	public String getClosing_date() {
-		return closing_date;
+	
+	public String getJobExpDate() {
+		return jobExpDate;
 	}
-	public void setClosing_date(String closing_date) {
-		this.closing_date = closing_date;
+	public void setJobExpDate(String jobExpDate) {
+		this.jobExpDate = jobExpDate;
 	}
 	public String getCompany_name() {
 		return company_name;
@@ -143,5 +145,12 @@ public class AddJobDto {
 	public void setSalary_rang(String salary_rang) {
 		this.salary_rang = salary_rang;
 	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
+	}
 
+	
 }

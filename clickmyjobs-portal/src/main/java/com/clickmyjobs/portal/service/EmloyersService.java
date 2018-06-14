@@ -1,6 +1,8 @@
 package com.clickmyjobs.portal.service;
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,13 @@ public class EmloyersService extends com.clickmyjobs.portal.core.AbstractService
 		return jobDetail;
 	}	
 	
-	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<EmployersJobDetails> getJobDetails(Long profileId){
+		log.info("EmployersJobDetails saving sql ");
+		
+		
+		List<EmployersJobDetails> jobDetails= emloyersServiceRepo.getJobDetails(profileId);
+		return jobDetails;
+	}	
 
 }

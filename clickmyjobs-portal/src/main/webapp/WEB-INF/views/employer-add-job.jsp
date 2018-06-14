@@ -263,7 +263,7 @@
 										
 										 <div class="form-group">
 								             <label class="control-label">Application End Date</label>
-								                <form:input type='text' class="form-control" name="closing_date" id ="closing_date" path="closing_date"
+								                <form:input type='text' class="form-control" name="jobExpDate" id ="jobExpDate" path="jobExpDate"
 								                    placeholder="YYYY-MM-DD"/>
 								                    <!-- <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 								                    </span> -->
