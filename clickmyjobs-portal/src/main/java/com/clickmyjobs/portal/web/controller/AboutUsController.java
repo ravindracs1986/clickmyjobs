@@ -49,17 +49,7 @@ public class AboutUsController {
 	        logger.debug("redirect to success page");
 	        return new ModelAndView("job-details");
 	    }
-
-	    @RequestMapping(value = "/resume.do", method = RequestMethod.GET)
-	    public ModelAndView resume() {
-	    	System.out.println("jobalerts jobalerts##########");
-	        logger.debug("redirect to success page");
-	        return new ModelAndView("resume");
-	    }
 	    
-	    
-	   
-
 	    @RequestMapping(value = "/privacypolicy.do", method = RequestMethod.GET)
 	    public ModelAndView privacypolicy() {
 	    	System.out.println("jobalerts jobalerts##########");

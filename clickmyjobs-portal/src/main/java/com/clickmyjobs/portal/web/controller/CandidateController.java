@@ -111,6 +111,14 @@ public class CandidateController {
 	    	System.out.println("jobalerts jobalerts##########");
 	        logger.debug("redirect to success page");
 	        return new ModelAndView("candidate-profile");
-	    } 
+	    }
+	    
+	    
+	    @RequestMapping(value = "/resume.do", method = RequestMethod.GET)
+	    public ModelAndView resume() {
+	    	System.out.println("jobalerts jobalerts##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("resume");
+	    }
 	    
 }

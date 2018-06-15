@@ -37,8 +37,8 @@
 
 <!-- <link rel="stylesheet" href="assets/extras/settings.css" type="text/css"> -->
 
-<link rel="stylesheet" href="assets/extras/summernote.css"
-	type="text/css">
+<!-- <link rel="stylesheet" href="assets/extras/summernote.css"
+	type="text/css"> -->
 
 <link rel="stylesheet" href="assets/css/slicknav.css" type="text/css">
 
@@ -240,194 +240,195 @@
 			<div class="row">
 				<div class="col-md-9 col-md-offset-2">
 					<div class="page-ads box">
-						<div class="post-header">
+					<div class="post-header">
 							<p>
 								Already have an account? <a href="my-account.do">Click here
 									to login</a>
 							</p>
 						</div>
-						<form class="form-ad">
-							<div class="divider">
-								<h3>Basic information</h3>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Name</label> <input
-									type="text" class="form-control" placeholder="Name">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea"></label> <label
-									class="control-label" for="textarea">Email</label> <input
-									type="text" class="form-control" placeholder="Your@domain.com">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Profession
-									Title</label> <input type="text" class="form-control"
-									placeholder="Headline (e.g. Front-end developer)">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Location</label> <input
-									type="text" class="form-control" placeholder="Location, e.g">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Web</label> <input
-									type="text" class="form-control" placeholder="Website address">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Pre Hour</label> <input
-									type="text" class="form-control" placeholder="Salary, e.g. 85">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Age</label> <input
-									type="text" class="form-control" placeholder="Years old">
-							</div>
-							<div class="form-group">
-								<div class="button-group">
-									<div class="action-buttons">
-										<div class="upload-button">
-											<button class="btn btn-common">Choose a cover image</button>
-											<input id="cover_img_file" type="file">
+					
+							<form class="form-ad">
+								<div class="divider">
+									<h3>Basic information</h3>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Name</label> <input
+										type="text" class="form-control" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea"></label> <label
+										class="control-label" for="textarea">Email</label> <input
+										type="text" class="form-control"
+										placeholder="Your@domain.com">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Profession
+										Title</label> <input type="text" class="form-control"
+										placeholder="Headline (e.g. Front-end developer)">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Profile Description</label>
+									<textarea class="form-control" rows="7"></textarea>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label" for="textarea">Location</label>
+									<input type="text" class="form-control"
+										placeholder="Location, e.g">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Web</label> <input
+										type="text" class="form-control"
+										placeholder="Website address">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Salary Expectations</label>
+									<input type="text" class="form-control"
+										placeholder="Salary, e.g. 10000">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Notice Period</label> <input
+										type="text" class="form-control" placeholder="eg.30days">
+								</div>
+								
+								<div class="divider">
+									<h3>Education</h3>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label" for="textarea">Degree</label> <input
+										type="text" class="form-control"
+										placeholder="Degree, e.g. Bachelor">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Field of
+										Study</label> <input type="text" class="form-control"
+										placeholder="Major, e.g Computer Science">
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">School</label> <input
+										type="text" class="form-control"
+										placeholder="School name, e.g. Massachusetts Institute of Technology">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">From</label> <input
+												type="text" class="form-control" placeholder="e.g 2014">
+										</div>
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">To</label> <input
+												type="text" class="form-control" placeholder="e.g 2018">
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="divider">
-								<h3>Education</h3>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Degree</label> <input
-									type="text" class="form-control"
-									placeholder="Degree, e.g. Bachelor">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Field of
-									Study</label> <input type="text" class="form-control"
-									placeholder="Major, e.g Computer Science">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">School</label> <input
-									type="text" class="form-control"
-									placeholder="School name, e.g. Massachusetts Institute of Technology">
-							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">From</label> <input
-											type="text" class="form-control" placeholder="e.g 2014">
-									</div>
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">To</label> <input
-											type="text" class="form-control" placeholder="e.g 2018">
-									</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Description</label>
+									<textarea class="form-control" rows="7"></textarea>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Description</label>
-								<textarea class="form-control" rows="7"></textarea>
-							</div>
-							<div class="form-group">
-								<div class="button-group">
-									<div class="action-buttons">
-										<div class="upload-button">
-											<button class="btn btn-common">Choose a cover Logo</button>
-											<input id="cover_img_file" type="file">
+								
+								<!-- <div class="add-post-btn">
+									<div class="pull-left">
+										<a href="#" class="btn-added" id="eduId"><i class="ti-plus"></i>
+											Add New Education</a>
+									</div>
+									<div class="pull-right">
+										<a href="#" class="btn-delete"><i class="ti-trash"></i>
+											Delete This</a>
+									</div>
+								</div> -->
+								
+								<div class="divider">
+									<h3>Work Experience</h3>
+								</div>
+								<div class='element' id='div_1'><!-- loop started -->
+								<div class="form-group">
+									<label class="control-label" for="textarea">Company
+										Name</label> <input type="text" class="form-control"
+										placeholder="Company name" id="txt_1"/>
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Title</label> <input
+										type="text" class="form-control"
+										placeholder="e.g UI/UX Researcher" id="txt_1">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">Date
+												Form</label> <input type="text" class="form-control"
+												placeholder="e.g 2014" id="txt_1">
+										</div>
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">Date
+												To</label> <input type="text" class="form-control"
+												placeholder="e.g 2018" id="txt_1">
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="add-post-btn">
-								<div class="pull-left">
-									<a href="#" class="btn-added"><i class="ti-plus"></i> Add
-										New Education</a>
+								<div class="form-group">
+									<label class="control-label" for="textarea">Description</label>
+									<textarea class="form-control" rows="7" id="txt_1"></textarea>
 								</div>
-								<div class="pull-right">
-									<a href="#" class="btn-delete"><i class="ti-trash"></i>
-										Delete This</a>
+								<div class="form-group">
+								<!-- <label class="control-label" for="textarea">Description</label> -->
+									<%-- <form:checkbox path="favLanguages" value="Current_Job"/>Current Job  --%>
+									<input type="checkbox" name="current_job" id ="txt_1" value="Current_Job" />Current Job
 								</div>
-							</div>
-							<div class="divider">
-								<h3>Work Experience</h3>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Company Name</label>
-								<input type="text" class="form-control"
-									placeholder="Company name">
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Title</label> <input
-									type="text" class="form-control"
-									placeholder="e.g UI/UX Researcher">
-							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">Date Form</label>
-										<input type="text" class="form-control" placeholder="e.g 2014">
+								<div class="add-post-btn">
+									<div class="pull-left">
+										<a href="#" class="btn-added" id="workExpAddId"><i class="ti-plus"></i>
+											Add New Experience</a>
 									</div>
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">Date To</label> <input
-											type="text" class="form-control" placeholder="e.g 2018">
-									</div>
+									<!-- <div class="pull-right">
+										<a href="#" class="btn-delete" id="workExpDeleteId"><i class="ti-trash"></i>
+											Delete This</a>
+									</div> -->
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label" for="textarea">Description</label>
-							</div>
-							<section id="editor" style="margin-bottom: 30px;">
-								<div id="summernote">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit. Rem quia aut modi fugit, ratione saepe perferendis odio
-										optio repellat dolorum voluptas excepturi possimus similique
-										veritatis nobis. Provident cupiditate delectus, optio?</p>
+								</div> <!-- one loop close -->
+								
+								<div class="divider">
+									<h3>Skills</h3>
 								</div>
-							</section>
-							<div class="form-group">
-								<div class="button-group">
-									<div class="action-buttons">
-										<div class="upload-button">
-											<button class="btn btn-common">Choose a cover Logo</button>
-											<input id="cover_img_file" type="file">
+								<div class='skill_element' id='skill_1'><!-- loop started -->
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">Skill
+												Name</label> <input class="form-control"
+												placeholder="Skill name, e.g. HTML" type="text">
+										</div>
+										<div class="col-md-6">
+											<label class="control-label" for="textarea">%
+												(1-100)</label> <input class="form-control"
+												placeholder="Skill proficiency, e.g. 90" type="text">
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="add-post-btn">
-								<div class="pull-left">
-									<a href="#" class="btn-added"><i class="ti-plus"></i> Add
-										New Experience</a>
-								</div>
-								<div class="pull-right">
-									<a href="#" class="btn-delete"><i class="ti-trash"></i>
-										Delete This</a>
-								</div>
-							</div>
-							<div class="divider">
-								<h3>Skills</h3>
-							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">Skill Name</label>
-										<input class="form-control"
-											placeholder="Skill name, e.g. HTML" type="text">
+								<div class="add-post-btn">
+									<div class="pull-left">
+										<a href="#" class="btn-added" id="skillAddId"><i class="ti-plus"></i>
+											Add New Skills</a>
 									</div>
-									<div class="col-md-6">
-										<label class="control-label" for="textarea">% (1-100)</label>
-										<input class="form-control"
-											placeholder="Skill proficiency, e.g. 90" type="text">
+									<!-- <div class="pull-right">
+										<a href="#" class="btn-delete"><i class="ti-trash"></i>
+											Delete This</a>
+									</div> -->
+								</div>
+								</div><!-- one loop close -->
+								<div class="form-group">
+									<div class="button-group">
+										<div class="action-buttons">
+											<div class="upload-button">
+												<button class="btn btn-common">Update Resume</button>
+												<input id="cover_img_file" type="file">
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="add-post-btn">
-								<div class="pull-left">
-									<a href="#" class="btn-added"><i class="ti-plus"></i> Add
-										New Skills</a>
-								</div>
-								<div class="pull-right">
-									<a href="#" class="btn-delete"><i class="ti-trash"></i>
-										Delete This</a>
-								</div>
-							</div>
-						</form>
+								
+								
+							</form>
 						<a href="resume.do" class="btn btn-common">Save</a>
 					</div>
 				</div>
@@ -553,16 +554,81 @@
 		src="assets/js/jquery.themepunch.revolution.min.js"></script>
 	<script type="text/javascript"
 		src="assets/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="assets/js/summernote.js"></script>
-	<script>
-      $(document).ready(function() {
-          $('#summernote').summernote({
-            height: 250,                 // set editor height
-            minHeight: null,             // set minimum height of editor
-            maxHeight: null,             // set maximum height of editor
-            focus: true                  // set focus to editable area after initializing summernote
-          });
-      });
-    </script>
+	
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	$("#workExpAddId").click(function(event){
+        	 event.preventDefault();
+            // Finding total number of elements added
+            var total_element = $(".element").length;
+                        
+            // last <div> with element class id
+            var lastid = $(".element:last").attr("id");
+            var split_id = lastid.split("_");
+            var nextindex = Number(split_id[1]) + 1;
+
+            var max = 5;
+            // Check total number elements
+            if(total_element < max ){
+                // Adding new div container after last occurance of element class
+                $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+              $("#div_" + nextindex).append("<div class='form-group'> <label class='control-label' for='textarea'>Company Name</label> <input type='text' class='form-control' placeholder='Company name'></div>").append(
+    		"<div class='form-group'> <label class='control-label' for='textarea'>Title</label> <input type='text' class='form-control' placeholder='e.g UI/UX Researcher'></div>").append(
+    				"<div class='form-group'><div class='row'><div class='col-md-6'><label class='control-label' for='textarea'>Date Form</label> <input type='text' class='form-control'placeholder='e.g 2014'></div><div class='col-md-6'><label class='control-label' for='textarea'>DateTo</label> <input type='text' class='form-control'placeholder='e.g 2018'></div></div></div>").append(
+    						"<div class='form-group'><label class='control-label' for='textarea'>Description</label><textarea class='form-control' rows='7'></textarea></div>").append(
+    								"&nbsp;<div class='add-post-btn'><div class='pull-right'><a href='#' class='btn-delete remove' id='workExpDeleteId'><i class='ti-trash'></i>Delete This</a></div></div>");			
+
+    			 
+            }
+        	
+        	
+        });
+       
+    	
+    	$('.page-ads').on('click','.remove',function(event){
+    		event.preventDefault();
+            var lastid = $(".element:last").attr("id");
+            //var id = this.id;
+            var split_id = lastid.split("_");
+            var deleteindex = split_id[1];
+
+            // Remove <div> with id
+            $("#div_" + deleteindex).remove();
+        });
+    	
+       
+    	
+    	$("#skillAddId").click(function(event){
+    		event.preventDefault();
+        	 var skill_total_element = $(".skill_element").length;
+        	 var last_skill_id = $(".skill_element:last").attr("id");
+             var skill_split_id = last_skill_id.split("_");
+             var skillindex = Number(skill_split_id[1]) + 1;
+             //alert("add one more row--"+skill_total_element+"skillindex-->"+skillindex);
+             var maxValue = 5;
+             if(skill_total_element < maxValue ){
+            	 $(".skill_element:last").after("<div class='skill_element' id='skill_"+ skillindex +"'></div>");
+            	 $("#skill_" + skillindex).append("<div class='form-group'><div class='row'><div class='col-md-6'><label class='control-label' for='textarea'>SkillName</label> <input class='form-control' placeholder='Skill name, e.g. HTML' type='text'></div><div class='col-md-6'><label class='control-label' for='textarea'>%(1-100)</label> <input class='form-control' placeholder='Skill proficiency, e.g. 90' type='text'></div></div></div><div class='add-post-btn'><div class='pull-right'><a href='#' class='btn-delete skillDelete'><i class='ti-trash'></i>Delete This</a></div></div>")
+             }
+        	 
+    	
+    	 });
+    	
+      $('.page-ads').on('click','.skillDelete',function(event){
+    	  event.preventDefault();
+            var lastid = $(".skill_element:last").attr("id");
+            //var id = this.id;
+            var split_id = lastid.split("_");
+            var deleteindex = split_id[1];
+
+            // Remove <div> with id
+            $("#skill_" + deleteindex).remove();
+        });
+    	
+    	
+    });    
+</script>
+    
 </body>
 </html>
