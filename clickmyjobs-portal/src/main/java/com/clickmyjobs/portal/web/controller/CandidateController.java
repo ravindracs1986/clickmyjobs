@@ -24,6 +24,7 @@ import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.dto.AddJobDto;
 import com.clickmyjobs.portal.service.dto.AddResumeDto;
 import com.clickmyjobs.portal.service.dto.SkillsDto;
+import com.clickmyjobs.portal.service.dto.WorkExpDto;
 
 
 
@@ -165,10 +166,21 @@ public class CandidateController {
 	    
 	    private AddResumeDto getDummySkillsListContainer() {
 	        List<SkillsDto> skillsList = new ArrayList<SkillsDto>();
+	        List<WorkExpDto> workExpList = new ArrayList<WorkExpDto>();
 	        for( int i=0; i<1; i++ ) {
-	        	skillsList.add( new SkillsDto() );
+	        	skillsList.add( new SkillsDto());
+	        	workExpList.add( new WorkExpDto());
 	        }
-	        return new AddResumeDto(skillsList);
+	        return new AddResumeDto(skillsList,workExpList);
 	    }
+	    
+	   /* private AddResumeDto getDummyWorkExpListContainer() {
+	        List<WorkExpDto> workExpList = new ArrayList<WorkExpDto>();
+	        for( int i=0; i<1; i++ ) {
+	        	workExpList.add( new WorkExpDto() );
+	        }
+	        return new AddResumeDto(workExpList);
+	    }*/
+	    
 	    
 }

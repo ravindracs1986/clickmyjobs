@@ -21,7 +21,7 @@ public class AddResumeDto {
 	private SkillsDto skill;
 	private List<SkillsDto> skillsList = new LinkedList<SkillsDto>();
 	//private List<SkillsDto> skills;
-	private List<WorkExpDto> workExps;
+	private List<WorkExpDto> workExpsList = new LinkedList<WorkExpDto>();
 	private WorkExpDto workExp;
 	
 	private Long userId;
@@ -34,7 +34,10 @@ public class AddResumeDto {
 		this.skillsList = skillsList;
 	}
 
-
+	public AddResumeDto(List<SkillsDto> skillsList,List<WorkExpDto> workExpsList) {
+		this.skillsList = skillsList;
+		this.workExpsList = workExpsList;
+	}
 
 	public Long getResume_id() {
 		return resume_id;
@@ -126,26 +129,20 @@ public class AddResumeDto {
 		this.education = education;
 	}
 
-	
-
 	public List<SkillsDto> getSkillsList() {
 		return skillsList;
 	}
-
-
 
 	public void setSkillsList(List<SkillsDto> skillsList) {
 		this.skillsList = skillsList;
 	}
 
-
-
-	public List<WorkExpDto> getWorkExps() {
-		return workExps;
+	public List<WorkExpDto> getWorkExpsList() {
+		return workExpsList;
 	}
 
-	public void setWorkExps(List<WorkExpDto> workExps) {
-		this.workExps = workExps;
+	public void setWorkExpsList(List<WorkExpDto> workExpsList) {
+		this.workExpsList = workExpsList;
 	}
 	public SkillsDto getSkill() {
 		return skill;

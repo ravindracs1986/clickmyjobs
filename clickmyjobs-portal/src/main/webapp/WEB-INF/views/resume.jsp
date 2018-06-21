@@ -360,51 +360,92 @@
 											<div class="divider">
 												<h3>Work Experience</h3>
 											</div>
-											<%-- <div class='element' id='div_1'><!-- loop started -->
+											
+											<!-- loop started -->
 												<div class="form-group">
 													<label class="control-label" for="textarea">Company
-														Name</label> <input type="text" class="form-control"
-														placeholder="Company name" id="txt_1"/>
+														Name</label> <form:input type="text" class="form-control"
+														placeholder="Company name" name="workExp.company_name" id="workExp.company_name" path="workExp.company_name"/>
 												</div>
 												<div class="form-group">
-													<label class="control-label" for="textarea">Title</label> <input
+													<label class="control-label" for="textarea">Title</label> <form:input
 														type="text" class="form-control"
-														placeholder="e.g UI/UX Researcher" id="txt_1">
+														placeholder="e.g UI/UX Researcher" name="workExp.title" id="workExp.title" path="workExp.title"/>
 												</div>
 												<div class="form-group">
 													<div class="row">
 														<div class="col-md-6">
 															<label class="control-label" for="textarea">Date
-																Form</label> <input type="text" class="form-control"
-																placeholder="e.g 2014" id="txt_1">
+																Form</label> <form:input type="text" class="form-control"
+																placeholder="e.g 2014" name="workExp.date_form" id="workExp.date_form" path="workExp.date_form"/>
 														</div>
 														<div class="col-md-6">
 															<label class="control-label" for="textarea">Date
-																To</label> <input type="text" class="form-control"
-																placeholder="e.g 2018" id="txt_1">
+																To</label> <form:input type="text" class="form-control"
+																placeholder="e.g 2018" name="workExp.date_to" id="workExp.date_to" path="workExp.date_to"/>
 														</div>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="control-label" for="textarea">Description</label>
-													<textarea class="form-control" rows="7" id="txt_1"></textarea>
+													<form:textarea class="form-control" rows="7" name="workExp.description" id="workExp.description" path="workExp.description"/>
 												</div>
 												<div class="form-group">
 												<!-- <label class="control-label" for="textarea">Description</label> -->
-													<form:checkbox path="favLanguages" value="Current_Job"/>Current Job 
-													<input type="checkbox" name="current_job" id ="txt_1" value="Current_Job" />Current Job
+													<form:checkbox path="workExp.current_job" name="workExp.current_job" id="workExp.current_job" value="Current_Job"/>Current Job 
+													<!-- <input type="checkbox" name="current_job" id ="txt_1" value="Current_Job" />Current Job -->
 												</div>
 												<div class="add-post-btn">
 													<div class="pull-left">
 														<a href="#" class="btn-added" id="workExpAddId"><i class="ti-plus"></i>
 															Add New Experience</a>
 													</div>
-													<!-- <div class="pull-right">
-														<a href="#" class="btn-delete" id="workExpDeleteId"><i class="ti-trash"></i>
-															Delete This</a>
-													</div> -->
+													
 												</div>
-												</div> --%> <!-- one loop close -->
+												<!-- one loop close -->
+											
+											<!-- list logic -->
+											
+											<!-- singal object ends -->
+											<div id="wrkExpListContainers">
+											 <c:forEach items="${addResumeDto.workExpsList}" var="WorkExpDto" varStatus="i"  begin="0">
+											<div class='workExpsClass'>
+												<div class="form-group">
+													<label class="control-label" for="textarea">Company
+														Name</label> <form:input type="text" class="form-control"
+														placeholder="Company name" path="workExpsList[${i.index}].company_name" id="company_name${i.index}" />
+												</div>
+												<div class="form-group">
+													<label class="control-label" for="textarea">Title</label> <form:input
+														type="text" class="form-control"
+														placeholder="e.g UI/UX Researcher" path="workExpsList[${i.index}].title" id="title${i.index}" />
+												</div>
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-6">
+															<label class="control-label" for="textarea">Date
+																Form</label> <form:input type="text" class="form-control"
+																placeholder="YYYY-MM-DD" path="workExpsList[${i.index}].date_form" id="date_form${i.index}" />
+														</div>
+														<div class="col-md-6">
+															<label class="control-label" for="textarea">Date
+																To</label> <form:input type="text" class="form-control"
+																placeholder="YYYY-MM-DD" path="workExpsList[${i.index}].date_to" id="date_to${i.index}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="control-label" for="textarea">Description</label>
+													<form:textarea class="form-control" rows="7" id="description${i.index}" path="workExpsList[${i.index}].description"/>
+												</div>
+												<div class="add-post-btn">
+													<div class="pull-right">
+														<a href="#" class="btn-delete workExpDeleteClass"><i class="ti-trash"></i>Delete This</a>
+													</div>
+												</div>
+											</div>
+											</c:forEach>
+											</div><br><br>
 											
 											
 											<div class="divider">
@@ -438,32 +479,29 @@
 											
 											<!-- singal object ends -->
 											<div id="skillListContainers">
-											 <c:forEach items="${addResumeDto.skillsList}" var="SkillsDto" varStatus="i"  begin="0">
-											<div class='skillClass'>
-												<div class="form-group">
-													<div class="row">
-														<div class="col-md-5">
-															<label class="control-label" for="textarea">Skill Name</label> 
-															<form:input class="form-control" placeholder="Skill name, e.g. HTML" 
-																path="skillsList[${i.index}].skill_Name" id="skill_Name${i.index}"/>
+												 <c:forEach items="${addResumeDto.skillsList}" var="SkillsDto" varStatus="i"  begin="0">
+													<div class='skillClass'>
+														<div class="form-group">
+															<div class="row">
+																<div class="col-md-5">
+																	<label class="control-label" for="textarea">Skill Name</label> 
+																	<form:input class="form-control" placeholder="Skill name, e.g. HTML" 
+																		path="skillsList[${i.index}].skill_Name" id="skill_Name${i.index}"/>
+																</div>
+																<div class="col-md-5">
+																	<label class="control-label" for="textarea">Percentage</label>
+																	<form:input class="form-control" placeholder="Skill proficiency, e.g. 90" 
+																	path="skillsList[${i.index}].skill_percentage" id="skill_percentage${i.index}"/>
+																</div>
+																
+																<div class="pull-right col-md-2 " style="margin-top: 36px;">
+																	<a href="#" class="btn-delete removeSkill"><i class="ti-trash"></i>Delete This</a>
+																</div>
+																
+															</div>
 														</div>
-														<div class="col-md-5">
-															<label class="control-label" for="textarea">Percentage</label>
-															<form:input class="form-control" placeholder="Skill proficiency, e.g. 90" 
-															path="skillsList[${i.index}].skill_percentage" id="skill_percentage${i.index}"/>
-														</div>
-														
-														<div class="pull-right col-md-2" style="margin-top: 36px;">
-															<a href="#" class="btn-delete removeSkill"><i class="ti-trash"></i>Delete This</a>
-														</div>
-														
 													</div>
-												</div>
-												
-											
-											
-											</div>
-											</c:forEach>
+												</c:forEach>
 											</div><br><br>
 											
 											<div class="form-group">
@@ -548,23 +586,9 @@
 	
 </script>
 <script src="assets/js/skills_list_helper.js" type="text/javascript"></script>
+<script src="assets/js/workExp_list_helper.js" type="text/javascript"></script>
 <script type="text/javascript">
-	/* $(document).ready(function(){
-	 var userTypeValue = $("#userType").val();
-	 if(userTypeValue=='EMP'){
-	 $("#empId").show();
-	 $("#balanceId").show();
-	 $("#canId").hide();
-	 }else{
-	 $("#canId").show();
-	 $("#empId").hide();
-	 $("#balanceId").hide();
 	
-	 }
-	
-	
-
-	 }); */
 	$(document).ready(function() {
 		$("#abotClick").click(function() {
 
@@ -597,12 +621,14 @@
                // $("#txt_name").val()
                 //$("#txt_name").attr('value')
                 $(rowElement).find("input").val('');
+                event.preventDefault();
                 //may want to reset <select> options etc
                 
                 //in fact you may want to submit the form
                 //saveNeeded();
             }
             function rowRemoved(rowElement) {
+            	event.preventDefault();
                // saveNeeded();
                 //alert( "Removed Row HTML:\n" + $(rowElement).html() );
             }
@@ -639,5 +665,32 @@
             });
         </script>
 
+		<script type="text/javascript">
+            function rowAdded(rowElement) {
+                $(rowElement).find("input").val('');
+                event.preventDefault();
+            }
+            function rowRemoved(rowElement) {
+            	event.preventDefault();
+               // saveNeeded();
+                //alert( "Removed Row HTML:\n" + $(rowElement).html() );
+            }
+            $(document).ready( function() {
+            	//skills_list_helper
+                var config = {
+                    rowClass : 'workExpsClass',
+                    addRowId : 'workExpAddId',
+                    removeRowClass : 'workExpDeleteClass',
+                    formId : 'addResumeDtoId',
+                    rowContainerId : 'wrkExpListContainers',
+                    indexedPropertyName : 'workExpsList',
+                    indexedPropertyMemberNames : 'company_name,title,date_form,date_to,description',
+                    rowAddedListener : rowAdded,
+                    rowRemovedListener : rowRemoved,
+                    //beforeSubmit : beforeSubmit
+                };
+                new WorkExpListHelper(config);
+            });
+        </script>
 
 </html>
