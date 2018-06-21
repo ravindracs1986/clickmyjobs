@@ -1,6 +1,8 @@
 package com.clickmyjobs.portal.web.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +33,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.service.UserProfileService;
+import com.clickmyjobs.portal.service.dto.Person;
+import com.clickmyjobs.portal.service.dto.PersonListContainer;
 import com.clickmyjobs.portal.service.dto.UserFormDto;
 import com.clickmyjobs.portal.service.dto.UserLoginDto;
 import com.clickmyjobs.portal.utils.DateUtil;
@@ -336,6 +340,47 @@ public class HomeController {
      	}
     	 return prof;
     }
+    
+    
+   /* @RequestMapping("/test")
+    public String index(
+            ModelMap map, 
+            HttpSession session, 
+            HttpServletRequest request, 
+            @RequestParam(value="f", required=false) String flush,
+            @RequestParam(value="message", required=false) String message ) {
+        
+        if( flush != null )
+            session.setAttribute("personListContainer", getDummyPersonListContainer());
+        if( session.getAttribute("personListContainer") == null )
+            session.setAttribute("personListContainer", getDummyPersonListContainer());
+        map.addAttribute("personListContainer", (PersonListContainer)session.getAttribute("personListContainer"));
+        if( message != null )
+            map.addAttribute("message", message);
+        map.addAttribute("cp", request.getContextPath());
+        
+        return "test";
+    }
+    
+    
+    @RequestMapping(value="/editpersonlistcontainer", method= RequestMethod.POST)
+    public String editpersonListContainer(@ModelAttribute PersonListContainer personListContainer, HttpSession session) {
+        for( Person p : personListContainer.getPersonList() ) {
+            System.out.println("Name: " + p.getName());
+            System.out.println("Age: " + p.getAge());
+        }
+        session.setAttribute("personListContainer",personListContainer);
+        return "redirect:/?message=Form Submitted Ok. Number of rows is: ["+personListContainer.getPersonList().size()+"]";
+    }
+    
+    private PersonListContainer getDummyPersonListContainer() {
+        List<Person> personList = new ArrayList<Person>();
+        for( int i=0; i<1; i++ ) {
+            personList.add( new Person());
+        }
+        return new PersonListContainer(personList);
+    }*/
+    
 }    
 
  

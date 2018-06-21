@@ -1,5 +1,10 @@
 package com.clickmyjobs.portal.web.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.dozer.DozerBeanMapper;
@@ -8,11 +13,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.clickmyjobs.portal.persist.entity.UserProfile;
+import com.clickmyjobs.portal.service.dto.AddJobDto;
+import com.clickmyjobs.portal.service.dto.AddResumeDto;
+import com.clickmyjobs.portal.service.dto.SkillsDto;
 
 
 
@@ -33,12 +44,22 @@ public class CandidateController {
 	    
 	    
 	    @RequestMapping(value = "/addResume.do", method = RequestMethod.GET)
-	    public ModelAndView addResume() {
+	    public ModelAndView addResume(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
+	    	      BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 	    	System.out.println("addResume homeee##########");
 	        logger.debug("redirect to success page");
 	        return new ModelAndView("add-resume");
 	    }
 
+	    @RequestMapping(value = "/addResume.do", method = RequestMethod.POST)
+	    public ModelAndView addResumes(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
+	    	      BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+	    	System.out.println("addResume homeee##########");
+	        logger.debug("redirect to success page");
+	        return new ModelAndView("add-resume");
+	    }
+	    
+	    
 	    @RequestMapping(value = "/jobalerts.do", method = RequestMethod.GET)
 	    public ModelAndView jobalerts() {
 	    	System.out.println("jobalerts jobalerts##########");
@@ -115,10 +136,39 @@ public class CandidateController {
 	    
 	    
 	    @RequestMapping(value = "/resume.do", method = RequestMethod.GET)
-	    public ModelAndView resume() {
+	    public String resume(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
+	    	      BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 	    	System.out.println("jobalerts jobalerts##########");
+	    	session.setAttribute("addResumeDto", getDummySkillsListContainer());
+	    	if( session.getAttribute("addResumeDto") == null )
+	            session.setAttribute("addResumeDto", getDummySkillsListContainer());
+	    	model.addAttribute("addResumeDto", (AddResumeDto)session.getAttribute("addResumeDto"));
+	    	
+	    	model.addAttribute("cp", request.getContextPath());
+	        logger.info("redirect to success page"+request.getContextPath());
+	        return "resume";
+	        //return new ModelAndView("resume");
+	    }
+	    
+	    @RequestMapping(value = "/resume.do", method = RequestMethod.POST)
+	    public ModelAndView SubmitResume(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
+	    	      BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+	    	System.out.println("jobalerts jobalerts##########");
+	    	for( SkillsDto p : addResumeDto.getSkillsList() ) {
+	            //System.out.println("Name: " + p.getName());
+	            //System.out.println("Age: " + p.getAge());
+	        }
+	    	 session.setAttribute("addResumeDto",addResumeDto);
 	        logger.debug("redirect to success page");
 	        return new ModelAndView("resume");
+	    }
+	    
+	    private AddResumeDto getDummySkillsListContainer() {
+	        List<SkillsDto> skillsList = new ArrayList<SkillsDto>();
+	        for( int i=0; i<1; i++ ) {
+	        	skillsList.add( new SkillsDto() );
+	        }
+	        return new AddResumeDto(skillsList);
 	    }
 	    
 }
