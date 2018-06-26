@@ -1,14 +1,29 @@
 package com.clickmyjobs.portal.service.dto;
 
+import java.util.Date;
+
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.clickmyjobs.portal.utils.JsonDateSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class EducationDto {
 	
 	private Long education_id;
 	private String degree;
 	private String field_of_Study;
 	private String school_or_college;
+	//@JsonSerialize(using=JsonDateSerializer.class)
+	//@JsonFormat(shape = JsonFormat.Shape.STRING,pattern="YYYY-MM-DD")
 	private String from_date;
+	//@JsonSerialize(using=JsonDateSerializer.class)
+	//@JsonFormat(shape = JsonFormat.Shape.STRING,pattern="YYYY-MM-DD")
 	private String to_date;
 	private String description;
 	private Long userId;
@@ -36,6 +51,25 @@ public class EducationDto {
 	public void setSchool_or_college(String school_or_college) {
 		this.school_or_college = school_or_college;
 	}
+	
+	
+	/*public Date getFrom_date() {
+		return from_date;
+	}
+	public void setFrom_date(Date from_date) {
+		this.from_date = from_date;
+	}
+	public Date getTo_date() {
+		return to_date;
+	}
+	public void setTo_date(Date to_date) {
+		this.to_date = to_date;
+	}*/
+	
+	
+	public String getDescription() {
+		return description;
+	}
 	public String getFrom_date() {
 		return from_date;
 	}
@@ -47,9 +81,6 @@ public class EducationDto {
 	}
 	public void setTo_date(String to_date) {
 		this.to_date = to_date;
-	}
-	public String getDescription() {
-		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;

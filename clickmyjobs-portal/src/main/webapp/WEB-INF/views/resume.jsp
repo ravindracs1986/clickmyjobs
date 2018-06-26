@@ -377,12 +377,12 @@
 														<div class="col-md-6">
 															<label class="control-label" for="textarea">Date
 																Form</label> <form:input type="text" class="form-control"
-																placeholder="e.g 2014" name="workExp.date_form" id="workExp.date_form" path="workExp.date_form"/>
+																placeholder="YYYY-MM-DD" name="workExp.date_form" id="workExp.date_form" path="workExp.date_form"/>
 														</div>
 														<div class="col-md-6">
 															<label class="control-label" for="textarea">Date
 																To</label> <form:input type="text" class="form-control"
-																placeholder="e.g 2018" name="workExp.date_to" id="workExp.date_to" path="workExp.date_to"/>
+																placeholder="YYYY-MM-DD" name="workExp.date_to" id="workExp.date_to" path="workExp.date_to"/>
 														</div>
 													</div>
 												</div>
@@ -511,7 +511,7 @@
 															<label for="file-upload" class="custom-file-upload">
 				    											<i class="fa fa-cloud-upload"></i> Upload Resume
 				 											 </label>
-															<form:input id="file-upload" type="file" name="resume" path="resume" class="form-control input-sm" style="display:none;"/>
+															<form:input id="file-upload" type="file" name="resumeFile" path="resumeFile" class="form-control input-sm" style="display:none;"/>
 														</div>
 													</div>
 												</div>

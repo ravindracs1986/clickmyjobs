@@ -1,13 +1,28 @@
 package com.clickmyjobs.portal.service.dto;
 
+import java.util.Date;
+
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.clickmyjobs.portal.utils.JsonDateSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class WorkExpDto {
 	
 	private Long work_experience_id;
 	private String company_name;
 	private String title;
+	//@JsonSerialize(using=JsonDateSerializer.class)
+	//@JsonFormat(shape = JsonFormat.Shape.STRING,pattern="YYYY-MM-DD")
 	private String date_form;
+	//@JsonSerialize(using=JsonDateSerializer.class)
+	//@JsonFormat(shape = JsonFormat.Shape.STRING,pattern="YYYY-MM-DD")
 	private String date_to;
 	private String description;
 	private String current_job;
@@ -30,6 +45,26 @@ public class WorkExpDto {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	
+	/*public Date getDate_form() {
+		return date_form;
+	}
+	public void setDate_form(Date date_form) {
+		this.date_form = date_form;
+	}
+	public Date getDate_to() {
+		return date_to;
+	}
+	public void setDate_to(Date date_to) {
+		this.date_to = date_to;
+	}*/
+	
+	
+	
+	public String getDescription() {
+		return description;
+	}
 	public String getDate_form() {
 		return date_form;
 	}
@@ -41,9 +76,6 @@ public class WorkExpDto {
 	}
 	public void setDate_to(String date_to) {
 		this.date_to = date_to;
-	}
-	public String getDescription() {
-		return description;
 	}
 	public void setDescription(String description) {
 		this.description = description;
