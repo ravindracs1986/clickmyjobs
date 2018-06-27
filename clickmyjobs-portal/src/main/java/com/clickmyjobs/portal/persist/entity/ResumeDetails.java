@@ -16,6 +16,8 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.clickmyjobs.portal.core.AbstractEntity;
+import com.clickmyjobs.portal.utils.DateUtil;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -65,8 +67,8 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 	@Column(name = "notice_period", nullable = false)
 	private String notice_period;
 
-	@Column(name = "resume", nullable = false)
-	private byte[] resume;
+	@Column(name = "resume_file", nullable = false)
+	private byte[] resume_file;
 
 	@Column(name = "visible", nullable = false)
 	private String visible;
@@ -78,18 +80,25 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 	private Timestamp crtTs;
 
 	//@OneToOne(mappedBy = "resumeEducationDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@OneToOne(mappedBy = "details", cascade = CascadeType.ALL, 
+            fetch = FetchType.LAZY, optional = false)
 	private EducationDetails educationDetails;
-	@Transient
+	/*@Transient
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "skillResume")
+	@ElementCollection(targetClass=SkillsDetails.class)
 	private List<SkillsDetails> skillsDetails = new ArrayList<SkillsDetails>(0);
+	
 	@Transient
-	private List<WorkExpDetails> workExpDetails = new ArrayList<WorkExpDetails>(0);
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "resumeDetails")
+	@ElementCollection(targetClass=WorkExpDetails.class)
+	private List<WorkExpDetails> workExpDetails = new ArrayList<WorkExpDetails>(0);*/
 	
 	public ResumeDetails(){}
 	
 
 	public ResumeDetails(String profession_title, String profile_description, String location, String web,
-			String salary_expectations, String notice_period, byte[] resume, String visible, Long userId,
-			Timestamp crtTs, EducationDetails educationDetails, List<SkillsDetails> skillsDetails,
+			String salary_expectations, String notice_period, byte[] resume_file, String visible, Long userId,
+			Timestamp crtTs, List<SkillsDetails> skillsDetails,
 			List<WorkExpDetails> workExpDetails) {
 		this.profession_title = profession_title;
 		this.profile_description = profile_description;
@@ -97,13 +106,13 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 		this.web = web;
 		this.salary_expectations = salary_expectations;
 		this.notice_period = notice_period;
-		this.resume = resume;
+		this.resume_file = resume_file;
 		this.visible = visible;
 		this.userId = userId;
 		this.crtTs = crtTs;
-		this.educationDetails = educationDetails;
-		this.skillsDetails = skillsDetails;
-		this.workExpDetails = workExpDetails;
+		//this.educationDetails = educationDetails;
+		//this.skillsDetails = skillsDetails;
+		//this.workExpDetails = workExpDetails;
 	}
 
 	public Long getUserId() {
@@ -115,7 +124,7 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 	}
 
 	public Timestamp getCrtTs() {
-		return crtTs;
+		return DateUtil.convertDate2SqlTimeStamp(new Date());
 	}
 
 	public void setCrtTs(Timestamp crtTs) {
@@ -178,13 +187,7 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 		this.notice_period = notice_period;
 	}
 
-	public byte[] getResume() {
-		return resume;
-	}
-
-	public void setResume(byte[] resume) {
-		this.resume = resume;
-	}
+	
 
 	public String getVisible() {
 		return visible;
@@ -193,7 +196,8 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 	public void setVisible(String visible) {
 		this.visible = visible;
 	}
-	@OneToOne(cascade = CascadeType.ALL)
+	//@OneToOne(cascade = CascadeType.ALL)
+	
 	public EducationDetails getEducationDetails() {
 		return educationDetails;
 	}
@@ -202,17 +206,24 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 		this.educationDetails = educationDetails;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "resume")
-	@ElementCollection(targetClass=SkillsDetails.class)
-	public List<SkillsDetails> getSkillsDetails() {
+
+	public byte[] getResume_file() {
+		return resume_file;
+	}
+
+
+	public void setResume_file(byte[] resume_file) {
+		this.resume_file = resume_file;
+	}
+
+	
+	/*public List<SkillsDetails> getSkillsDetails() {
 		return skillsDetails;
 	}
 
 	public void setSkillsDetails(List<SkillsDetails> skillsDetails) {
 		this.skillsDetails = skillsDetails;
 	}
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "resume")
-	@ElementCollection(targetClass=WorkExpDetails.class)
 	
 	public List<WorkExpDetails> getWorkExpDetails() {
 		return workExpDetails;
@@ -220,6 +231,8 @@ public class ResumeDetails extends AbstractEntity implements java.io.Serializabl
 
 	public void setWorkExpDetails(List<WorkExpDetails> workExpDetails) {
 		this.workExpDetails = workExpDetails;
-	}
+	}*/
 
+	
+	
 }

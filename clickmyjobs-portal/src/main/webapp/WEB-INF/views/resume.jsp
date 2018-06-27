@@ -392,7 +392,7 @@
 												</div>
 												<div class="form-group">
 												<!-- <label class="control-label" for="textarea">Description</label> -->
-													<form:checkbox path="workExp.current_job" name="workExp.current_job" id="workExp.current_job" value="Current_Job"/>Current Job 
+													<form:checkbox path="workExp.current_job" name="workExp.current_job" id="workExp.current_job" value="Y"/>Current Job 
 													<!-- <input type="checkbox" name="current_job" id ="txt_1" value="Current_Job" />Current Job -->
 												</div>
 												<div class="add-post-btn">
@@ -511,7 +511,7 @@
 															<label for="file-upload" class="custom-file-upload">
 				    											<i class="fa fa-cloud-upload"></i> Upload Resume
 				 											 </label>
-															<form:input id="file-upload" type="file" name="resumeFile" path="resumeFile" class="form-control input-sm" style="display:none;"/>
+															<form:input id="file-upload" type="file" name="resume_file" path="resume_file" class="form-control input-sm" style="display:none;"/>
 														</div>
 													</div>
 												</div>

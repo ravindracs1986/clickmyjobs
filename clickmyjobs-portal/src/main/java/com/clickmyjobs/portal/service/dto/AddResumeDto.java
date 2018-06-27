@@ -16,7 +16,7 @@ public class AddResumeDto {
 	private String web;
 	private String salary_expectations;
 	private String notice_period;
-	private MultipartFile resumeFile;
+	private MultipartFile resume_file;
 	private EducationDto education;
 	private SkillsDto skill;
 	private List<SkillsDto> skillsList = new LinkedList<SkillsDto>();
@@ -114,15 +114,11 @@ public class AddResumeDto {
 	}
 
 	
-
-	public MultipartFile getResumeFile() {
-		return resumeFile;
+	public MultipartFile getResume_file() {
+		return resume_file;
 	}
-
-
-
-	public void setResumeFile(MultipartFile resumeFile) {
-		this.resumeFile = resumeFile;
+	public void setResume_file(MultipartFile resume_file) {
+		this.resume_file = resume_file;
 	}
 
 

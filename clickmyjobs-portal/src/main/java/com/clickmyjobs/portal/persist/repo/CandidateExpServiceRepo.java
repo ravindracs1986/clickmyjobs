@@ -14,15 +14,16 @@ import com.clickmyjobs.portal.core.GenericRepository;
 import com.clickmyjobs.portal.persist.entity.EmployersJobDetails;
 import com.clickmyjobs.portal.persist.entity.ResumeDetails;
 import com.clickmyjobs.portal.persist.entity.UserProfile;
+import com.clickmyjobs.portal.persist.entity.WorkExpDetails;
 
 @Repository
-@RepositoryDefinition(domainClass=CandidateServiceRepo.class, idClass=Integer.class)
+@RepositoryDefinition(domainClass=CandidateExpServiceRepo.class, idClass=Integer.class)
 @Scope("prototype")
-@Qualifier("candidateServiceRepo")
-public interface CandidateServiceRepo extends GenericRepository<ResumeDetails> {
+@Qualifier("candidateExpServiceRepo")
+public interface CandidateExpServiceRepo extends GenericRepository<WorkExpDetails> {
 
-	@Query("select jobs from ResumeDetails jobs where jobs.userId = :userId")
-	public ResumeDetails getDetails(@Param("userId") Long userId);
+	//@Query("select jobs from EmployersJobDetails jobs where jobs.userId = :userId")
+	//public List<EmployersJobDetails> getJobDetails(@Param("userId") Long userId);
 	
 	
 

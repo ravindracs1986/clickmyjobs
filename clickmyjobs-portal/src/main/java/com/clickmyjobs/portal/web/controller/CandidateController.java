@@ -1,5 +1,6 @@
 package com.clickmyjobs.portal.web.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -27,7 +28,9 @@ import com.clickmyjobs.portal.persist.entity.ResumeDetails;
 import com.clickmyjobs.portal.persist.entity.SkillsDetails;
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.persist.entity.WorkExpDetails;
+import com.clickmyjobs.portal.service.CandidateExpService;
 import com.clickmyjobs.portal.service.CandidateService;
+import com.clickmyjobs.portal.service.CandidateSkillService;
 import com.clickmyjobs.portal.service.EmloyersService;
 import com.clickmyjobs.portal.service.dto.AddJobDto;
 import com.clickmyjobs.portal.service.dto.AddResumeDto;
@@ -51,6 +54,13 @@ public class CandidateController {
 	    
 	    @Autowired
 	    private CandidateService candidateService;
+	    
+	    @Autowired
+	    private CandidateSkillService candidateSkillService;
+	    @Autowired
+	    private CandidateExpService candidateExpService;
+	    
+	    
 	    
 	    @RequestMapping(value = "/addResume.do", method = RequestMethod.GET)
 	    public ModelAndView addResume(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
@@ -163,49 +173,116 @@ public class CandidateController {
 	    public ModelAndView submitResume(@ModelAttribute("addResumeDto")AddResumeDto addResumeDto, 
 	    	      BindingResult result, ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 	    	System.out.println("submitResume jobalerts##########");
+	    	 UserProfile userProfile = (UserProfile)session.getAttribute("userObject");
 	    	List<SkillsDetails> skillsListObj = new LinkedList<SkillsDetails>();
 	    	List<WorkExpDetails> workExpDetailsObj = new LinkedList<WorkExpDetails>();
-	    	
-	    	if(addResumeDto!=null){
+	    	EducationDetails eduDetails=null;
+	    	if(addResumeDto!=null && userProfile!=null){
 	    		
-	    		ResumeDetails resumeDetails = mapper.map(addResumeDto, ResumeDetails.class);
-	    		
+	    		//ResumeDetails resumeDetails = mapper.map(addResumeDto, ResumeDetails.class);
+	    		ResumeDetails resumeDetails =getResumeDetails(addResumeDto);
 	    		if(addResumeDto.getEducation()!=null){
-	    			EducationDetails eduDetails = getEducationObject(addResumeDto.getEducation());
+	    			eduDetails = getEducationObject(addResumeDto.getEducation());
+	    			eduDetails.setCrtTs(eduDetails.getCrtTs());
+	    			eduDetails.setUserId(userProfile.getUserId());
 	    			//EducationDetails eduDetails = mapper.map(addResumeDto.getEducation(), EducationDetails.class);
 	    		}if(addResumeDto.getWorkExp()!=null){
 	    			WorkExpDetails exptemp = getExpObject(addResumeDto.getWorkExp());
+	    			exptemp.setResumeDetails(resumeDetails);
 	    			workExpDetailsObj.add(exptemp);
-	    		}if(addResumeDto.getSkill()!=null){
-	    			SkillsDetails skiltemp = getSkillObject(addResumeDto.getSkill());
-	    			skillsListObj.add(skiltemp);
-	    		}
-	    		
-	    		if(addResumeDto.getWorkExpsList()!=null && addResumeDto.getWorkExpsList().size()>0){
+	    		}if(addResumeDto.getWorkExpsList()!=null && addResumeDto.getWorkExpsList().size()>0){
 	    			for (WorkExpDto workExpDetails : addResumeDto.getWorkExpsList()) {
 	    				WorkExpDetails expTemp = getExpObject(workExpDetails);
+	    				expTemp.setResumeDetails(resumeDetails);
 	    				workExpDetailsObj.add(expTemp);
 					}
 	    			
-	    		}if(addResumeDto.getSkillsList()!=null && addResumeDto.getSkillsList().size()>0){
+	    		}if(addResumeDto.getSkill()!=null){
+	    			SkillsDetails skiltemp = getSkillObject(addResumeDto.getSkill());
+	    			skiltemp.setSkillResume(resumeDetails);
+	    			skillsListObj.add(skiltemp);
+	    		}
+	    		
+	    		if(addResumeDto.getSkillsList()!=null && addResumeDto.getSkillsList().size()>0){
 	    			for (SkillsDto skillsDto : addResumeDto.getSkillsList()) {
 	    				SkillsDetails skiltemp = getSkillObject(skillsDto);
+	    				skiltemp.setSkillResume(resumeDetails);
 		    			skillsListObj.add(skiltemp);
 					}
 	    		}
+	    		
+	    		resumeDetails.setEducationDetails(eduDetails);
+	    		//resumeDetails.setWorkExpDetails(workExpDetailsObj);
+	    		//resumeDetails.setSkillsDetails(skillsListObj);
+	    		resumeDetails.setUserId(userProfile.getUserId());
+	    		resumeDetails.setVisible("Y");
+	    		ResumeDetails respData=candidateService.getResumeDetails(userProfile.getUserId());
+	    		ResumeDetails resp=null;
+	    		if(respData!=null && respData.getResume_id()!=null){
+	    		resp=candidateService.update(resumeDetails);
+	    		}else{
+	    			resp=candidateService.saveResumeDetails(resumeDetails);
+	    		}
+	    		
+	    		
+	    		logger.info("Id after saving in db::"+resp.getResume_id());
+	    		if(resp!=null && resp.getResume_id()!=null && workExpDetailsObj.size()>0){
+	    			for (WorkExpDetails workExpDetailsTemp : workExpDetailsObj) {
+	    				workExpDetailsTemp.setCrtTs(workExpDetailsTemp.getCrtTs());
+	    				workExpDetailsTemp.setUserId(userProfile.getUserId());
+	    				workExpDetailsTemp.setResumeDetails(resumeDetails);
+	    				candidateExpService.create(workExpDetailsTemp);
+					}
+	    		}if(resp!=null && resp.getResume_id()!=null && skillsListObj.size()>0){
+	    			for (SkillsDetails skillsDetailsTemp : skillsListObj) {
+	    				skillsDetailsTemp.setCrtTs(skillsDetailsTemp.getCrtTs());
+	    				skillsDetailsTemp.setUserId(userProfile.getUserId());
+	    				skillsDetailsTemp.setSkillResume(resumeDetails);
+	    				candidateSkillService.create(skillsDetailsTemp);
+					}
+	    		}
+	    		
 	    		
 	    	}
 	    	
 	    	
 	    	 session.setAttribute("addResumeDto",addResumeDto);
-	        logger.debug("redirect to success page");
+	        
 	        return new ModelAndView("resume");
 	    }
 	    
 	    
 	    //get 1st time constructed 
 	    
-	    private SkillsDetails getSkillObject(SkillsDto skill) {
+	    private ResumeDetails getResumeDetails(AddResumeDto addResumeDto) {
+	    	ResumeDetails detal= new ResumeDetails();
+	    	if(addResumeDto!=null){
+	    		if(addResumeDto.getLocation()!=null){
+	    			detal.setLocation(addResumeDto.getLocation());
+	    		}if(addResumeDto.getNotice_period()!=null){
+	    			detal.setNotice_period(addResumeDto.getNotice_period());
+	    		}if(addResumeDto.getProfession_title()!=null){
+	    			detal.setProfession_title(addResumeDto.getProfession_title());
+	    		}if(addResumeDto.getProfile_description()!=null){
+	    			detal.setProfile_description(addResumeDto.getProfile_description());
+	    		}if(addResumeDto.getSalary_expectations()!=null){
+	    			detal.setSalary_expectations(addResumeDto.getSalary_expectations());
+	    		}if(addResumeDto.getResume_file()!=null){
+	    			try {
+						detal.setResume_file(addResumeDto.getResume_file().getBytes());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	    		}
+	    		detal.setCrtTs(detal.getCrtTs());
+	    	}
+	    	
+	    	
+			return detal;
+		}
+
+		private SkillsDetails getSkillObject(SkillsDto skill) {
 	    	SkillsDetails skil =new SkillsDetails();
 	    	
 	    	if(skill.getSkill_Name()!=null){

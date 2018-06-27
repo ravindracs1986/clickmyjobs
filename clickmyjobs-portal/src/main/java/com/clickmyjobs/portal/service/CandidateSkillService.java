@@ -15,47 +15,44 @@ import org.springframework.transaction.annotation.Transactional;
 import com.clickmyjobs.portal.core.GenericRepository;
 import com.clickmyjobs.portal.persist.entity.EmployersJobDetails;
 import com.clickmyjobs.portal.persist.entity.ResumeDetails;
+import com.clickmyjobs.portal.persist.entity.SkillsDetails;
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 import com.clickmyjobs.portal.persist.repo.CandidateServiceRepo;
+import com.clickmyjobs.portal.persist.repo.CandidateSkillServiceRepo;
 import com.clickmyjobs.portal.persist.repo.EmloyersServiceRepo;
 import com.clickmyjobs.portal.persist.repo.UserProfileRepo;
 
 
-@Service("candidateService")
+@Service("candidateSkillService")
 @Scope("prototype")
-@Qualifier("candidateService")
+@Qualifier("candidateSkillService")
 @Transactional
-public class CandidateService extends com.clickmyjobs.portal.core.AbstractService<ResumeDetails,Integer>{
+public class CandidateSkillService extends com.clickmyjobs.portal.core.AbstractService<SkillsDetails,Integer>{
 	
-	private static final Logger log = LoggerFactory.getLogger(CandidateService.class);
+	private static final Logger log = LoggerFactory.getLogger(CandidateSkillService.class);
 	
 	@Autowired
-	CandidateServiceRepo candidateServiceRepo;
+	CandidateSkillServiceRepo candidateSkillServiceRepo;
 	
 	@Override
-	public GenericRepository<ResumeDetails> primaryDao() {
-		return candidateServiceRepo;
+	public GenericRepository<SkillsDetails> primaryDao() {
+		return candidateSkillServiceRepo;
 	}
 	
-	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	/*@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public ResumeDetails saveResumeDetails(ResumeDetails resumeDetails){
 		log.info("CandidateService saving sql ");
 		ResumeDetails resume= candidateServiceRepo.save(resumeDetails);
 		return resume;
-	}	
-	
+	}*/	
+	/*
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public ResumeDetails getResumeDetails(Long profileId){
+	public List<EmployersJobDetails> getJobDetails(Long profileId){
 		log.info("EmployersJobDetails saving sql ");
-		ResumeDetails details= candidateServiceRepo.getDetails(profileId);
-		return details;
-	}
-	
-	/*@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public ResumeDetails updateResumeDetails(ResumeDetails resumeDetails){
-		log.info("EmployersJobDetails saving sql ");
-		ResumeDetails details= candidateServiceRepo.updateDetails(resumeDetails);
-		return details;
-	}*/
+		
+		
+		List<EmployersJobDetails> jobDetails= emloyersServiceRepo.getJobDetails(profileId);
+		return jobDetails;
+	}	*/
 
 }

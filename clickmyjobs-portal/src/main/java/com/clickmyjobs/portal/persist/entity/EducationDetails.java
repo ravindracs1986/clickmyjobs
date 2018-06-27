@@ -16,6 +16,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.clickmyjobs.portal.core.AbstractEntity;
+import com.clickmyjobs.portal.utils.DateUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.HashSet;
@@ -29,6 +30,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -77,6 +79,11 @@ public class EducationDetails extends AbstractEntity implements java.io.Serializ
 
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    //@MapsId
+	@JoinColumn(name = "resume_id")
+	private ResumeDetails details;
 
 	/*
 	 * @OneToOne(fetch = FetchType.LAZY)
@@ -109,7 +116,7 @@ public class EducationDetails extends AbstractEntity implements java.io.Serializ
 	}
 
 	public Timestamp getCrtTs() {
-		return crtTs;
+		return DateUtil.convertDate2SqlTimeStamp(new Date());
 	}
 
 	public void setCrtTs(Timestamp crtTs) {
@@ -171,5 +178,15 @@ public class EducationDetails extends AbstractEntity implements java.io.Serializ
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public ResumeDetails getDetails() {
+		return details;
+	}
+
+	public void setDetails(ResumeDetails details) {
+		this.details = details;
+	}
+	
+	
 
 }

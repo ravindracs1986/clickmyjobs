@@ -13,16 +13,17 @@ import org.springframework.stereotype.Repository;
 import com.clickmyjobs.portal.core.GenericRepository;
 import com.clickmyjobs.portal.persist.entity.EmployersJobDetails;
 import com.clickmyjobs.portal.persist.entity.ResumeDetails;
+import com.clickmyjobs.portal.persist.entity.SkillsDetails;
 import com.clickmyjobs.portal.persist.entity.UserProfile;
 
 @Repository
-@RepositoryDefinition(domainClass=CandidateServiceRepo.class, idClass=Integer.class)
+@RepositoryDefinition(domainClass=CandidateSkillServiceRepo.class, idClass=Integer.class)
 @Scope("prototype")
-@Qualifier("candidateServiceRepo")
-public interface CandidateServiceRepo extends GenericRepository<ResumeDetails> {
+@Qualifier("candidateSkillServiceRepo")
+public interface CandidateSkillServiceRepo extends GenericRepository<SkillsDetails> {
 
-	@Query("select jobs from ResumeDetails jobs where jobs.userId = :userId")
-	public ResumeDetails getDetails(@Param("userId") Long userId);
+	//@Query("select jobs from EmployersJobDetails jobs where jobs.userId = :userId")
+	//public List<EmployersJobDetails> getJobDetails(@Param("userId") Long userId);
 	
 	
 

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.clickmyjobs.portal.core.AbstractEntity;
+import com.clickmyjobs.portal.utils.DateUtil;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,17 +56,19 @@ public class SkillsDetails extends AbstractEntity implements java.io.Serializabl
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
 
-	private ResumeDetails resumDetail;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "resume_id", nullable = false)
+	private ResumeDetails skillResume;
 	
 	public SkillsDetails(){}
 
-	public SkillsDetails(String skill_Name, String skill_percentage, Long userId, Timestamp crtTs,
-			ResumeDetails resumDetail) {
+	public SkillsDetails(String skill_Name, String skill_percentage, Long userId, Timestamp crtTs
+			) {
 		this.skill_Name = skill_Name;
 		this.skill_percentage = skill_percentage;
 		this.userId = userId;
 		this.crtTs = crtTs;
-		this.resumDetail = resumDetail;
+		//this.resumDetail = resumDetail;
 	}
 
 	public Long getUserId() {
@@ -76,7 +80,7 @@ public class SkillsDetails extends AbstractEntity implements java.io.Serializabl
 	}
 
 	public Timestamp getCrtTs() {
-		return crtTs;
+		return DateUtil.convertDate2SqlTimeStamp(new Date());
 	}
 
 	public void setCrtTs(Timestamp crtTs) {
@@ -107,14 +111,15 @@ public class SkillsDetails extends AbstractEntity implements java.io.Serializabl
 		this.skill_percentage = skill_percentage;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "resume_id", nullable = false)
-	public ResumeDetails getResumDetail() {
-		return resumDetail;
+	public ResumeDetails getSkillResume() {
+		return skillResume;
 	}
 
-	public void setResumDetail(ResumeDetails resumDetail) {
-		this.resumDetail = resumDetail;
+	public void setSkillResume(ResumeDetails skillResume) {
+		this.skillResume = skillResume;
 	}
+
+	
+	
 
 }

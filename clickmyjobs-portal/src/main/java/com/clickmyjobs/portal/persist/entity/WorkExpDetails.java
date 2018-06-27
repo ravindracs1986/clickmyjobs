@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.clickmyjobs.portal.core.AbstractEntity;
+import com.clickmyjobs.portal.utils.DateUtil;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -60,8 +62,8 @@ public class WorkExpDetails extends AbstractEntity implements java.io.Serializab
 	@Column(name = "current_job", nullable = false)
 	private String current_job;
 
-	@Column(name = "resume", nullable = false)
-	private byte[] resume;
+	/*@Column(name = "resume", nullable = false)
+	private byte[] resume;*/
 
 	@Column(name = "userId", nullable = false)
 	private Long userId;
@@ -69,19 +71,21 @@ public class WorkExpDetails extends AbstractEntity implements java.io.Serializab
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resume_id", nullable = false)
 	private ResumeDetails resumeDetails;
 
 	public WorkExpDetails(){}
 	
 	public WorkExpDetails(String company_name, String title, Date date_form, Date date_to, String description,
-			String current_job, byte[] resume, Long userId, Timestamp crtTs, ResumeDetails resumeDetails) {
+			String current_job,Long userId, Timestamp crtTs, ResumeDetails resumeDetails) {
 		this.company_name = company_name;
 		this.title = title;
 		this.date_form = date_form;
 		this.date_to = date_to;
 		this.description = description;
 		this.current_job = current_job;
-		this.resume = resume;
+		//this.resume = resume;
 		this.userId = userId;
 		this.crtTs = crtTs;
 		this.resumeDetails = resumeDetails;
@@ -96,7 +100,7 @@ public class WorkExpDetails extends AbstractEntity implements java.io.Serializab
 	}
 
 	public Timestamp getCrtTs() {
-		return crtTs;
+		return DateUtil.convertDate2SqlTimeStamp(new Date());
 	}
 
 	public void setCrtTs(Timestamp crtTs) {
@@ -159,16 +163,15 @@ public class WorkExpDetails extends AbstractEntity implements java.io.Serializab
 		this.current_job = current_job;
 	}
 
-	public byte[] getResume() {
+	/*public byte[] getResume() {
 		return resume;
 	}
 
 	public void setResume(byte[] resume) {
 		this.resume = resume;
-	}
+	}*/
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "resume_id", nullable = false)
+	
 	public ResumeDetails getResumeDetails() {
 		return resumeDetails;
 	}
