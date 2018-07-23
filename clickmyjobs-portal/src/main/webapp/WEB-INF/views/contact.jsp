@@ -51,6 +51,9 @@
 	padding: 0;
 	height: 460px;
 }
+.w3ls_map {
+    margin: 3em 0;
+}
 </style>
 </head>
 <body>
@@ -219,8 +222,13 @@
 	</div>
 
 
-	<div id="google-map"></div>
-
+	<!-- <div id="google-map"></div> -->
+			<!-- <div class="w3ls_map">
+			 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.3374083882736!2d85.3219146145535!3d23.3760080847752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1109d28b6b7%3A0xb7917a7d429894b3!2sTown+Hall!5e0!3m2!1sen!2sin!4v1484504712375" style="border:0"></iframe>
+				
+			</div> -->
+			<div class="mapouter" style="margin: 10px 10px 10px 152px;"><div class="gmap_canvas"><iframe width="1080" height="359" id="gmap_canvas" src="https://maps.google.com/maps?q=Town%20Hall%20Deputy%20Para%2C%20Ahirtoli%2C%20Ranchi%2C%20Jharkhand%20834001&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.webdesign-muenchen-pb.de"></a></div><style>.mapouter{text-align:right;height:359px;width:1080px;}.gmap_canvas {overflow:hidden;background:none!important;height:359px;width:1080px;}</style><small><a href="http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=28532&url=42158&tid1=google2" rel="nofollow">Build beautiful WordPress Themes fast</a></small></div>
+			
 
 	<section id="content">
 		<div class="container">
@@ -234,9 +242,8 @@
 							</div>
 							<div class="info">
 								<h3>Address</h3>
-								<span class="detail">Main Office: NO.22-23 Street Name-
-									City,Country</span> <span class="datail">Customer Center:
-									NO.130-45 Streen Name- City, Country</span>
+								<span class="detail">Town Hall,Ahirtoli, Ranchi Jharkhand 834001,INDIA</span> <span class="datail">Customer Center:
+									Streen Name- Ranchi, INDIA</span>
 							</div>
 						</div>
 						<div class="contact-datails">
@@ -245,8 +252,8 @@
 							</div>
 							<div class="info">
 								<h3>Phone Numbers</h3>
-								<span class="detail">Main Office: +880 123 456 789</span> <span
-									class="datail">Customer Supprort: +880 123 456 789 </span>
+								<span class="detail">Main Office: + (91)9972792068</span> <span
+									class="datail">Customer Supprort: + (91)9972792068 </span>
 							</div>
 						</div>
 						<div class="contact-datails">
@@ -257,10 +264,10 @@
 								<h3>Email Address</h3>
 								<span class="detail">Customer Support: <a
 									href="/cdn-cgi/l/email-protection" class="__cf_email__"
-									data-cfemail="50393e363f103d31393c7e333f3d">[email&#160;protected]</a></span>
+									data-cfemail="50393e363f103d31393c7e333f3d">info@clickmyjobs.com</a></span><br>
 								<span class="detail">Technical Support: <a
 									href="/cdn-cgi/l/email-protection" class="__cf_email__"
-									data-cfemail="295a5c5959465b5d6944484045074a4644">[email&#160;protected]</a></span>
+									data-cfemail="295a5c5959465b5d6944484045074a4644">support@clickmyjobs.com</a></span>
 							</div>
 						</div>
 					</div>
@@ -439,8 +446,8 @@
 	<script type="text/javascript"
 		src="assets/js/jquery.themepunch.tools.min.js"></script>
 
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo_WtZ2nIYCgCLf7sINZaqcrpqSDio9o"></script>
+	<!-- <script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo_WtZ2nIYCgCLf7sINZaqcrpqSDio9o"></script> -->
 
 	<script type="text/javascript">
 		var map;
