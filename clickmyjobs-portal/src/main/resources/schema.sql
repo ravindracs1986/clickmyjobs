@@ -98,3 +98,9 @@ CREATE TABLE `job_portal`.`jobs_details` (
 	CONSTRAINT `FK_JOBS_DETAILS` FOREIGN KEY (`jobs_details_id`) REFERENCES `jobs_details` (`jobs_details_id`),
 	CONSTRAINT `FK_JOB_TAG` FOREIGN KEY (`job_tag_id`) REFERENCES `job_tags` (`job_tag_id`)
 )
+
+ALTER TABLE `job_portal`.`profile` 
+ADD COLUMN `status` VARCHAR(45) NULL AFTER `userType`,
+ADD COLUMN `otp` VARCHAR(45) NULL AFTER `status`,
+ADD COLUMN `logo` MEDIUMBLOB NULL AFTER `otp`,
+ADD COLUMN `CRT_TS` TIMESTAMP NULL AFTER `logo`;
